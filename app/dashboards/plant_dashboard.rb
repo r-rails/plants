@@ -12,6 +12,7 @@ class PlantDashboard < Administrate::BaseDashboard
     name: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    description: Field::Text,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -33,6 +34,7 @@ class PlantDashboard < Administrate::BaseDashboard
     name
     created_at
     updated_at
+    description
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -40,6 +42,7 @@ class PlantDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     name
+    description
   ].freeze
 
   # COLLECTION_FILTERS
