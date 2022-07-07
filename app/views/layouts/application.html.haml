@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %meta(content="text/html; charset=UTF-8" http-equiv="Content-Type")/
+    %title Plants
+    = favicon_link_tag asset_path('favicon.png')
+    %meta(content="width=device-width,initial-scale=1" name="viewport")/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+  %body
+    %p.notice= notice
+    %p.alert= alert
+    = render partial: 'home/navbar'
+    %main.container.mx-auto.mt-20.px-5.flex
+      = yield

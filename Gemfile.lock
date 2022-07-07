@@ -125,6 +125,10 @@ GEM
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    hamlit (2.16.0)
+      temple (>= 0.8.2)
+      thor
+      tilt
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.2)
@@ -183,6 +187,8 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
+    nokogiri (1.13.6-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.13.6-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -257,8 +263,11 @@ GEM
     stimulus-rails (1.0.4)
       railties (>= 6.0.0)
     strscan (3.0.3)
+    tailwindcss-rails (2.0.10-x86_64-darwin)
+      railties (>= 6.0.0)
     tailwindcss-rails (2.0.10-x86_64-linux)
       railties (>= 6.0.0)
+    temple (0.8.2)
     thor (1.2.1)
     tilt (2.0.10)
     timeout (0.3.0)
@@ -288,6 +297,7 @@ GEM
     zeitwerk (2.6.0)
 
 PLATFORMS
+  x86_64-darwin-20
   x86_64-linux
 
 DEPENDENCIES
@@ -296,6 +306,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  hamlit (~> 2.16)
   importmap-rails
   jbuilder
   pg (~> 1.1)
