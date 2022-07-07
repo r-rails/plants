@@ -77,3 +77,4 @@ end
 
 gem 'administrate'
 gem 'devise'
+gem "hamlit-rails", "~> 0.2.3"
