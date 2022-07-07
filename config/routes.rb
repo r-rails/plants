@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   namespace :admin do
       resources :plants
 
@@ -7,5 +8,5 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get '/plants', to: 'home#plants'
-  get '/users', to: 'home#users'
+  get '/people', to: 'home#people'
 end

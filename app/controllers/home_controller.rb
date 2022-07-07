@@ -5,6 +5,6 @@ class HomeController < ApplicationController
   def plants
   end
 
-  def users
+  def people
   end
 end
