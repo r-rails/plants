@@ -6,8 +6,7 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
   class ApplicationController < Administrate::ApplicationController
-    http_basic_authenticate_with name: Rails.application.credentials.dashboard.username,
-      password: Rails.application.credentials.dashboard.password
+    http_basic_authenticate_with name: 'admin', password: 'pass123'
     
     # before_action :authenticate_admin
 
