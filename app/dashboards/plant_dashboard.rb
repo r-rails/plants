@@ -8,11 +8,17 @@ class PlantDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    img: Field::ActiveStorage,
     id: Field::Number,
     name: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     description: Field::Text,
+    climate: Field::String,
+    ideallight: Field::String,
+    watering: Field::String,
+    category: Field::String,
+    latin: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -23,26 +29,36 @@ class PlantDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     name
-    created_at
-    updated_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
+    img
     id
     name
     created_at
     updated_at
     description
+    climate
+    ideallight
+    watering
+    category
+    latin
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
+    img
     name
     description
+    climate
+    ideallight
+    watering
+    category
+    latin
   ].freeze
 
   # COLLECTION_FILTERS

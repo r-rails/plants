@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       root to: "plants#index"
     end
   root 'home#index'
-
-  get '/plants', to: 'home#plants'
+  
+  resources :plants
   get '/people', to: 'home#people'
 end
