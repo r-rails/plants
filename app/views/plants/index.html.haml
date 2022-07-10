@@ -3,24 +3,24 @@
 .container
   %div.p-2 You can sort by name, latin or category. 
 
-  %table.w-full.mt-2
+  %table.w-full.mt-4
     %tr.border-b.font-sans
       %th
-        .flex.text-left=link_to 'name', :sort => 'name'
+        .flex.text-left.font-semibold=link_to 'name', :sort => 'name'
       %th
-        .flex.text-left=link_to 'latin', :sort => 'latin'
+        .flex.text-left.font-semibold=link_to 'latin', :sort => 'latin'
       %th
-        .flex.text-left ideallight
+        .flex.text-left.font-semibold ideallight
       %th
-        .flex.text-left watering
+        .flex.text-left.font-semibold watering
       %th
-        .flex.text-left climate
+        .flex.text-left.font-semibold climate
       %th
-        .flex.text-left=link_to 'category', :sort => 'category'
+        .flex.text-left.font-semibold=link_to 'category', :sort => 'category'
 
-    - @plants.each do |plant| 
-      %tr.bg-white.odd:bg-gray-100.hover:bg-emerald-100
-        %td.p-2= link_to plant.name, plant
+    - @plants.each do |plant|
+      %tr.bg-white.odd:bg-gray-100.hover:text-green-700
+        %td.p-2.hover:underline= link_to plant.name, plant
         %td= plant.latin
         %td= plant.ideallight
         %td= plant.watering
