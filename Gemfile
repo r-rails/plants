@@ -65,7 +65,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-  gem 'rails_live_reload', git: 'https://github.com/railsjazz/rails_live_reload.git', branch: 'feature/websocket'
+  gem 'rails_live_reload'
 end
 
 group :test do
