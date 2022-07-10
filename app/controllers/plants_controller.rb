@@ -1,6 +1,6 @@
 class PlantsController < ApplicationController
   def index
-    @plants = Plant.all
+    @plants = Plant.order(params[:sort])
   end
   
   def show
