@@ -1,5 +1,28 @@
--# list of all 
+-# list of all
 
-.prose
-  - @plants.each do |plant|
-    .p-2= link_to plant.name, plant
+.container
+  %div.p-2 You can sort by name, latin or category. 
+
+  %table.w-full.mt-2
+    %tr.border-b.font-serif
+      %th
+        .flex.text-left=link_to 'name', :sort => 'name'
+      %th
+        .flex.text-left=link_to 'latin', :sort => 'latin'
+      %th
+        .flex.text-left ideallight
+      %th
+        .flex.text-left watering
+      %th
+        .flex.text-left climate
+      %th
+        .flex.text-left=link_to 'category', :sort => 'category'
+
+    - @plants.each do |plant| 
+      %tr.bg-white.odd:bg-gray-100.hover:bg-emerald-100
+        %td.p-2= link_to plant.name, plant
+        %td= plant.latin
+        %td= plant.ideallight
+        %td= plant.watering
+        %td= plant.climate
+        %td= plant.category

@@ -1,3 +1,28 @@
-.prose
-  .text-2xl.font-serif= @plant.name
-  = @plant.created_at
+-# plant card
+
+.relative.max-w-md.mx-auto.md:max-w-2xl.mt-6.min-w-0.break-words.bg-white.w-full.mb-6.shadow-lg.rounded-xl.mt-16
+  .px-6
+    .flex.flex-wrap.justify-center
+      .w-full.flex.justify-center
+        .relative
+          .shadow-xl.-m-16.-ml-20.lg:-ml-16= plant_img(@plant)
+      .w-full.text-center.mt-20
+        .flex.justify-center.lg:pt-4.pt-8.pb-0
+          .p-3.text-center
+            %span.text-xl.font-bold.block.uppercase.tracking-wide= @plant.watering
+            %span.text-blue-500 Watering
+          .p-3.text-center
+            %span.text-xl.font-bold.block.uppercase.tracking-wide= @plant.ideallight
+            %span.text-yellow-500 Ideal Light
+          .p-3.text-center
+            %span.text-xl.font-bold.block.uppercase.tracking-wide= @plant.climate
+            %span.text-green-500 Climate
+    .text-center.mt-2
+      .text-2xl.font-semibold.leading-normal.mb-1= @plant.name
+      .mt-0.mb-2.font-bold.uppercase.text-gray-500
+        %i.mr-2= @plant.category
+    .mt-6.py-6.border-t.text-center
+      .flex.flex-wrap.justify-center
+        .w-full.px-4
+          %p.leading-relaxed.mb-4= @plant.description
+          %a.p-2.border-2.border-green-700.rounded.font-normal.hover:bg-green-400{:href => "javascript:;"} Plant in my garden
