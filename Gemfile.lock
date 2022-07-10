@@ -217,9 +217,11 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
-    rails_live_reload (0.1.2)
+    rails_live_reload (0.2.0)
       listen
-      rails
+      nio4r
+      railties
+      websocket-driver
     railties (7.0.3)
       actionpack (= 7.0.3)
       activesupport (= 7.0.3)
