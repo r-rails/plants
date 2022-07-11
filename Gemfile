@@ -75,7 +75,7 @@ group :test do
   gem "webdrivers"
 end
 
-gem 'administrate'
+gem 'administrate', github: "r-rails/administrate", branch: "compile-assets"
 gem 'administrate-field-active_storage'
 gem 'devise'
 gem "hamlit-rails", "~> 0.2.3"
