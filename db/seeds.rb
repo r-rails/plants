@@ -15,7 +15,7 @@ all_plants = JSON.parse(File.read(Rails.root.join('db/house-plants.json')))
 
 all_plants.each do |plant|
   Plant.create(
-    name: plant['common'],
+    name: plant['common'][0],
     latin: plant['latin'],
     ideallight: plant['ideallight'],
     watering: plant['watering'],
