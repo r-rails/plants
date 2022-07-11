@@ -5,3 +5,22 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+
+#Seed DB with 
+
+#name latin ideallight watering climate category
+
+all_plants = JSON.parse(File.read(Rails.root.join('db/house-plants.json')))
+
+all_plants.each do |plant|
+  Plant.create(
+    name: plant['common'],
+    latin: plant['latin'],
+    ideallight: plant['ideallight'],
+    watering: plant['watering'],
+    climate: plant['climate'],
+    category: plant['category']
+  )
+
+end
