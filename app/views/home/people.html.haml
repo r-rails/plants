@@ -1,3 +1,5 @@
 %div
-  %h1.font-bold.text-4xl.text-blue-500 Home#people
-  %p Find me in app/views/home/users.html.haml
+  .text-2xl.pb-4.font-serif List of all users:
+  - User.all.each do |user|
+    %ul.p-2.hover:underline
+      %li= link_to user.email

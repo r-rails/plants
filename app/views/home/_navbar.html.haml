@@ -12,5 +12,9 @@
           = link_to 'people', people_path, class: "font-semibold block cursor-pointer p-2 hover:text-blue-500"
     
     .flex.items-center.gap-2
-      = link_to 'login'
-      = link_to 'sign up'
+      - if user_signed_in?
+        .btn-primary= link_to "#{current_user.email}"
+        = button_to 'Log out', destroy_user_session_path, :method => 'delete', :class => 'btn-primary'
+      - else
+        = link_to 'Login', new_user_session_path, :class => 'btn-primary'
+        = link_to 'Sign Up', new_user_registration_path, :class => 'btn-primary'
