@@ -1,12 +1,16 @@
-%nav.flex.flex-col.md:flex-row.px-6.py-4.border-b.shadow-sm.max-w-screen-2xl.mx-auto
-  / Logo
-  %div
-    %h2.mx-5.text-3xl.font-bold
-      = link_to 'Home', root_path
-  / /End Logo
-  .md:mt-0
-    %ul.flex.flex-col.md:flex-row.md:space-x-5.w-full
-      %li
-        = link_to 'plants', plants_path, class: "font-semibold block cursor-pointer p-2 hover:text-blue-500"
-      %li
-        = link_to 'people', people_path, class: "font-semibold block cursor-pointer p-2 hover:text-blue-500"
+-# 
+
+%nav.border-b.px-4.lg:px-6.py-2.5
+  .flex.flex-wrap.justify-between.items-center.max-w-screen-xl
+    .flex.items-center
+      .mx-5.text-3xl.font-bold
+        = link_to 'Home', root_path
+      %ul.flex.items-center.flex-col.md:flex-row.md:space-x-5.w-full
+        %li
+          = link_to 'plants', plants_path, class: "font-semibold block cursor-pointer p-2 hover:text-blue-500"
+        %li
+          = link_to 'people', people_path, class: "font-semibold block cursor-pointer p-2 hover:text-blue-500"
+    
+    .flex.items-center.gap-2
+      = link_to 'login'
+      = link_to 'sign up'
