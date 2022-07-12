@@ -300,6 +300,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
+  kaminari
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.3)

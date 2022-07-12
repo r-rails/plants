@@ -1,14 +1,14 @@
 -# list of all
 
 .container
-  %div.p-2 You can sort by name, latin or category. 
+  .flex.p-2= paginate @plants
 
   %table.w-full.mt-4
     %tr.border-b.font-serif
       %th
-        .flex.text-left.font-semibold=link_to 'name', :sort => 'name'
+        .flex.text-left.font-semibold latin
       %th
-        .flex.text-left.font-semibold=link_to 'latin', :sort => 'latin'
+        .flex.text-left.font-semibold name
       %th
         .flex.text-left.font-semibold ideallight
       %th
@@ -16,13 +16,15 @@
       %th
         .flex.text-left.font-semibold climate
       %th
-        .flex.text-left.font-semibold=link_to 'category', :sort => 'category'
+        .flex.text-left.font-semibold category
 
     - @plants.each do |plant|
       %tr.bg-white.odd:bg-gray-100.hover:text-green-700
-        %td.p-2.hover:underline= link_to plant.name, plant
-        %td= plant.latin
+        %td.p-2= link_to plant.latin, plant
+        %td.p-2= link_to plant.name, plant
         %td= plant.ideallight
         %td= plant.watering
         %td= plant.climate
         %td= plant.category
+
+  .flex.p-2= paginate @plants

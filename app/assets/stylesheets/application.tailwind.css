@@ -3,10 +3,33 @@
 @tailwind utilities;
 
 @layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+
+  .navlink {
+    @apply font-semibold block cursor-pointer p-2 hover:text-green-700
   }
+
+  .active {
+    @apply font-semibold underline decoration-green-700 decoration-2;
+  }
+
+  .btn-primary {
+    @apply py-2 px-4 bg-blue-200 rounded;
+  }
+
   .text-field {
     @apply block px-3 pt-2 mb-4 border-gray-300 rounded;
+  }
+
+  .pagination * {
+    @apply px-2;
+    @apply no-underline bg-white rounded-full;
+  }
+  
+  .pagination a:hover {
+    @apply bg-gray-200;
+  }
+
+  .current {
+    @apply bg-green-700 rounded-full text-white;
   }
 }
