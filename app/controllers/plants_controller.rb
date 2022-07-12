@@ -1,6 +1,6 @@
 class PlantsController < ApplicationController
   def index
-    @plants = Plant.order(params[:sort])
+    @plants = Plant.order(:latin).page params[:page]
   end
   
   def show

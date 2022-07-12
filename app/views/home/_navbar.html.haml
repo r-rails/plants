@@ -7,9 +7,9 @@
         = link_to 'Home', root_path
       %ul.flex.items-center.flex-col.md:flex-row.md:space-x-5.w-full
         %li
-          = link_to 'plants', plants_path, class: "font-semibold block cursor-pointer p-2 hover:text-blue-500"
+          = link_to 'plants', plants_path, class: class_names(current_page?(plants_path) ? 'active' : 'navlink')
         %li
-          = link_to 'people', people_path, class: "font-semibold block cursor-pointer p-2 hover:text-blue-500"
+          = link_to 'people', people_path, class: class_names(current_page?(people_path) ? 'active' : 'navlink')
     
     .flex.items-center.gap-2
       - if user_signed_in?
