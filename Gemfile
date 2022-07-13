@@ -80,3 +80,4 @@ gem 'administrate-field-active_storage'
 gem 'devise'
 gem "hamlit-rails", "~> 0.2.3"
 gem 'kaminari'
+gem 'seed_migration'
