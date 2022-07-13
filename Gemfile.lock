@@ -237,6 +237,7 @@ GEM
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     rubyzip (2.3.2)
+    seed_migration (1.2.3)
     selenium-webdriver (4.3.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -306,6 +307,7 @@ DEPENDENCIES
   rails (~> 7.0.3)
   rails_live_reload
   redis (~> 4.0)
+  seed_migration
   selenium-webdriver
   sprockets-rails
   stimulus-rails
