@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :garden_plants
-  has_many :plants, through: :garden_plants
+  has_many :plants, through: :garden_plants, dependent: :destroy
 end
