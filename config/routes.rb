@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   root 'home#index'
   
   resources :plants
+  
+  post 'add_to_garden', to: 'garden_plant#create'
   get '/people', to: 'home#people'
 end
