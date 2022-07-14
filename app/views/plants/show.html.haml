@@ -25,7 +25,12 @@
       .flex.flex-wrap.justify-center
         .w-full.px-4
           %p.leading-relaxed.mb-4= @plant.description
-
-          = form_tag add_to_garden_path, :method => :post do
-            = hidden_field_tag :plant_id, @plant.id
-            = submit_tag "Plant in my garden", :class => 'p-2 border-2 border-green-700 rounded font-normal hover:bg-green-400'   
+          
+          - if current_user.plant_ids.include?(@plant.id)
+            = form_tag garden_plant_path, :method => :delete do
+              = hidden_field_tag :plant_id, @plant.id
+              = submit_tag "Remove from my garden", :class => 'p-2 border-2 border-red-700 rounded font-normal hover:bg-red-400'
+          - else
+            = form_tag add_to_garden_path, :method => :post do
+              = hidden_field_tag :plant_id, @plant.id
+              = submit_tag "Plant in my garden", :class => 'p-2 border-2 border-green-700 rounded font-normal hover:bg-green-400'   
