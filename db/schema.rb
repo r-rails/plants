@@ -62,8 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_175957) do
     t.string "watering"
     t.string "category"
     t.string "latin"
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_plants_on_user_id"
   end
 
   create_table "seed_migration_data_migrations", id: :serial, force: :cascade do |t|
@@ -89,5 +87,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_175957) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "garden_plants", "plants"
   add_foreign_key "garden_plants", "users"
-  add_foreign_key "plants", "users"
 end
