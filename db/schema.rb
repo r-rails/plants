@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_14_161917) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_14_175957) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_161917) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["plant_id"], name: "index_garden_plants_on_plant_id"
+    t.index ["user_id", "plant_id"], name: "by_user_and_plant", unique: true
     t.index ["user_id"], name: "index_garden_plants_on_user_id"
   end
 
@@ -63,12 +64,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_161917) do
     t.string "latin"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_plants_on_user_id"
-  end
-
-  create_table "seed_migration_data_migrations", id: :serial, force: :cascade do |t|
-    t.string "version"
-    t.integer "runtime"
-    t.datetime "migrated_on", precision: nil
   end
 
   create_table "seed_migration_data_migrations", id: :serial, force: :cascade do |t|
