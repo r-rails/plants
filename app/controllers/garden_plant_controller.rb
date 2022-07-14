@@ -13,7 +13,7 @@ class GardenPlantController < ApplicationController
   end
 
   def destroy
-    garden_plant = GardenPlant.find_by(plant_id: params[:plant_id])
+    garden_plant = GardenPlant.find_by(plant_id: params[:plant_id], user_id: current_user.id)
     if garden_plant&.destroy
       garden_plant.destroy
       flash[:notice] = "Plant removed from garden"
