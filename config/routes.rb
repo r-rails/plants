@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   
   resources :plants
   get '/people', to: 'home#people'
+  post '/add_comment', to: 'comments#create'
 end
