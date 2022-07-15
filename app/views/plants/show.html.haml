@@ -41,7 +41,7 @@
               .flex.flex-wrap.justify-center
                 .w-full.px-4
                   %p.leading-relaxed.mb-4
-                    %span.leading-relaxed.text-sm.mb-4= "#{comment.user.username}:"
+                    %span.leading-relaxed.text-sm.mb-4= "#{comment.user.username.capitalize}:"
                     = comment.body
                     
           - if current_user

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users, only: :show
+  resources :profile, only: :show
   devise_for :users
   namespace :admin do
       resources :plants
