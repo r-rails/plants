@@ -25,7 +25,6 @@
       .flex.flex-wrap.justify-center
         .w-full.px-4
           %p.leading-relaxed.mb-4= @plant.description
-          
           - if current_user
             - if current_user.plant_ids.include?(@plant.id)
               = form_tag garden_plant_path, :method => :delete do
@@ -37,4 +36,23 @@
                 = submit_tag "Plant in my garden", :class => 'p-2 border-2 border-green-700 rounded font-normal hover:bg-green-400'   
           - else
             = link_to "Sign in to plant your garden", new_user_session_path, :class => 'p-2 border-2 border-green-700 rounded font-normal hover:bg-green-400'
+          .mt-6.py-6.border-t.text-center
+            - @plant.comments.each do |comment|
+              .flex.flex-wrap.justify-center
+                .w-full.px-4
+                  %p.leading-relaxed.mb-4
+                    %span.leading-relaxed.text-sm.mb-4= "#{comment.user.username}:"
+                    = comment.body
+                    
+          - if current_user
+            .flex.justify-center.max-w-lg.rounded-lg.shadow-md.shadow-blue-600.mx-12
+              .mb-3.xl:w-96
+                = form_tag add_comment_path do
+                  %label.text-lg.text-gray-600{for: "comment"} Add a comment
+                  = hidden_field_tag :plant_id, @plant.id
+                  = hidden_field_tag :user_id, current_user.id
+                  = text_area_tag :body, nil, placeholder: "", class: "form-control py-1.5 block w-full px-3 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  = button_tag "Post", class: "mt-5 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+            
+         
             
