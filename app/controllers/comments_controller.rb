@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
       flash[:notice] = 'Your comment has been added successfully'
       redirect_to plant_path(@comment.plant)
     else
-      flash[:error] = @comment.errors.messages.first
+      flash[:error] = "Comment should contain mininum of 10 characters"
       redirect_to plant_path(@comment.plant)
     end
   end
