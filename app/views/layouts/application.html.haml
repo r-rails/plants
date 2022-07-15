@@ -11,8 +11,7 @@
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   %body
-    %p.notice= notice
-    %p.alert= alert
+    = render partial: 'partials/flash_notice'
     = render partial: 'home/navbar'
     %main.container.mx-auto.mt-20.px-5.flex
       = yield
