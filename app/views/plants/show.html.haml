@@ -45,9 +45,9 @@
                     = comment.body
                     
           - if current_user
-            = form_tag add_comment_path do
-              .flex.justify-center.max-w-lg.rounded-lg.shadow-md.shadow-blue-600
-                .mb-3.xl:w-96
+            .flex.justify-center.max-w-lg.rounded-lg.shadow-md.shadow-blue-600.mx-12
+              .mb-3.xl:w-96
+                = form_tag add_comment_path do
                   %label.text-lg.text-gray-600{for: "comment"} Add a comment
                   = hidden_field_tag :plant_id, @plant.id
                   = hidden_field_tag :user_id, current_user.id
