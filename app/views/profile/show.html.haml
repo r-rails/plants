@@ -17,7 +17,7 @@
         %th
           .flex.text-left.font-semibold category
 
-      - @user.plants.each do |plant|
+      - @plants.each do |plant|
         %tr.bg-white.odd:bg-gray-100.hover:text-green-700
           %td.p-2= link_to plant.latin, plant
           %td.p-2= link_to plant.name, plant
