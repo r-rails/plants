@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :garden_plants
   has_many :plants, through: :garden_plants, dependent: :destroy
   has_many :comments, dependent: :destroy
+  validates :email, presence: true, format: URI::MailTo::EMAIL_REGEXP
 end
