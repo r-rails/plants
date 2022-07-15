@@ -13,7 +13,7 @@
     
     .flex.items-center.gap-2
       - if user_signed_in?
-        .btn-primary= link_to "#{current_user.email}"
+        .btn-primary= link_to "#{current_user.email}", profile_path(current_user)
         = button_to 'Log out', destroy_user_session_path, :method => 'delete', :class => 'btn-primary'
       - else
         = link_to 'Login', new_user_session_path, :class => 'btn-primary'
