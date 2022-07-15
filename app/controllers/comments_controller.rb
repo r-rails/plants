@@ -2,11 +2,11 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    if @comment.save!
+    if @comment.save
       flash[:notice] = 'Your comment has been added successfully'
       redirect_to plant_path(@comment.plant)
     else
-      flash[:error] = 'Your comment could not be added'
+      flash[:error] = @comment.errors.messages.first
       redirect_to plant_path(@comment.plant)
     end
   end
