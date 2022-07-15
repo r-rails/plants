@@ -11,8 +11,10 @@ RSpec.describe User, :type => :model do
     end
 
     context "with invalid attributes" do
-      let(:user) { build(:user, email: "") }
+      let(:user) { build(:user, email: "example@") }
       it "does not create a user object" do
+        user.save
+        expect(user.errors.messages[:email]).to eq(["is invalid"])
         expect(user.valid?).to be false  
         expect(User.count).to eq(0)
       end

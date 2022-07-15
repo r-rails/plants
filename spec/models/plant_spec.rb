@@ -13,6 +13,8 @@ RSpec.describe Plant, :type => :model do
     context "with invalid attributes" do
       let (:plant) { build(:plant, name: "") }
       it "does not create a plant object" do
+        plant.save
+        expect(plant.errors.messages[:name]).to eq(["can't be blank"])
         expect(plant.valid?).to be false
         expect(Plant.count).to eq(0)
       end
