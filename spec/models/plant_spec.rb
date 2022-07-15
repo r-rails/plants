@@ -1,4 +1,3 @@
-require 'rails_helper'
 
 RSpec.describe Plant, :type => :model do
   it "is valid with valied attributes"
