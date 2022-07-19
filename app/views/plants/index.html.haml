@@ -1,7 +1,14 @@
 -# list of all
 
 .container
-  .flex.p-2= paginate @plants
+  .pb-4.border-b
+    = search_form_for @q do |f|
+      .font-serif.text-xl Search for a plant
+      = f.label 'Latin or Name Contains:', :class => 'font-serif text-xl'
+      = f.search_field :name_or_latin_cont, :class => 'text-field'
+      .btn-primary.w-min= f.submit name: ''
+  
+  .flex.p-2.mt-4= paginate @plants
 
   %table.w-full.mt-4
     %tr.border-b.font-serif
