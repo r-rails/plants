@@ -10,11 +10,11 @@ RSpec.describe Comment, :type => :model do
         expect(Comment.count).to eq(1)
       end
 
-      it "creates an association between comment and the user" do
+      it "creates an association between comment and the plant" do
         expect(comment.plant).to eq(plant)
       end
 
-      it "creates an association between comment and the plant" do
+      it "creates an association between comment and the user" do
         expect(comment.user).to eq(user)
       end
     end
