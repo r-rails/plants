@@ -1,6 +1,8 @@
 class PlantsController < ApplicationController
   def index
-    @plants = Plant.order(:latin).page params[:page]
+    @q = Plant.ransack(params[:q])
+    @plants = @q.result.order(:latin).page params[:page]
+    # @plants = Plant.order(:latin).page params[:page]
   end
   
   def show
