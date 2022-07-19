@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory(:user) do
-    email { 'abc@example.com' }
+    email { Faker::Internet.email }
     password { 'password' }
     password_confirmation { 'password' }
     username { 'john_doe' } 
@@ -14,5 +14,11 @@ FactoryBot.define do
     category { "Hanging" }
     ideallight { "Bright light" }
     watering { "Keep moist between watering. Can be a bit dry between watering" }
+  end
+
+  factory(:comment) do
+    body { Faker::Lorem.sentence(word_count: 7) }
+    user
+    plant
   end
 end
