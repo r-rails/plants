@@ -94,6 +94,7 @@ Rails.application.configure do
   # mailer settings for Devise
   config.action_mailer.perform_deliveries = true
   config.action_mailer_default_url_options = { host: 'http://plants.23.88.117.56.sslip.io/' }
+  Rails.application.routes.default_url_options[:host] = 'http://plants.23.88.117.56.sslip.io/'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
