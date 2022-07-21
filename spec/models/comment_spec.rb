@@ -10,8 +10,7 @@ RSpec.describe Comment, :type => :model do
     end
 
     context "when plant_id is not present" do
-      let!(:user) { create(:user) }
-      let!(:comment) { build(:comment, user: user, plant: nil) }
+      let!(:comment) { build(:comment, plant: nil) }
 
       it "does not create a new comment" do
         expect(comment.valid?).to be false
@@ -20,8 +19,7 @@ RSpec.describe Comment, :type => :model do
     end
 
     context "when user_id is not present" do
-      let!(:plant) { create(:plant) }
-      let!(:comment) { build(:comment, user: nil, plant: plant) }
+      let!(:comment) { build(:comment, user: nil) }
 
       it "does not create a new comment" do
         expect(comment.valid?).to be false

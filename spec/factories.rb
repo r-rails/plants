@@ -21,9 +21,4 @@ FactoryBot.define do
     user
     plant
   end
-
-  factory(:garden_plant) do
-    plant
-    user
-  end
 end
