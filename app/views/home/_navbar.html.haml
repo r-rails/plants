@@ -7,9 +7,9 @@
         = link_to 'Home', root_path
       %ul.flex.items-center.flex-col.md:flex-row.md:space-x-5.w-full
         %li
-          = link_to 'plants', plants_path, class: class_names(current_page?(plants_path) ? 'active' : 'navlink')
+          = link_to 'Plants', plants_path, class: class_names(current_page?(plants_path) ? 'active' : 'navlink')
         %li
-          = link_to 'people', people_path, class: class_names(current_page?(people_path) ? 'active' : 'navlink')
+          = link_to 'People', people_path, class: class_names(current_page?(people_path) ? 'active' : 'navlink')
     
     .flex.items-center.gap-2
       - if user_signed_in?
