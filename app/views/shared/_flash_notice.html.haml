@@ -1,0 +1,7 @@
+- flash.each do |key, value|
+  .flex.notice{ :class => "#{css_for_flash(key)}", "data-controller" => "flash"}
+    = value
+
+    %button{:type => "button", "data-action" => "flash#dismiss"}
+      %svg.ml-2.h-4.w-4{:fill => "none", :stroke => "currentColor", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+        %path{:d => "M6 18L18 6M6 6l12 12", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2"}
