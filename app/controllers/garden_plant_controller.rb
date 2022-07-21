@@ -16,10 +16,10 @@ class GardenPlantController < ApplicationController
     garden_plant = GardenPlant.find_by(plant_id: params[:plant_id], user_id: current_user.id)
     if garden_plant&.destroy
       garden_plant.destroy
-      flash[:notice] = "Plant removed from garden"
+      flash[:error] = "Plant removed from garden"
       redirect_to plant_path(params[:plant_id])
     else
-      flash[:notice] = "Unable to remove plant from garden"
+      flash[:error] = "Unable to remove plant from garden"
       redirect_to plant_path(params[:plant_id])
     end
   end
