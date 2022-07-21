@@ -38,4 +38,9 @@
   .current {
     @apply bg-green-700 rounded-full text-white;
   }
+
+  /* flash notice */
+  .notice { 
+   @apply border border-solid p-5 rounded items-center fixed top-5 right-10
+  }
 }
