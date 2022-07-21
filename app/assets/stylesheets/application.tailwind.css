@@ -41,6 +41,6 @@
 
   /* flash notice */
   .notice { 
-   @apply border border-solid p-5 rounded items-center fixed top-5 right-10
+   @apply border border-solid p-5 rounded items-center fixed left-1/4 top-5
   }
 }
