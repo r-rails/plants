@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer components {
+  .layout { @apply
+    max-w-7xl w-5/6 mx-auto py-4 md:py-6
+  }
 
   .navlink {
     @apply font-semibold block cursor-pointer p-2 hover:text-green-700
