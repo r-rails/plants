@@ -122,6 +122,9 @@ GEM
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    haml (5.2.2)
+      temple (>= 0.8.0)
+      tilt
     hamlit (2.16.0)
       temple (>= 0.8.2)
       thor
@@ -332,6 +335,7 @@ DEPENDENCIES
   devise
   factory_bot_rails
   faker
+  haml (~> 5.2)
   hamlit-rails (~> 0.2.3)
   image_processing (~> 1.2)
   importmap-rails
