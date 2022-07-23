@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
   resources :profile, only: :show
   devise_for :users
-  namespace :admin do
-      resources :plants
-
-      root to: "plants#index"
-    end
+  
   root 'home#index'
   
   resources :plants
