@@ -1,6 +1,6 @@
 GIT
-  remote: https://github.com/n-studio/administrate.git
-  revision: 5958b5400eadb6bcdb2c15248d45badee8862aa5
+  remote: https://github.com/muriloime/administrate.git
+  revision: 2251c1a2bd52b251230574c8d2f6ba8f5c3efb09
   specs:
     administrate (0.17.0)
       actionpack (>= 5.0)
@@ -8,7 +8,6 @@ GIT
       activerecord (>= 5.0)
       jquery-rails (>= 4.0)
       kaminari (>= 1.0)
-      sassc-rails (~> 2.1)
       selectize-rails (~> 0.6)
 
 GEM
@@ -279,14 +278,6 @@ GEM
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     rubyzip (2.3.2)
-    sassc (2.4.0)
-      ffi (~> 1.9)
-    sassc-rails (2.1.2)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
     seed_migration (1.2.3)
     selectize-rails (0.12.6)
     selenium-webdriver (4.3.0)
@@ -310,7 +301,7 @@ GEM
       railties (>= 6.0.0)
     temple (0.8.2)
     thor (1.2.1)
-    tilt (2.0.10)
+    tilt (2.0.11)
     timeout (0.3.0)
     turbo-rails (1.1.1)
       actionpack (>= 6.0.0)

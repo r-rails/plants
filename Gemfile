@@ -79,7 +79,7 @@ group :test do
   gem "webdrivers"
 end
 
-gem 'administrate', github: "n-studio/administrate"
+gem 'administrate', github: "muriloime/administrate"
 gem 'administrate-field-active_storage'
 gem 'devise'
 gem "hamlit-rails", "~> 0.2.3"
