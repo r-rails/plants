@@ -1,13 +1,25 @@
 -# plant card
 
 .grid.gap-4.lg:grid-cols-2
-  .grid.grid-cols-2.grid-rows-4.gap-2
+  -# plant part of a grid
+  .grid.grid-cols-2.grid-rows-3.gap-2
     .row-span-3.border
       = plant_img(@plant)
-    .row-span-2.border attibutes
-    .border 3
-    .border 4
-    .border 4.1
-  .grid.grid-rows-4.gap-2
-    .row-span-3.border discussion board
+    .row-span-3.border.flex.flex-col.justify-evenly
+      .text-center= @plant.watering
+      .text-center= @plant.ideallight
+      .text-center= @plant.climate
+
+    .grid.grid-rows-3
+      .border latin
+      .border name
+      .border category (tooltip: show all of this category)
+    .grid.grid-cols-2.gap-2
+      .flex.flex-col.justify-center.text-center.border
+        = render partial: 'add_plant'
+      .border already #count people have this plant
+      
+  -# discussion board part of a grid
+  .grid.grid-rows-3.gap-2
+    .row-span-2.border discussion board
     .border rich text editor
