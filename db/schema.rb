@@ -74,12 +74,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_21_085722) do
     t.string "latin"
   end
 
-  create_table "seed_migration_data_migrations", id: :serial, force: :cascade do |t|
-    t.string "version"
-    t.integer "runtime"
-    t.datetime "migrated_on", precision: nil
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

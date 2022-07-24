@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Base.transaction do
+all_plants = JSON.parse(File.read(Rails.root.join('db/house-plants.json')))
+    
+all_plants.each do |plant|
+  Plant.create(
+    name: plant['common'][0],
+    latin: plant['latin'],
+    ideallight: plant['ideallight'],
+    watering: plant['watering'],
+    climate: plant['climate'],
+    category: plant['category']
+  )
 end
-
-SeedMigration::Migrator.bootstrap(20220714172124)
