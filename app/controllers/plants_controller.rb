@@ -3,7 +3,7 @@ class PlantsController < ApplicationController
     @q = Plant.ransack(params[:q])
     @plants = @q.result.order(:latin).page params[:page]
   end
-  
+
   def show
     @plant = Plant.find(params[:id])
   end
@@ -23,8 +23,9 @@ class PlantsController < ApplicationController
   end
 
   private
-    def plant_params
-      params.require(:plant).permit(:name, :description, :img, :climate, :ideallight,
+
+  def plant_params
+    params.require(:plant).permit(:name, :description, :img, :climate, :ideallight,
       :watering, :category, :latin)
-    end
+  end
 end

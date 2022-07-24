@@ -1,10 +1,9 @@
-
-RSpec.describe User, :type => :model do
+RSpec.describe User, type: :model do
   describe "user creation by the model" do
     context "with valid attributes" do
       let(:user) { create(:user) }
       it "creates a user object" do
-        expect(user.valid?).to be true  
+        expect(user.valid?).to be true
         expect(User.count).to eq(1)
         expect(User.first.username).to eq(user.username)
       end
@@ -15,7 +14,7 @@ RSpec.describe User, :type => :model do
       it "does not create a user object" do
         user.save
         expect(user.errors.messages[:email]).to eq(["is invalid"])
-        expect(user.valid?).to be false  
+        expect(user.valid?).to be false
         expect(User.count).to eq(0)
       end
     end
