@@ -1,8 +1,7 @@
-
-RSpec.describe Plant, :type => :model do
+RSpec.describe Plant, type: :model do
   describe "plants creation by the model" do
-    context "with valid attributes" do 
-      let(:plant) { create(:plant) } 
+    context "with valid attributes" do
+      let(:plant) { create(:plant) }
       it "creates a plant object" do
         expect(plant.valid?).to be true
         expect(Plant.count).to eq(1)
@@ -11,7 +10,7 @@ RSpec.describe Plant, :type => :model do
     end
 
     context "with invalid attributes" do
-      let (:plant) { build(:plant, name: "") }
+      let(:plant) { build(:plant, name: "") }
       it "does not create a plant object" do
         plant.save
         expect(plant.errors.messages[:name]).to eq(["can't be blank"])
@@ -19,5 +18,5 @@ RSpec.describe Plant, :type => :model do
         expect(Plant.count).to eq(0)
       end
     end
-  end 
+  end
 end

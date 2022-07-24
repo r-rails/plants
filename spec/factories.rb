@@ -1,11 +1,11 @@
 FactoryBot.define do
   factory(:user) do
     email { Faker::Internet.email }
-    password { 'password' }
-    password_confirmation { 'password' }
-    username { 'john_doe' } 
+    password { "password" }
+    password_confirmation { "password" }
+    username { "john_doe" }
   end
-  
+
   factory(:plant) do
     description { Faker::Lorem.sentence }
     name { Faker::Lorem.word }

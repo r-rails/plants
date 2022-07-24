@@ -1,5 +1,5 @@
-RSpec.describe Comment, :type => :model do 
-  describe "comment creation by Comments model" do 
+RSpec.describe Comment, type: :model do
+  describe "comment creation by Comments model" do
     context "with validated attributes" do
       let!(:comment) { create(:comment) }
 

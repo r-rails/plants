@@ -1,14 +1,12 @@
 class CommentsController < ApplicationController
-
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      flash[:notice] = 'Your comment has been added successfully'
-      redirect_to plant_path(@comment.plant)
+      flash[:notice] = "Your comment has been added successfully"
     else
       flash[:error] = "Comment should contain mininum of 10 characters"
-      redirect_to plant_path(@comment.plant)
     end
+    redirect_to plant_path(@comment.plant)
   end
 
   private
