@@ -5,19 +5,31 @@
   .grid.grid-cols-2.grid-rows-3.gap-2
     .row-span-3.border
       = plant_img(@plant)
-    .row-span-3.border.flex.flex-col.justify-evenly
-      .text-center= @plant.watering
-      .text-center= @plant.ideallight
-      .text-center= @plant.climate
+    .row-span-3.border.flex.flex-col.justify-evenly.bg-gradient-to-b.from-blue-200.to-green-200
+      .text-center
+        %div Watering
+        .font-serif.text-xl= @plant.watering
+      .text-center
+        .p2 Ideal Lighting
+        .font-serif.text-xl= @plant.ideallight
+      .text-center
+        %div Climate
+        .font-serif.text-xl= @plant.climate
 
-    .grid.grid-rows-3
-      .border latin
-      .border name
-      .border category (tooltip: show all of this category)
+    .grid.grid-rows-3.text-xl
+      .border.text-center.p-2
+        = @plant.latin
+      .border.text-center.p-2
+        = @plant.name
+      .border.text-center.p-2
+        = search_form_for @q do |f|
+          = f.search_field :category_cont, :value => @plant.category, :type => 'hidden'
+          = f.submit @plant.category, :class => 'cursor-pointer hover:underline'
     .grid.grid-cols-2.gap-2
       .flex.flex-col.justify-center.text-center.border
         = render partial: 'add_plant'
-      .border already #count people have this plant
+      .border.flex.flex-col.justify-evenly.text-center
+        .font-serif.text-xl already #{ GardenPlant.where(plant_id: @plant.id).count } people have this plant
       
   -# discussion board part of a grid
   .grid.grid-rows-3.gap-2

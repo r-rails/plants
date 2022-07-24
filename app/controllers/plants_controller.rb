@@ -5,6 +5,7 @@ class PlantsController < ApplicationController
   end
 
   def show
+    @q = Plant.ransack(params[:q])
     @plant = Plant.find(params[:id])
   end
 
