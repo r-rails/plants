@@ -34,6 +34,11 @@
   -# discussion board part of a grid
   .grid.grid-rows-3.gap-2
     .row-span-2.max-h-96.overflow-auto
-      = render @plant.comments
+      .font-serif.text-xl.mb-2.bg-green-100.rounded.px-2 Share your thoughts here:
+      - if @plant.comments.blank?
+        .flex.justify-center.mt-6
+          .text-2xl.font-serif Be first to comment on this plant!
+      - else
+        = render @plant.comments
     .max-h-40
       = render 'comments/form'
