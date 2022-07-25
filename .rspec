@@ -1,4 +1,1 @@
---require rails_helper
---format documentation
---color
---order defined
+--require spec_helper

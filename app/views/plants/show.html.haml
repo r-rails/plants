@@ -1,58 +1,44 @@
 -# plant card
 
-.relative.max-w-md.mx-auto.md:max-w-2xl.mt-6.min-w-0.break-words.bg-white.w-full.mb-6.shadow-lg.rounded-xl.mt-16
-  .px-6
-    .flex.flex-wrap.justify-center
-      .w-full.flex.justify-center
-        .relative
-          .shadow-xl.-m-16.-ml-20.lg:-ml-16= plant_img(@plant)
-      .w-full.text-center.mt-20
-        .flex.justify-center.lg:pt-4.pt-8.pb-0
-          .p-3.text-center
-            %span.text-xl.font-bold.block.uppercase.tracking-wide= @plant.watering
-            %span.text-blue-500 Watering
-          .p-3.text-center
-            %span.text-xl.font-bold.block.uppercase.tracking-wide= @plant.ideallight
-            %span.text-yellow-500 Ideal Light
-          .p-3.text-center
-            %span.text-xl.font-bold.block.uppercase.tracking-wide= @plant.climate
-            %span.text-green-500 Climate
-    .text-center.mt-2
-      .text-2xl.font-semibold.leading-normal.mb-1= @plant.name
-      .mt-0.mb-2.font-bold.uppercase.text-gray-500
-        %i.mr-2= @plant.category
-    .mt-6.py-6.border-t.text-center
-      .flex.flex-wrap.justify-center
-        .w-full.px-4
-          %p.leading-relaxed.mb-4= @plant.description
-          - if current_user
-            - if current_user.plant_ids.include?(@plant.id)
-              = form_tag garden_plant_path, :method => :delete do
-                = hidden_field_tag :plant_id, @plant.id
-                = submit_tag "Remove from my garden", :class => 'p-2 border-2 border-red-700 rounded font-normal hover:bg-red-400'
-            - else
-              = form_tag add_to_garden_path, :method => :post do
-                = hidden_field_tag :plant_id, @plant.id
-                = submit_tag "Plant in my garden", :class => 'p-2 border-2 border-green-700 rounded font-normal hover:bg-green-400'   
-          - else
-            = link_to "Sign in to plant your garden", new_user_session_path, :class => 'p-2 border-2 border-green-700 rounded font-normal hover:bg-green-400'
-          .mt-6.py-6.border-t.text-center
-            - @plant.comments.each do |comment|
-              .flex.flex-wrap.justify-center
-                .w-full.px-4
-                  %p.leading-relaxed.mb-4
-                    %span.leading-relaxed.text-sm.mb-4= "#{comment.user.username.capitalize}:"
-                    = comment.body
-                    
-          - if current_user
-            .flex.justify-center.max-w-lg.rounded-lg.shadow-md.shadow-blue-600.mx-12
-              .mb-3.xl:w-96
-                = form_tag add_comment_path do
-                  %label.text-lg.text-gray-600{for: "comment"} Add a comment
-                  = hidden_field_tag :plant_id, @plant.id
-                  = hidden_field_tag :user_id, current_user.id
-                  = text_area_tag :body, nil, placeholder: "", class: "form-control py-1.5 block w-full px-3 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                  = button_tag "Post", class: "mt-5 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-            
-         
-            
+.grid.gap-4.lg:grid-cols-2
+  -# plant part of a grid
+  .grid.grid-cols-2.grid-rows-3.gap-2
+    .row-span-3.border
+      = plant_img(@plant)
+    .row-span-3.border.flex.flex-col.justify-evenly.bg-gradient-to-b.from-blue-200.to-green-200.rounded
+      .text-center
+        %div Watering
+        .font-serif.text-xl= @plant.watering
+      .text-center
+        .p2 Ideal Lighting
+        .font-serif.text-xl= @plant.ideallight
+      .text-center
+        %div Climate
+        .font-serif.text-xl= @plant.climate
+
+    .grid.grid-rows-3.text-xl
+      .border.text-center.p-2
+        = @plant.latin
+      .border.text-center.p-2
+        = @plant.name
+      .border.text-center.p-2
+        = search_form_for @q do |f|
+          = f.search_field :category_cont, value: @plant.category, type: 'hidden'
+          = f.submit @plant.category, class: 'cursor-pointer text-blue-400 hover:underline'
+    .grid.grid-cols-2.gap-2
+      .flex.flex-col.justify-center.text-center.border
+        = render 'add_plant'
+      .border.flex.flex-col.justify-evenly.text-center
+        = "#{ ppl_have } people have this plant"
+      
+  -# discussion board part of a grid
+  .grid.grid-rows-3.gap-2
+    .row-span-2.max-h-96.overflow-auto
+      .font-serif.text-xl.mb-2.rounded.px-2 Share your thoughts here:
+      - if @plant.comments.blank?
+        .flex.justify-center.mt-6
+          .text-2xl.font-serif Be first to comment on this plant!
+      - else
+        = render @plant.comments
+    .max-h-40.mt-6
+      = render 'comments/form'
