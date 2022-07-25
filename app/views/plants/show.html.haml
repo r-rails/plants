@@ -5,7 +5,7 @@
   .grid.grid-cols-2.grid-rows-3.gap-2
     .row-span-3.border
       = plant_img(@plant)
-    .row-span-3.border.flex.flex-col.justify-evenly.bg-gradient-to-b.from-blue-200.to-green-200
+    .row-span-3.border.flex.flex-col.justify-evenly.bg-gradient-to-b.from-blue-200.to-green-200.rounded
       .text-center
         %div.opacity-100 Watering
         .font-serif.text-xl= @plant.watering
@@ -40,5 +40,5 @@
           .text-2xl.font-serif Be first to comment on this plant!
       - else
         = render @plant.comments
-    .max-h-40
+    .max-h-40.mt-6
       = render 'comments/form'
