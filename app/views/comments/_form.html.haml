@@ -1,0 +1,5 @@
+= form_with model: @comment, url: add_comment_path do |f|
+  = f.text_field :plant_id, value: @plant.id, type: 'hidden'
+  = f.text_field :user_id, value: current_user.id, type: 'hidden'
+  = f.text_area :body, class: 'text-field w-full'
+  = f.submit 'Post comment', class: 'btn-primary'

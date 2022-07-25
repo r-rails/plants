@@ -27,7 +27,7 @@
           = f.submit @plant.category, class: 'cursor-pointer text-blue-400 hover:underline'
     .grid.grid-cols-2.gap-2
       .flex.flex-col.justify-center.text-center.border
-        = render partial: 'add_plant'
+        = render 'add_plant'
       .border.flex.flex-col.justify-evenly.text-center
         = "#{ ppl_have } people have this plant"
       
@@ -35,4 +35,5 @@
   .grid.grid-rows-3.gap-2
     .row-span-2.max-h-96.overflow-auto
       = render @plant.comments
-    .border rich text editor
+    .max-h-40
+      = render 'comments/form'
