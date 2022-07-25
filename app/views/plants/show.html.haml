@@ -23,8 +23,8 @@
         = @plant.name
       .border.text-center.p-2
         = search_form_for @q do |f|
-          = f.search_field :category_cont, :value => @plant.category, :type => 'hidden'
-          = f.submit @plant.category, :class => 'cursor-pointer hover:underline text-blue-400'
+          = f.search_field :category_cont, value: @plant.category, type: 'hidden'
+          = f.submit @plant.category, class: 'cursor-pointer text-blue-400 hover:underline'
     .grid.grid-cols-2.gap-2
       .flex.flex-col.justify-center.text-center.border
         = render partial: 'add_plant'
@@ -33,5 +33,6 @@
       
   -# discussion board part of a grid
   .grid.grid-rows-3.gap-2
-    .row-span-2.border discussion board
+    .row-span-2.max-h-96.overflow-auto
+      = render @plant.comments
     .border rich text editor
