@@ -91,4 +91,4 @@ gem "kaminari"
 gem "ransack", "~> 3.2"
 gem "haml", "~> 5.2"
 
-gem 'icodi'
+gem "icodi"

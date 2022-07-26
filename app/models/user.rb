@@ -24,6 +24,6 @@ class User < ApplicationRecord
 
   def set_avatar
     icon = Icodi.new.render
-    self.avatar.attach(io: StringIO.new(icon), filename: "#{self.username}.svg", content_type: "image/svg+xml")
+    avatar.attach(io: StringIO.new(icon), filename: "#{username}.svg", content_type: "image/svg+xml")
   end
 end
