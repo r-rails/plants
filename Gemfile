@@ -90,5 +90,5 @@ gem "kaminari"
 gem "ransack", "~> 3.2"
 
 gem "haml", "~> 5.2"
-
-gem "standardrb", "~> 1.0"
+# Ruby Style Guide, with linter & automatic code fixer
+gem "standard", group: [:development, :test]

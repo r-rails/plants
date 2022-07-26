@@ -166,7 +166,7 @@ GEM
     mini_magick (4.11.0)
     mini_mime (1.1.2)
     minitest (5.16.2)
-    msgpack (1.5.3)
+    msgpack (1.5.4)
     net-imap (0.2.3)
       digest
       net-protocol
@@ -182,9 +182,9 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
-    nokogiri (1.13.7-x86_64-darwin)
+    nokogiri (1.13.8-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.13.7-x86_64-linux)
+    nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.22.1)
@@ -220,7 +220,7 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
-    rails_live_reload (0.2.0)
+    rails_live_reload (0.3.0)
       listen
       nio4r
       railties
@@ -266,14 +266,14 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.11.0)
-    rubocop (1.31.2)
+    rubocop (1.32.0)
       json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.1.0.0)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml (>= 3.2.5, < 4.0)
-      rubocop-ast (>= 1.18.0, < 2.0)
+      rubocop-ast (>= 1.19.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.19.1)
@@ -297,14 +297,12 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    standard (1.13.0)
-      rubocop (= 1.31.2)
+    standard (1.14.0)
+      rubocop (= 1.32.0)
       rubocop-performance (= 1.14.3)
-    standardrb (1.0.1)
-      standard
     stimulus-rails (1.1.0)
       railties (>= 6.0.0)
-    strscan (3.0.3)
+    strscan (3.0.4)
     tailwindcss-rails (2.0.10-x86_64-darwin)
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.10-x86_64-linux)
@@ -367,7 +365,7 @@ DEPENDENCIES
   rspec-rails (~> 5.1, >= 5.1.2)
   selenium-webdriver
   sprockets-rails
-  standardrb (~> 1.0)
+  standard
   stimulus-rails
   tailwindcss-rails
   turbo-rails
