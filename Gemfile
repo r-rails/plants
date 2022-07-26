@@ -92,3 +92,5 @@ gem "ransack", "~> 3.2"
 gem "haml", "~> 5.2"
 # Ruby Style Guide, with linter & automatic code fixer
 gem "standard", group: [:development, :test]
+
+gem 'icodi'

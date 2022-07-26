@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   before_save :downcase_username
+  before_create :set_avatar
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -19,5 +20,10 @@ class User < ApplicationRecord
 
   def downcase_username
     self.username = username.downcase
+  end
+
+  def set_avatar
+    icon = Icodi.new.render
+    self.avatar.attach(io: StringIO.new(icon), filename: "#{self.username}.svg", content_type: "image/svg+xml")
   end
 end

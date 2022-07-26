@@ -4,7 +4,11 @@
   .rounded.border.p-2.shadow.w-full
     .flex.w-full.items-center.justify-between.border-b.pb-2
       .flex.items-center.gap-2
-        .h-10.w-10.rounded-full{:class => "bg-[url('https://i.pravatar.cc/32')]"}
+        .h-10.w-10
+          - if comment.user.avatar.attached?
+            = image_tag comment.user.avatar
+          - else
+            .h-10.w-10.rounded-full{:class => "bg-[url('https://i.pravatar.cc/32')]"}
         .font-semibold.text-slate-700
           = comment.user.username
       .flex.items-center.gap-2
