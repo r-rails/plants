@@ -7,6 +7,7 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable,
     :confirmable
 
+  has_one_attached :avatar
   has_many :garden_plants
   has_many :plants, through: :garden_plants, dependent: :destroy
   has_many :comments, dependent: :destroy
