@@ -91,4 +91,11 @@ gem "kaminari"
 gem "ransack", "~> 3.2"
 
 gem "haml", "~> 5.2"
+<<<<<<< HEAD
 # Ruby Style Guide, with linter & automatic code fixer
+=======
+# Ruby Style Guide, with linter & automatic code fixer
+gem "standard", group: [:development, :test]
+
+gem 'icodi'
+>>>>>>> add random avatar on user SignUp
