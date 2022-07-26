@@ -365,7 +365,7 @@ DEPENDENCIES
   rspec-rails (~> 5.1, >= 5.1.2)
   selenium-webdriver
   sprockets-rails
-  standard
+  standard (= 1.14.0)
   stimulus-rails
   tailwindcss-rails
   turbo-rails

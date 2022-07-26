@@ -58,6 +58,7 @@ group :development, :test do
   gem "pry"
   gem "faker"
   gem "factory_bot_rails"
+  gem "standard", "1.14.0"
 end
 
 group :development do
@@ -91,4 +92,3 @@ gem "ransack", "~> 3.2"
 
 gem "haml", "~> 5.2"
 # Ruby Style Guide, with linter & automatic code fixer
-gem "standard", group: [:development, :test]
