@@ -90,4 +90,11 @@ gem "hamlit-rails", "~> 0.2.3"
 gem "kaminari"
 gem "ransack", "~> 3.2"
 gem "haml", "~> 5.2"
+<<<<<<< HEAD
 gem 'icodi'
+=======
+# Ruby Style Guide, with linter & automatic code fixer
+gem "standard", group: [:development, :test]
+
+gem 'icodi'
+>>>>>>> 0ac3f63fc9a838df6f6bf045e1f549ac243bdd4f
