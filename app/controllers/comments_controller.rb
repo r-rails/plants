@@ -9,9 +9,14 @@ class CommentsController < ApplicationController
     redirect_to plant_path(@comment.plant)
   end
 
-  private
-
-  def comment_params
-    params.permit(:body, :user_id, :plant_id)
+  def destroy
+    @comment = current_user.comments.find(params[:id])
+    @comment.destroy
+    redirect_to plant_path(@comment.plant), status: :see_other
   end
+
+  private
+    def comment_params
+      params.permit(:body, :user_id, :plant_id)
+    end
 end

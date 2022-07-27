@@ -12,9 +12,11 @@
         .font-semibold.text-slate-700
           = comment.user.username
       .flex.items-center.gap-2
-        %button.rounded.border.bg-neutral-100.px-3.py-1.text-xs delete
-        %button.rounded.border.bg-neutral-100.px-3.py-1.text-xs edit
-        .text-xs.text-neutral-500 timestamp goes here
+        - if current_user && current_user == comment.user
+          %button.rounded.border.bg-neutral-100.px-3.py-1.text-xs
+            = link_to 'delete', comment_path(comment), data: { turbo_method: :delete, turbo_confirm: 'are you sure?' }
+          %button.rounded.border.bg-neutral-100.px-3.py-1.text-xs edit
+          .text-xs.text-neutral-500 timestamp goes here
     .mt-2.mb-2
       .text-sm
         = comment.body
