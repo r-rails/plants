@@ -9,6 +9,12 @@ class CommentsController < ApplicationController
     redirect_to plant_path(@comment.plant)
   end
 
+  def destroy
+    @comment = current_user.comments.find(params[:id])
+    @comment.destroy
+    redirect_to plant_path(@comment.plant), status: :see_other
+  end
+
   private
 
   def comment_params
