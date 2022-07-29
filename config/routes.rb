@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root "home#index"
 
   resources :plants
-  resources :comments, only: %i[edit destroy]
+  resources :comments, only: %i[edit update destroy]
 
   post "add_to_garden", to: "garden_plant#create"
 
