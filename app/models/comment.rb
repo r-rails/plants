@@ -1,7 +1,11 @@
 class Comment < ApplicationRecord
-  has_rich_text :body
   belongs_to :user
-  belongs_to :plant
+  belongs_to :commentable, polymorphic: true, inverse_of: :comments
 
-  validates_presence_of :body
+  validates :body, presence: true
+
+  def find_top_parent
+    return commentable unless commentable.is_a?(comment)
+    commentable.find_top_parent
+  end
 end

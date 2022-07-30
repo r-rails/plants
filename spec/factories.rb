@@ -1,4 +1,16 @@
 FactoryBot.define do
+  # factory :comment do
+  #   user { nil }
+  #   body { "MyText" }
+  #   commentable { nil }
+  #   deleted_at { "2022-07-30 18:15:24" }
+  # end
+
+  # factory :comment do
+  #   plant { nil }
+  #   user { nil }
+  # end
+
   factory(:user) do
     email { Faker::Internet.email }
     password { "password" }
@@ -16,9 +28,9 @@ FactoryBot.define do
     watering { "Keep moist between watering. Can be a bit dry between watering" }
   end
 
-  factory(:comment) do
-    body { Faker::Lorem.sentence(word_count: 7) }
-    user
-    plant
-  end
+  # factory(:comment) do
+  #   body { Faker::Lorem.sentence(word_count: 7) }
+  #   user
+  #   plant
+  # end
 end

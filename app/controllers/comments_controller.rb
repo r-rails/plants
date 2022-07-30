@@ -1,40 +1,34 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[ edit update destroy ]
+  before_action :set_commentable
+
+  def new
+    @comment = Comment.new
+  end
 
   def create
-    @comment = Comment.new(comment_params)
+    @comment = @commentable.comments.build(comment_params)
     if @comment.save
-      flash[:notice] = "Your comment has been added successfully"
+      redirect_to @commentable unless @commentable.is_a?(Comment)
+      redirect_to @commentable.find_top_parent if @commentable.is_a?(Comment)
+      flash[:notice] = "Comment created"
     else
-      flash[:error] = "Comment needs to have actual content"
-    end
-    redirect_to plant_path(@comment.plant)
-  end
-  
-  def edit
-  end
-
-  def update
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html redirect_to plant_path(@comment.plant), notice: "The comment was updated"
-      else
-        format.html render :edit, status: :unprocessable_entity
-      end
+      render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @comment.destroy
-    redirect_to plant_path(@comment.plant), status: :see_other
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      redirect_to @commentable unless @commentable.is_a?(Comment)
+      redirect_to @commentable.find_top_parent if @commentable.is_a?(Comment)
+    else
+      redirect_to @commentable, flash[:error] = "Something went wrong"
+    end
   end
 
   private
-  def set_comment
-    @comment = current_user.comments.find(params[:id])
-  end
 
   def comment_params
-    params.permit(:body, :user_id, :plant_id1)
+    params.require(:comment).permit(:body).merge(user: current_user)
   end
 end

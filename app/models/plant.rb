@@ -4,5 +4,5 @@ class Plant < ApplicationRecord
   has_one_attached :img
   has_many :garden_plants
   has_many :users, through: :garden_plants, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :comments, -> { order(created_at: :asc) }, as: :commentable, dependent: :destroy, inverse_of: :commentable
 end
