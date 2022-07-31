@@ -1,0 +1,6 @@
+= turbo_frame_tag dom_id(@comment) do
+  .pb-2
+    = form_with model: [@commentable, @comment] do |f|
+      = f.rich_text_area :body
+      = link_to 'Cancel', @commentable
+      = f.submit 'Update comment', class: 'btn-primary mt-2'

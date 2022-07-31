@@ -39,6 +39,6 @@
         .flex.justify-center.mt-6
           .text-2xl.font-serif Be first to comment on this plant!
       - else
-        = render @plant.comments
+        = render @comments
     .max-h-40.mt-6
-      = render 'comments/form'
+      = render template: "comments/new"

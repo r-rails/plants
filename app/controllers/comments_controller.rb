@@ -1,23 +1,51 @@
 class CommentsController < ApplicationController
+  before_action :set_commentable
+  before_action :set_comment, only: %i[edit update destroy]
+
+  def new
+    @comment = Comment.new
+  end
+
   def create
-    @comment = Comment.new(comment_params)
+    @comment = @commentable.comments.build(comment_params)
     if @comment.save
-      flash[:notice] = "Your comment has been added successfully"
+      redirect_to @commentable unless @commentable.is_a?(Comment)
+      redirect_to @commentable.find_top_parent if @commentable.is_a?(Comment)
+      flash[:notice] = "Comment created"
     else
-      flash[:error] = "Comment should contain mininum of 10 characters"
+      flash[:error] = "Comment needs to have actual content"
+      redirect_to @commentable
     end
-    redirect_to plant_path(@comment.plant)
+  end
+
+  def edit
+  end
+
+  def update
+    if @comment.update(comment_params)
+      redirect_to @commentable unless @commentable.is_a?(Comment)
+      redirect_to @commentable.find_top_parent if @commentable.is_a?(Comment)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
-    @comment = current_user.comments.find(params[:id])
-    @comment.destroy
-    redirect_to plant_path(@comment.plant), status: :see_other
+    if @comment.destroy
+      redirect_to @commentable unless @commentable.is_a?(Comment)
+      redirect_to @commentable.find_top_parent if @commentable.is_a?(Comment)
+    else
+      redirect_to @commentable, flash[:error] = "Something went wrong"
+    end
   end
 
   private
 
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
+
   def comment_params
-    params.permit(:body, :user_id, :plant_id)
+    params.require(:comment).permit(:body).merge(user: current_user)
   end
 end
