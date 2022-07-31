@@ -13,7 +13,7 @@
   }
 
   .active {
-    @apply font-semibold underline decoration-green-700 decoration-2;
+    @apply p-2 font-semibold underline decoration-green-700 decoration-2;
   }
 
   .btn-primary {
