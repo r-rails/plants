@@ -15,7 +15,7 @@
         .flex.items-center.gap-2
           - if current_user && current_user == comment.user
             .rounded.border.bg-neutral-100.px-3.py-1.text-xs
-              = link_to 'edit', edit_plant_comment_path(comment)
+              = link_to 'edit', [:edit, @commentable, comment]
             .rounded.border.bg-neutral-100.px-3.py-1.text-xs
               = link_to 'delete', [@commentable, comment], data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }
             .text-xs.text-neutral-500

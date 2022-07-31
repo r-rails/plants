@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_commentable
+  before_action :set_comment, only: %i[ edit update destroy ]
 
   def new
     @comment = Comment.new
@@ -12,12 +13,25 @@ class CommentsController < ApplicationController
       redirect_to @commentable.find_top_parent if @commentable.is_a?(Comment)
       flash[:notice] = "Comment created"
     else
-      render :new, status: :unprocessable_entity
+      flash[:error] = "Comment needs to have actual content"
+    end
+    redirect_to @commentable
+  end
+
+  def edit
+  end
+
+  def update
+    if @comment.update(comment_params)
+      redirect_to @commentable unless @commentable.is_a?(Comment)
+      redirect_to @commentable.find_top_parent if @commentable.is_a?(Comment)
+    else
+      flash[:error] = "Comment needs to have actual content"
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
     if @comment.destroy
       redirect_to @commentable unless @commentable.is_a?(Comment)
       redirect_to @commentable.find_top_parent if @commentable.is_a?(Comment)
@@ -27,6 +41,10 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
 
   def comment_params
     params.require(:comment).permit(:body).merge(user: current_user)

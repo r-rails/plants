@@ -1,3 +1,1 @@
-= link_to @commentable.find_top_parent.name, @commentable.find_top_parent if @commentable.is_a?(Comment)
-= link_to @commentable.name, @commentable unless @commentable.is_a?(Comment)
 = render 'comments/form', comment: @comment

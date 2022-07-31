@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :profile, only: :show
 
-  resources :plants, except: :index do
-    resources :comments, only: %i[new create edit update destroy], module: :plants
+  resources :plants do
+    resources :comments, module: :plants
   end
 
   post "add_to_garden", to: "garden_plant#create"
