@@ -18,8 +18,8 @@
               = link_to 'edit', [:edit, @commentable, comment]
             .rounded.border.bg-neutral-100.px-3.py-1.text-xs
               = link_to 'delete', [@commentable, comment], data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }
-            .text-xs.text-neutral-500
-              = comment.created_at
+          .text-xs.text-neutral-500
+            = comment.created_at.to_formatted_s(:long)
       .mt-2.mb-2
         .text-sm
           = simple_format comment.body
