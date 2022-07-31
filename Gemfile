@@ -92,3 +92,4 @@ gem "ransack", "~> 3.2"
 gem "haml", "~> 5.2"
 
 gem "icodi"
+gem "friendly_id", "~> 5.4.0"

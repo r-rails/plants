@@ -6,7 +6,7 @@ class PlantsController < ApplicationController
 
   def show
     @q = Plant.ransack(params[:q])
-    @plant = Plant.find(params[:id])
+    @plant = Plant.friendly.find(params[:id])
     @commentable = @plant
     @comment = Comment.new
     @comments = @plant.comments

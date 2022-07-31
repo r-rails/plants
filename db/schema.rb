@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_30_161524) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_31_194549) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,6 +65,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_30_161524) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
   create_table "garden_plants", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "plant_id", null: false
@@ -85,6 +96,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_30_161524) do
     t.string "watering"
     t.string "category"
     t.string "latin"
+    t.string "slug"
+    t.index ["slug"], name: "index_plants_on_slug", unique: true
   end
 
   create_table "seed_migration_data_migrations", id: :serial, force: :cascade do |t|
