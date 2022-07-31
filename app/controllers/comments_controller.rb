@@ -14,8 +14,8 @@ class CommentsController < ApplicationController
       flash[:notice] = "Comment created"
     else
       flash[:error] = "Comment needs to have actual content"
+      redirect_to @commentable
     end
-    redirect_to @commentable
   end
 
   def edit
@@ -26,7 +26,6 @@ class CommentsController < ApplicationController
       redirect_to @commentable unless @commentable.is_a?(Comment)
       redirect_to @commentable.find_top_parent if @commentable.is_a?(Comment)
     else
-      flash[:error] = "Comment needs to have actual content"
       render :edit, status: :unprocessable_entity
     end
   end
