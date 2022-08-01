@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get "user/show"
   root "home#index"
   devise_for :users
 
