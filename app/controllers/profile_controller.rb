@@ -7,7 +7,7 @@ class ProfileController < ApplicationController
     @plants = @user&.plants&.page(params[:page])&.per(10)
     return if @user
 
-    flash[:error] = 'User not found'
+    flash[:error] = "User not found"
     redirect_to root_path
   end
 end

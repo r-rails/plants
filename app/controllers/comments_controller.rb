@@ -13,14 +13,15 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @commentable unless @commentable.is_a?(Comment)
       redirect_to @commentable.find_top_parent if @commentable.is_a?(Comment)
-      flash[:notice] = 'Comment created'
+      flash[:notice] = "Comment created"
     else
-      flash[:error] = 'Comment needs to have actual content'
+      flash[:error] = "Comment needs to have actual content"
       redirect_to @commentable
     end
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @comment.update(comment_params)
@@ -36,7 +37,7 @@ class CommentsController < ApplicationController
       redirect_to @commentable unless @commentable.is_a?(Comment)
       redirect_to @commentable.find_top_parent if @commentable.is_a?(Comment)
     else
-      redirect_to @commentable, flash[:error] = 'Something went wrong'
+      redirect_to @commentable, flash[:error] = "Something went wrong"
     end
   end
 
