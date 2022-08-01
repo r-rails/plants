@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if session[:last_visited_path].present?
-      session[:last_visited_path] 
+      session[:last_visited_path]
     else
       root_path
     end
