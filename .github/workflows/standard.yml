@@ -22,10 +22,6 @@ jobs:
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
-          
-      - name: Run rubocop
-        run: |
-          bundle exec rubocop -a --format simple --display-cop-names --display-only-failures
-
+      
       - name: Run Standard
         run: bundle exec standardrb

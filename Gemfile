@@ -88,10 +88,10 @@ end
 # gem 'administrate', github: "muriloime/administrate"
 # gem 'administrate-field-active_storage'
 gem 'devise'
+gem 'friendly_id', '~> 5.4.0'
 gem 'haml', '~> 5.2'
 gem 'hamlit-rails', '~> 0.2.3'
+gem 'icodi'
 gem 'kaminari'
 gem 'ransack', '~> 3.2'
-
-gem 'icodi'
 gem 'rubocop', '~> 1.32', require: false
