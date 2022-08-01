@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root "home#index"
   devise_for :users
 
-  resources :profile, only: :show
+  resources :profile, only: [:show], param: :slug
 
   resources :plants do
     resources :comments, module: :plants
