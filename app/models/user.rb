@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   before_save :downcase_username
   before_create :set_avatar
@@ -5,8 +7,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :validatable,
-    :confirmable
+         :recoverable, :rememberable, :validatable,
+         :confirmable
 
   has_one_attached :avatar
   has_many :garden_plants
@@ -24,6 +26,6 @@ class User < ApplicationRecord
 
   def set_avatar
     icon = Icodi.new.render
-    avatar.attach(io: StringIO.new(icon), filename: "#{username}.svg", content_type: "image/svg+xml")
+    avatar.attach(io: StringIO.new(icon), filename: "#{username}.svg", content_type: 'image/svg+xml')
   end
 end

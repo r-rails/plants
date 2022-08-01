@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory(:user) do
     email { Faker::Internet.email }
@@ -18,7 +20,7 @@ FactoryBot.define do
 
   factory(:comment) do
     body { Faker::Lorem.sentence(word_count: 7) }
-    commentable { nil}
+    commentable { nil }
     deleted_at { nil }
   end
 end

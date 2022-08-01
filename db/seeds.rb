@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current content of the database. Instead
 # of editing this file, please use the migrations feature of Seed Migration to
 # incrementally modify your database, and then regenerate this seed file.
@@ -9,15 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-all_plants = JSON.parse(File.read(Rails.root.join("db/house-plants.json")))
+all_plants = JSON.parse(File.read(Rails.root.join('db/house-plants.json')))
 
 all_plants.each do |plant|
   Plant.create(
-    name: plant["common"][0],
-    latin: plant["latin"],
-    ideallight: plant["ideallight"],
-    watering: plant["watering"],
-    climate: plant["climate"],
-    category: plant["category"]
+    name: plant['common'][0],
+    latin: plant['latin'],
+    ideallight: plant['ideallight'],
+    watering: plant['watering'],
+    climate: plant['climate'],
+    category: plant['category']
   )
 end

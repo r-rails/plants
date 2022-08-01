@@ -367,6 +367,7 @@ DEPENDENCIES
   ransack (~> 3.2)
   redis (~> 4.0)
   rspec-rails (~> 5.1, >= 5.1.2)
+  rubocop (~> 1.32)
   selenium-webdriver
   sprockets-rails
   standard (= 1.14.0)

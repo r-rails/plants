@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PlantsController < ApplicationController
   def index
     @q = Plant.ransack(params[:q])
@@ -30,6 +32,6 @@ class PlantsController < ApplicationController
 
   def plant_params
     params.require(:plant).permit(:name, :description, :img, :climate, :ideallight,
-      :watering, :category, :latin)
+                                  :watering, :category, :latin)
   end
 end

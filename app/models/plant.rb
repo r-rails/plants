@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Plant < ApplicationRecord
   validates_presence_of :name
 
