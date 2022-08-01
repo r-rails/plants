@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  before_create :downcase_username_and_make_slug
+  before_save :downcase_username
   before_create :set_avatar
 
   # Include default devise modules. Others available are:
@@ -18,12 +18,12 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   extend FriendlyId
-  friendly_id :user_username, use: :slugged
+  friendly_id :downcase_username, use: :slugged
 
   private
 
-  def downcase_username_and_make_slug
-    self.slug = self.username = username.downcase
+  def downcase_username
+    self.username = username.downcase
   end
 
   def set_avatar
