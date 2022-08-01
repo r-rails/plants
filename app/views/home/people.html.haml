@@ -1,15 +1,16 @@
 -# people cards
 
-.grid.gap-4.lg:grid-cols-2
-  .grid.grid-cols-3.gap-2.grid-rows-5
-    .row-span-5.border 1
-    .col-span-2.border 2
-    .col-span-2.row-span-2.border 3
-    .border 4
-    .border 5
-  .grid.grid-cols-3.gap-2.grid-rows-5
-    .row-span-5.border 1
-    .col-span-2.border 2
-    .col-span-2.row-span-2.border 3
-    .border 4
-    .border 5
+.grid.gap-6.md:grid-cols-2
+  - User.all.each do |user|
+    .grid.grid-cols-3.grid-rows-5.shadow-lg.border.rounded
+      .row-span-5.items-center.flex.p-4.flex
+        = image_tag user.avatar
+      .flex.flex-col.justify-center.col-span-2.border-b
+        .text-center.font-serif.text-xl.cursor-pointer.text-blue-400.hover:underline
+          = link_to user.username, profile_path(user)
+      .col-span-2.row-span-3.border-b
+        .p-2.italic about
+      .flex.flex-col.justify-center.text-center.border-r
+        = "#{ user.garden_plants.count } plants"
+      .flex.flex-col.justify-center.text-center
+        = "#{ user.comments.count} comments"
