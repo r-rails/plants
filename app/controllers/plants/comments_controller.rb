@@ -5,7 +5,7 @@ module Plants
     private
 
     def set_commentable
-      @commentable = Plant.find(params[:plant_id])
+      @commentable = Plant.friendly.find(params[:plant_id])
     end
   end
 end
