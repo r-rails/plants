@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class Plant < ApplicationRecord
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
   def slug_candidates
-    [:name, [:name, :latin]]
+    [:name, %i[name latin]]
   end
 
   validates_presence_of :name

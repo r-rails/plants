@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PlantsController < ApplicationController
   def index
     @q = Plant.ransack(params[:q])

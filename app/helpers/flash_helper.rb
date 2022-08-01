@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FlashHelper
   def css_for_flash(key)
     case key.to_sym

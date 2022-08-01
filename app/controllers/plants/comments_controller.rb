@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Plants
   class CommentsController < CommentsController
     private

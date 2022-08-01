@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GardenPlantController < ApplicationController
   def create
     @garden_plant = GardenPlant.new(plant_id: params[:plant_id])

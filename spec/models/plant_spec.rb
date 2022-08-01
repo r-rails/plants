@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Plant, type: :model do
   describe "plants creation by the model" do
     context "with valid attributes" do

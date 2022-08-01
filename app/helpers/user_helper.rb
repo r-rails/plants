@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UserHelper
   def list_app_users
     render_haml <<-HAML

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe User, type: :model do
   describe "user creation by the model" do
     context "with valid attributes" do
