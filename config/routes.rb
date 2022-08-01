@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get "user/show"
   root "home#index"
   devise_for :users
 
-  resources :profile, only: :show
+  resources :profile, only: [:show], param: :slug
 
   resources :plants do
     resources :comments, module: :plants

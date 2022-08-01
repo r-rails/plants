@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,88 +10,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.0].define(version: 20_220_730_161_524) do
-=======
-ActiveRecord::Schema[7.0].define(version: 2022_07_31_194549) do
->>>>>>> main
+ActiveRecord::Schema[7.0].define(version: 2022_08_01_200923) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'action_text_rich_texts', force: :cascade do |t|
-    t.string 'name', null: false
-    t.text 'body'
-    t.string 'record_type', null: false
-    t.bigint 'record_id', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index %w[record_type record_id name], name: 'index_action_text_rich_texts_uniqueness', unique: true
+  create_table "action_text_rich_texts", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "body"
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
   end
 
-  create_table 'active_storage_attachments', force: :cascade do |t|
-    t.string 'name', null: false
-    t.string 'record_type', null: false
-    t.bigint 'record_id', null: false
-    t.bigint 'blob_id', null: false
-    t.datetime 'created_at', null: false
-    t.index ['blob_id'], name: 'index_active_storage_attachments_on_blob_id'
-    t.index %w[record_type record_id name blob_id], name: 'index_active_storage_attachments_uniqueness',
-                                                    unique: true
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table 'active_storage_blobs', force: :cascade do |t|
-    t.string 'key', null: false
-    t.string 'filename', null: false
-    t.string 'content_type'
-    t.text 'metadata'
-    t.string 'service_name', null: false
-    t.bigint 'byte_size', null: false
-    t.string 'checksum'
-    t.datetime 'created_at', null: false
-    t.index ['key'], name: 'index_active_storage_blobs_on_key', unique: true
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum"
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table 'active_storage_variant_records', force: :cascade do |t|
-    t.bigint 'blob_id', null: false
-    t.string 'variation_digest', null: false
-    t.index %w[blob_id variation_digest], name: 'index_active_storage_variant_records_uniqueness', unique: true
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table 'comments', force: :cascade do |t|
-    t.bigint 'user_id', null: false
-    t.text 'body'
-    t.string 'commentable_type', null: false
-    t.bigint 'commentable_id', null: false
-    t.datetime 'deleted_at'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index %w[commentable_type commentable_id], name: 'index_comments_on_commentable'
-    t.index ['deleted_at'], name: 'index_comments_on_deleted_at'
-    t.index ['user_id'], name: 'index_comments_on_user_id'
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "body"
+    t.string "commentable_type", null: false
+    t.bigint "commentable_id", null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
+    t.index ["deleted_at"], name: "index_comments_on_deleted_at"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-<<<<<<< HEAD
-  create_table 'garden_plants', force: :cascade do |t|
-    t.bigint 'user_id', null: false
-    t.bigint 'plant_id', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['plant_id'], name: 'index_garden_plants_on_plant_id'
-    t.index %w[user_id plant_id], name: 'by_user_and_plant', unique: true
-    t.index ['user_id'], name: 'index_garden_plants_on_user_id'
-  end
-
-  create_table 'plants', force: :cascade do |t|
-    t.string 'name'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.text 'description'
-    t.string 'climate'
-    t.string 'ideallight'
-    t.string 'watering'
-    t.string 'category'
-    t.string 'latin'
-=======
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -127,35 +98,36 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_31_194549) do
     t.string "latin"
     t.string "slug"
     t.index ["slug"], name: "index_plants_on_slug", unique: true
->>>>>>> main
   end
 
-  create_table 'seed_migration_data_migrations', id: :serial, force: :cascade do |t|
-    t.string 'version'
-    t.integer 'runtime'
-    t.datetime 'migrated_on', precision: nil
+  create_table "seed_migration_data_migrations", id: :serial, force: :cascade do |t|
+    t.string "version"
+    t.integer "runtime"
+    t.datetime "migrated_on", precision: nil
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'email', default: '', null: false
-    t.string 'encrypted_password', default: '', null: false
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.string 'username'
-    t.string 'confirmation_token'
-    t.datetime 'confirmed_at'
-    t.datetime 'confirmation_sent_at'
-    t.index ['confirmation_token'], name: 'index_users_on_confirmation_token', unique: true
-    t.index ['email'], name: 'index_users_on_email', unique: true
-    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "slug"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
-  add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
-  add_foreign_key 'active_storage_variant_records', 'active_storage_blobs', column: 'blob_id'
-  add_foreign_key 'comments', 'users'
-  add_foreign_key 'garden_plants', 'plants'
-  add_foreign_key 'garden_plants', 'users'
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "users"
+  add_foreign_key "garden_plants", "plants"
+  add_foreign_key "garden_plants", "users"
 end
