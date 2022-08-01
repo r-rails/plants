@@ -21,5 +21,10 @@ module Plants
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.active_storage.content_types_to_serve_as_binary -= ["image/svg+xml"]
+    # 
+    # These paths will be ignored when redirecting the user to last visited page
+    # Devise routes need to always be here, so that a redirect loop does not occur
+    # after signing in
+    config.ignored_paths = %W(/users/sign_in /users/sign_up /users/password /users/sign_out /users/confirm_password)
   end
 end
