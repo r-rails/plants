@@ -13,16 +13,15 @@ class ApplicationController < ActionController::Base
   end
 
   def persist_last_visited_path
-    unless Rails.configuration.ignored_paths.include?(request.path)
-      session[:last_visited_path] = request.path
-    end
+    session[:last_visited_path] = request.path unless Rails.configuration.ignored_paths.include?(request.path) || request.path == "/users/confirmation"
   end
 
   def after_sign_in_path_for(resource)
-    if session[:last_visited_path].present?
-      session[:last_visited_path]
-    else
-      root_path
-    end
+    stored_location_for(resource) ||
+      if resource.is_a?(User) && Rails.configuration.ignored_paths.exclude?(request.path)
+        super
+      else
+        session[:last_visited_path].present? ? session[:last_visited_path] : root_path
+      end
   end
 end

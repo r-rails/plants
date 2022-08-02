@@ -94,4 +94,3 @@ gem "hamlit-rails", "~> 0.2.3"
 gem "icodi"
 gem "kaminari"
 gem "ransack", "~> 3.2"
-gem "rubocop", "~> 1.32", require: false
