@@ -4,7 +4,8 @@
   - User.all.each do |user|
     .grid.grid-cols-3.grid-rows-5.shadow-lg.border.rounded
       .row-span-5.items-center.p-4.flex.flex-1.justify-center
-        = image_tag user.avatar, size: '100'
+        - if user.avatar.attached?
+          = image_tag user.avatar, size: '100'
       .flex.flex-col.justify-center.col-span-2.border-b
         .text-center.font-serif.text-xl.cursor-pointer.text-blue-400.hover:underline
           = link_to user.username, profile_path(user)
