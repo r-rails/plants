@@ -54,6 +54,9 @@ GEM
     activerecord (7.0.3.1)
       activemodel (= 7.0.3.1)
       activesupport (= 7.0.3.1)
+    activerecord-filter (6.1.0.2)
+      activerecord (>= 6.1.0)
+      arel-extensions (>= 6.1.0)
     activestorage (7.0.3.1)
       actionpack (= 7.0.3.1)
       activejob (= 7.0.3.1)
@@ -68,12 +71,19 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    ar_lazy_preload (1.0.0)
+      rails (>= 5.2)
+    arel-extensions (6.1.0)
+      activerecord (>= 6.1.0)
     ast (2.4.2)
+    audited (5.0.2)
+      activerecord (>= 5.0, < 7.1)
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.12.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    cancancan (3.4.0)
     capybara (3.37.1)
       addressable
       matrix
@@ -99,6 +109,8 @@ GEM
     diff-lcs (1.5.0)
     digest (3.1.0)
     erubi (1.10.0)
+    et-orbi (1.2.7)
+      tzinfo
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.2.0)
@@ -109,6 +121,9 @@ GEM
     ffi (1.15.5)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
+    fugit (1.5.3)
+      et-orbi (~> 1, >= 1.2.7)
+      raabro (~> 1.4)
     globalid (1.0.0)
       activesupport (>= 5.0)
     haml (5.2.2)
@@ -170,6 +185,13 @@ GEM
     mini_magick (4.11.0)
     mini_mime (1.1.2)
     minitest (5.16.2)
+    motor-admin (0.3.3)
+      activerecord-filter (>= 5.2)
+      ar_lazy_preload (~> 1.0)
+      audited (~> 5.0)
+      cancancan (~> 3.0)
+      fugit (~> 1.0)
+      rails (>= 5.2)
     msgpack (1.5.4)
     net-imap (0.2.3)
       digest
@@ -201,6 +223,7 @@ GEM
     public_suffix (4.0.7)
     puma (5.6.4)
       nio4r (~> 2.0)
+    raabro (1.4.0)
     racc (1.6.0)
     rack (2.2.4)
     rack-test (2.0.2)
@@ -362,6 +385,7 @@ DEPENDENCIES
   jbuilder
   kaminari
   letter_opener (~> 1.8)
+  motor-admin
   pg (~> 1.1)
   pry
   puma (~> 5.0)

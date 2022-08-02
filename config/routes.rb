@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  mount Motor::Admin => '/motor_admin'
   root "home#index"
   devise_for :users
 
@@ -14,5 +15,4 @@ Rails.application.routes.draw do
 
   resources :garden_plant, only: :destroy
   get "/people", to: "home#people"
-  # post "/add_comment", to: "comments#create"
 end
