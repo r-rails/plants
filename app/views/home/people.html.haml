@@ -1,3 +1,16 @@
-.container
-  .flex.text-2xl.pb-4.font-serif List of all users:
-  = list_app_users
+-# people cards
+
+.grid.gap-6.md:grid-cols-2
+  - User.all.each do |user|
+    .grid.grid-cols-3.grid-rows-5.shadow-lg.border.rounded
+      .row-span-5.items-center.p-4.flex.flex-1.justify-center
+        = image_tag user.avatar, size: '100'
+      .flex.flex-col.justify-center.col-span-2.border-b
+        .text-center.font-serif.text-xl.cursor-pointer.text-blue-400.hover:underline
+          = link_to user.username, profile_path(user)
+      .col-span-2.row-span-3.border-b
+        .p-2.italic about
+      .flex.flex-col.justify-center.text-center.border-r
+        = "#{ user.garden_plants.count } plants"
+      .flex.flex-col.justify-center.text-center
+        = "#{ user.comments.count} comments"
