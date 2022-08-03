@@ -14,5 +14,4 @@ Rails.application.routes.draw do
 
   resources :garden_plant, only: :destroy
   get "/people", to: "home#people"
-  # post "/add_comment", to: "comments#create"
 end
