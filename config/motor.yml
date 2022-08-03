@@ -1,6 +1,6 @@
 ---
 engine_version: 0.3.3
-file_version: 2022-08-03 10:51:32.025308000 Z
+file_version: 2022-08-03 11:16:18.712704000 Z
 resources:
 - name: action_text/encrypted_rich_text
   preferences:
@@ -9,8 +9,6 @@ resources:
 - name: plant
   preferences:
     columns:
-    - access_type: hidden
-      name: updated_at
     - access_type: hidden
       name: created_at
     - access_type: hidden
@@ -21,13 +19,30 @@ resources:
       name: climate
     - access_type: hidden
       name: description
-  updated_at: 2022-08-03 10:51:32.025308000 +00:00
+    - access_type: hidden
+      name: updated_at
+  updated_at: 2022-08-03 10:56:43.266036000 +00:00
 configs:
 - key: header.links
   value:
   - name: "⭐ Star on GitHub"
     path: https://github.com/motor-admin/motor-admin-rails
   updated_at: 2022-08-02 21:31:43.935363000 +00:00
+- key: resources.plant.columns.order
+  value:
+  - id
+  - img_attachment
+  - name
+  - latin
+  - description
+  - climate
+  - ideallight
+  - watering
+  - category
+  - slug
+  - updated_at
+  - created_at
+  updated_at: 2022-08-03 11:16:18.712704000 +00:00
 queries: []
 dashboards: []
 forms: []
