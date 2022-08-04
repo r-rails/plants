@@ -85,13 +85,13 @@ group :test do
   gem "webdrivers"
 end
 
-# gem 'administrate', github: "muriloime/administrate"
-# gem 'administrate-field-active_storage'
 gem "devise"
 gem "friendly_id", "~> 5.4.0"
 gem "haml", "~> 5.2"
 gem "hamlit-rails", "~> 0.2.3"
-gem "icodi"
-gem "kaminari"
-gem "ransack", "~> 3.2"
-gem "motor-admin"
+gem "icodi" # random svg
+gem "kaminari" # pagination
+gem "ransack", "~> 3.2" # search
+gem "motor-admin" # admin dashboard
+gem "sentry-ruby"
+gem "sentry-rails"
