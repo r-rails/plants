@@ -42,10 +42,10 @@
 
   /* flash notice */
   .notice { 
-   @apply border border-solid p-5 rounded items-center fixed left-1/4 top-5
+    @apply border border-solid p-5 rounded items-center absolute top-0 h-16 w-fit top-2.5 right-2.5
   }
 
   .footer { @apply
-    top-full sticky border-t
+    top-full sticky 
   }
 }
