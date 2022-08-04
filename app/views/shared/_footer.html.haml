@@ -1,0 +1,14 @@
+-# footer
+
+.bg-gradient-to-b.from-green-100.to-green-200
+  %footer.flex.flex-wrap.items-center.justify-between.pb-2
+    .container.mx-auto.flex.flex-col.flex-wrap.items-center.justify-between
+      %ul.flex.mx-auto.items-center
+        = link_to 'https://join.slack.com/t/rrails/shared_invite/zt-1e1e0dsk0-n~1tmbR245dahezofmuDNw', class: 'flex p-2 md:p-4', target: :blank do
+          %li.cursor-pointer
+            = image_tag "slack.svg", {width: "90"}
+        = link_to 'https://github.com/r-rails', class: 'flex p-2 md:p-4', target: :blank do
+          %li.cursor-pointer
+            = image_tag "github.svg", {width: "45"}
+      .flex.mx-auto.text-center
+        RR © 2022
