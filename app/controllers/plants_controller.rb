@@ -28,6 +28,10 @@ class PlantsController < ApplicationController
     end
   end
 
+  def category_hovercard
+    render partial: "plants/category_hovercard", layout: false
+  end
+
   private
 
   def plant_params

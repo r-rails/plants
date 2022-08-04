@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :plants do
     resources :comments, module: :plants
+    get :category_hovercard
   end
 
   post "add_to_garden", to: "garden_plant#create"
