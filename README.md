@@ -9,8 +9,4 @@ Install ruby 3.1.2:
 
 run `bin/dev`
 
-gem 'administrate' is installed.
-Administrate is a library for Rails apps that automatically generates admin dashboards.
-Dashboard is available at: `/admin`
-
-app scheme at: https://www.tldraw.com/r/1657013053860
+Dashboard is available at: `/motor_admin`
