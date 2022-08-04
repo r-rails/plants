@@ -6,15 +6,15 @@
     .row-span-3.border
       = plant_img(@plant)
     .row-span-3.border.flex.flex-col.justify-evenly.bg-gradient-to-b.from-blue-200.to-green-200.rounded
-      .text-center
+      .text-center.text-sm
         %div Watering
-        .font-serif.text-xl= @plant.watering
-      .text-center
+        .font-serif.text-xl.mx-3.mt-2= @plant.watering
+      .text-center.text-sm
         .p2 Ideal Lighting
-        .font-serif.text-xl= @plant.ideallight
-      .text-center
+        .font-serif.text-xl.mt-2= @plant.ideallight
+      .text-center.text-sm
         %div Climate
-        .font-serif.text-xl= @plant.climate
+        .font-serif.text-xl.mt-2= @plant.climate
 
     .grid.grid-rows-3.text-xl
       .border.text-center.p-2
