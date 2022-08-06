@@ -14,6 +14,7 @@
     .flex.items-center.gap-2
       - if user_signed_in?
         .btn-primary= link_to "Hi, #{current_user.username}", profile_path(current_user)
+        = link_to "Settings", edit_user_registration_path(current_user), class: 'btn-primary'
         = button_to (image_tag("logout.png", size: "100")), destroy_user_session_path, :method => 'delete'
       - else
         = link_to 'Login', new_user_session_path, :class => 'btn-primary'
