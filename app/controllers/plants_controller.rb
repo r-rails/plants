@@ -29,11 +29,13 @@ class PlantsController < ApplicationController
   end
 
   def category_hovercard
+    @category = Plant.friendly.find(params[:plant_id])&.category
+
     render partial: "plants/category_hovercard", layout: false
   end
 
   def gardenplant_hovercard
-    @plant = Plant.friendly.find(params[:id])
+    @plant = Plant.friendly.find(params[:plant_id])
 
     render partial: "plants/gardenplant_hovercard", layout: false
   end
