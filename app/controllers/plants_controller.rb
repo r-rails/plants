@@ -30,7 +30,7 @@ class PlantsController < ApplicationController
 
   def category_hovercard
     @category = Plant.friendly.find(params[:plant_id])&.category
-    
+
     render partial: "plants/category_hovercard", layout: false
   end
 
