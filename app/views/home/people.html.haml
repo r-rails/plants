@@ -1,7 +1,7 @@
 -# people cards
 
 .grid.gap-6.md:grid-cols-2
-  - User.order(username: :asc).all.each do |user|
+  - User.order(username: :asc).with_attached_avatar.each do |user|
     .grid.grid-cols-3.grid-rows-5.shadow-lg.border.rounded
       .row-span-5.items-center.p-4.flex.flex-1.justify-center
         - if user.avatar.attached?
