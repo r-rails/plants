@@ -8,6 +8,6 @@ class HomeController < ApplicationController
   end
 
   def people
-    @users= User.order(username: :asc).with_attached_avatar
+    @users = User.order(username: :asc).with_attached_avatar
   end
 end
