@@ -5,18 +5,6 @@
   = paginate @user_plants
 .bg-white
   .grid.grid-cols-1.gap-y-10.sm:grid-cols-2.md:grid-cols-4.lg:grid-cols-5.gap-x-6.mt-10
-<<<<<<< HEAD
-    - @user_plants.each do |plant|
-      .grid.rounded-lg.overflow-hidden.shadow-lg 
-        .flex.items-center.hover:bg-yellow-50.justify-center.w-full.h-full
-          = plant_img(plant)
-        .items-center.mx-3
-          .text-center.font-serif.mt-3.text-base.cursor-pointer.font-semibold.text-green-900.hover:underline.relative{ "data-controller" => "hovercard", "data-hovercard-url-value" => plant_gardenplant_hovercard_path(plant), "data-action" => "mouseenter->hovercard#show mouseleave->hovercard#hide" }
-            = link_to plant.name, plant_path(plant)
-          .text-center.mt-2.mb-3
-            = plant.latin
-.flex.p-2= paginate @user_plants            
-=======
     - @user.plants.all.each do |plant|
       .grid.rounded-lg.shadow-lg.overflow-hidden 
         .flip
@@ -24,11 +12,9 @@
             .card-front.items-center.justify-center.w-full.h-full
             = plant_img(plant)
             .card-back.bg-blue-200.items-center.justify-center.w-full.h-full.overflow-hidden{ "data-controller" => "hovercard", "data-hovercard-url-value" => plant_gardenplant_hovercard_path(plant), "data-action" => "mouseenter->hovercard#show mouseleave->hovercard#hide" }
-              
             
         .items-center.mx-3
         .text-center.font-serif.mt-3.text-base.cursor-pointer.font-semibold.text-green-900.hover:underline
           = link_to plant.name, plant_path(plant)
         .text-center.mt-2.mb-3
           = plant.latin
->>>>>>> eeac209 (working flipcards in garden)
