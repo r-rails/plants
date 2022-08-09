@@ -1,10 +1,9 @@
+
 %div{ "data-hovercard-target" => "card" }
-  .text-center.text-sm
-    %div Watering
-    .font-serif.text-xl.mx-3.mt-2= @plant.watering
-  .text-center.text-sm
-    .p2 Ideal Lighting
-    .font-serif.text-xl.mt-2= @plant.ideallight
-  .text-center.text-sm
-    %div Climate
-    .font-serif.text-xl.mt-2= @plant.climate
+  .bg-gradient-to-b.from-blue-200.to-green-200.h-full.overflow-hidden 
+    .text-center.text-sm.mt-12
+      %div Watering
+      .font-serif.text-xl.mx-3.mt-2= @plant.watering
+    .text-center.text-sm.mt-6.mb-24
+      .p2 Ideal Lighting
+      .font-serif.text-xl.mt-2= @plant.ideallight
