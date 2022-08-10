@@ -67,15 +67,6 @@
     transform: rotateY(180deg);
   }
 
-  .card-back:hover:after {
-    content: "";
-    height: calc(100% + 1rem);
-    position: absolute;
-    width: 100%;
-    z-index: -5;
-    bottom: -1rem;
-  }
-
   .card-front,
   .card-back {
     position: absolute;

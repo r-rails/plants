@@ -11,7 +11,13 @@
           .flip-content
             .card-front.items-center.justify-center.w-full.h-full
             = plant_img(plant)
-            .card-back.bg-blue-200.items-center.justify-center.w-full.h-full.overflow-hidden{ "data-controller" => "hovercard", "data-hovercard-url-value" => plant_gardenplant_hovercard_path(plant), "data-action" => "mouseenter->hovercard#show mouseleave->hovercard#hide" }
+            .card-back.items-center.justify-center.content-center.bg-gradient-to-b.from-blue-200.to-green-200.h-full.overflow-hidden.border.garden-card 
+              .text-center.text-sm.mt-12
+                %div Watering
+                .font-serif.text-lg.mx-4.mt-2= plant.watering
+              .text-center.text-sm.mt-6.mb-24
+                .p2 Ideal Lighting
+                .font-serif.text-lg.mt-2.mx-4= plant.ideallight
             
         .items-center.mx-3
         .text-center.font-serif.mt-3.text-base.cursor-pointer.font-semibold.text-green-900.hover:underline
