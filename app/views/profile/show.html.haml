@@ -8,16 +8,16 @@
     - @user_plants.each do |plant|
       .grid.rounded-lg.shadow-lg.overflow-hidden 
         .flip
-          .flip-content
+          .flip-content.self-center
             .card-front.items-center.justify-center.w-full.h-full
             = plant_img(plant)
-            .card-back.items-center.justify-center.content-center.bg-gradient-to-b.from-blue-200.to-green-200.h-full.overflow-hidden.border.garden-card 
-              .text-center.text-sm.mt-12
+            .card-back.bg-gradient-to-b.from-blue-200.to-green-200.h-full.overflow-hidden.border
+              .text-center.md:text-xs.text-xs.justify-items-center.md:mt-4.mt-12
                 %div Watering
-                .font-serif.text-lg.mx-4.mt-2= plant.watering
-              .text-center.text-sm.mt-6.mb-24
+                .font-serif.font-semibold.sm:text-lg.md:text-sm.text-lg.mx-4= plant.watering
+              .text-center.md:text-xs.text-xs.mt-3.mb-24
                 .p2 Ideal Lighting
-                .font-serif.text-lg.mt-2.mx-4= plant.ideallight
+                .font-serif.font-semibold.sm:text-lg.md:text-sm.text-lg.mx-4= plant.ideallight
             
         .items-center.mx-3
         .text-center.font-serif.mt-3.text-base.cursor-pointer.font-semibold.text-green-900.hover:underline
