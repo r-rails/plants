@@ -8,21 +8,12 @@
     %th
       .flex.text-left.font-semibold Name
     %th
-      .flex.text-left.font-semibold Ideal Light
-    %th
-      .flex.text-left.font-semibold Watering
-    %th
-      .flex.text-left.font-semibold Climate
-    %th
       .flex.text-left.font-semibold Category
 
   - @plants.each do |plant|
     %tr.bg-white.odd:bg-gray-100.hover:text-green-700
       %td.p-2.hover:underline= link_to plant.latin, plant
       %td.p-2= plant.name
-      %td= plant.ideallight
-      %td= plant.watering
-      %td= plant.climate
       %td= plant.category
       
 .flex.p-2= paginate @plants
