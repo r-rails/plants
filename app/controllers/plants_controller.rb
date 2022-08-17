@@ -30,14 +30,13 @@ class PlantsController < ApplicationController
 
   def update
     @plant = Plant.friendly.find(params[:id])
-    @plant.img.attach(params[:img])
-    if @plant.img.attached?
+    if @plant.update(plant_params)
       #success
       redirect_to @plant
     else
       #failure
     end
-    redirect_to plants_path
+   
   end
 
   def category_hovercard
