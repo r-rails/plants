@@ -7,8 +7,9 @@
       = plant_img(@plant)
     .row-span-3.border.flex.flex-col.justify-evenly.bg-gradient-to-b.from-blue-200.to-green-200.rounded
 
-      %div
-        = render 'add_plant_img'
+      -# Form for the user to add his image
+      -# %div
+      -#   = render 'add_plant_img'
       .text-center.text-sm
         %div Watering
         .font-serif.text-xl.mx-3.mt-2= @plant.watering
@@ -35,7 +36,7 @@
         = render 'add_plant'
       .border.flex.flex-col.justify-evenly.text-center
         = "#{ ppl_have } people have this plant"
-      
+
   -# discussion board part of a grid
   .grid.grid-rows-3.gap-2
     .row-span-2.max-h-96.overflow-auto
