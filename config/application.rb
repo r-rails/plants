@@ -10,8 +10,6 @@ Bundler.require(*Rails.groups)
 
 module Plants
   class Application < Rails::Application
-    Rails.application.config.active_storage.variant_processor = :mini_magick
-
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
