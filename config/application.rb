@@ -8,6 +8,8 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+Rails.application.config.active_storage.variant_processor = :mini_magick
+
 module Plants
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
