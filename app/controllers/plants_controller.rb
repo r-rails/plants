@@ -28,17 +28,6 @@ class PlantsController < ApplicationController
     end
   end
 
-  def update
-    @plant = Plant.friendly.find(params[:id])
-    if @plant.update(plant_params)
-      #success
-      redirect_to @plant
-    else
-      #failure
-    end
-   
-  end
-
   def category_hovercard
     @category = Plant.friendly.find(params[:plant_id])&.category
 
