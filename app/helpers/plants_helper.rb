@@ -3,7 +3,11 @@
 module PlantsHelper
   def plant_img(plant)
     if plant.img.present?
-      image_tag plant.img
+      image_tag plant.img.variant(
+        resize_to_fill: [400, 400],
+        convert: "jpg",
+        saver: {quality: 50}
+      )
     else
       image_tag "favicon.png"
     end
