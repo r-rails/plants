@@ -5,8 +5,8 @@ module PlantsHelper
     if plant.img.present?
       image_tag plant.img.variant(
         resize_to_fill: [400, 400],
-        convert: "jpg",
-        saver: {quality: 50}
+        convert: "webp",
+        saver: {quality: 100}
       )
     else
       image_tag "favicon.png"
