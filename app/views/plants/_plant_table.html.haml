@@ -4,6 +4,8 @@
 %table.w-full.mt-4
   %tr.border-b.font-serif
     %th
+      .flex.text-left.font-semibold Image
+    %th
       .flex.text-left.font-semibold Latin
     %th
       .flex.text-left.font-semibold Name
@@ -12,6 +14,7 @@
 
   - @plants.each do |plant|
     %tr.bg-white.odd:bg-gray-100.hover:text-green-700
+      %td.p-2= link_to plant_img_index(plant), plant
       %td.p-2.hover:underline= link_to plant.latin, plant
       %td.p-2= plant.name
       %td= plant.category
