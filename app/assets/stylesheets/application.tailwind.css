@@ -1,15 +1,14 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
-@import 'actiontext.css';
+@import "actiontext.css";
 
 @layer components {
-  .layout { @apply
-    w-11/12 mx-auto py-4 md:py-6 mb-4 md:mb-20
+  .layout {
+    @apply w-11/12 mx-auto py-4 md:py-6 mb-4 md:mb-20;
   }
 
   .navlink {
-    @apply font-semibold block cursor-pointer p-2 hover:text-green-700
+    @apply font-semibold block cursor-pointer p-2 hover:text-green-700;
   }
 
   .active {
@@ -19,8 +18,8 @@
   .btn-primary {
     @apply py-2 px-4 bg-blue-200 rounded cursor-pointer;
   }
-  .btn-primary:hover { 
-    @apply bg-blue-300
+  .btn-primary:hover {
+    @apply bg-blue-300;
   }
 
   .text-field {
@@ -31,7 +30,7 @@
     @apply px-2;
     @apply no-underline bg-white rounded-full;
   }
-  
+
   .pagination a:hover {
     @apply bg-gray-200;
   }
@@ -41,12 +40,12 @@
   }
 
   /* flash notice */
-  .notice { 
-    @apply border border-solid p-5 rounded items-center absolute top-0 h-16 w-fit top-2.5 right-2.5
+  .notice {
+    @apply border border-solid p-5 rounded items-center absolute top-0 h-16 w-fit top-2.5 right-2.5;
   }
 
-  .footer { @apply
-    top-full sticky 
+  .footer {
+    @apply top-full sticky;
   }
 
   .flip {
@@ -72,7 +71,7 @@
     position: absolute;
     height: 100%;
     top: 0;
-	  left: 0;
+    left: 0;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
@@ -87,3 +86,5 @@
     z-index: 5;
   }
 }
+
+@tailwind utilities;
