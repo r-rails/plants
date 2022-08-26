@@ -3,7 +3,7 @@
 class PlantsController < ApplicationController
   def index
     @q = Plant.ransack(params[:q])
-    @plants = @q.result.order(:latin).page(params[:page]).per(20)
+    @plants = @q.result.order(:latin).page(params[:page]).per(12)
   end
 
   def show
