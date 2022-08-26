@@ -1,2 +1,8 @@
-%div
-  %h1.font-semibold.text-3xl.text-lime-500 How should our homepage look like?
+.max-w-5xl.mx-auto.lg:grid.grid-cols-1.lg:grid-cols-12.gap-x-12.gap-y-4.relative.z-20
+  .lg:col-span-12.text-center
+    .flex.justify-center.mb-4
+      = image_tag "plant_logo.png", size: "200"
+    %h1.mb-4.text-5xl.font-semibold.text-gray-800.text-center.mt-3 PlantzApp
+    %p.leading-snug.text-gray-700.text-lg.max-w-3xl.mx-auto.pb-6 Find new house plants, ask the community and get personalized watering reminders.
+  .lg:col-span-12
+    %h2.font-semibold.text-2xl.text-gray-700 Featured Houseplants
