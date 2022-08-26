@@ -93,6 +93,4 @@ gem "icodi" # random svg
 gem "kaminari" # pagination
 gem "ransack", "~> 3.2" # search
 gem "motor-admin" # admin dashboard
-gem "sentry-ruby"
-gem "sentry-rails"
 gem "rack-attack" # protect app from bad clients.
