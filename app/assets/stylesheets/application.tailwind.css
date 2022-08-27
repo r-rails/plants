@@ -4,7 +4,7 @@
 
 @layer components {
   .layout {
-    @apply w-11/12 mx-auto py-4 md:py-6 mb-4 md:mb-20;
+    @apply w-9/12 mx-auto py-4 md:py-6 mb-4 md:mb-20;
   }
 
   .navlink {
