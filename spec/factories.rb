@@ -13,7 +13,7 @@ FactoryBot.define do
     name { Faker::Lorem.word }
     climate { "Sunnytime" }
     latin { Faker::Lorem.sentence(word_count: 2) }
-    category { "Hanging" }
+    category { Faker::Lorem.word.capitalize }
     ideallight { "Bright light" }
     watering { "Keep moist between watering. Can be a bit dry between watering" }
   end
