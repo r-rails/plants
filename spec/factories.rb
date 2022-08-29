@@ -25,7 +25,7 @@ FactoryBot.define do
   end
 
   factory(:garden_plant) do
-    user 
+    user
     plant
   end
 end

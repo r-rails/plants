@@ -9,10 +9,10 @@ RSpec.describe "Home Page", type: :system do
     visit root_path
     expect(page).not_to have_text(Plant.first.latin)
 
-    click_link 'Top 10'
+    click_link "Top 10"
     expect(page).to have_text(Plant.first.latin)
-    
-    click_link 'Most Recent'
+
+    click_link "Most Recent"
     expect(page).not_to have_text(Plant.first.latin)
   end
 end
