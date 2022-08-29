@@ -2,6 +2,7 @@
 
 class HomeController < ApplicationController
   def index
+    @q = Plant.ransack(params[:q])
   end
 
   def plants
