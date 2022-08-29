@@ -38,7 +38,7 @@ class PlantsController < ApplicationController
     @top_ten_plants = Plant.joins(:users)
                            .group(:id)
                            .order('COUNT(users.id) DESC')
-                           .limit(10)
+                           .limit(10) || Plant.all.sample(10)
   end
 
   private
