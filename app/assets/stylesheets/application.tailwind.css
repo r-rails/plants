@@ -23,7 +23,11 @@
   }
 
   .text-field {
-    @apply block px-3 pt-2 mb-4 border-gray-300 rounded;
+    @apply block px-3 pt-2 mb-4 border-gray-300;
+  }
+
+  .without-ring {
+    @apply focus:ring-0 focus:ring-offset-0;
   }
 
   .pagination * {
