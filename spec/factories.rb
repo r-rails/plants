@@ -12,7 +12,7 @@ FactoryBot.define do
     description { Faker::Lorem.sentence }
     name { Faker::Lorem.word }
     climate { "Sunnytime" }
-    latin { "Aeschynanthus lobianus" }
+    latin { Faker::Lorem.sentence(word_count: 2) }
     category { "Hanging" }
     ideallight { "Bright light" }
     watering { "Keep moist between watering. Can be a bit dry between watering" }
@@ -22,5 +22,10 @@ FactoryBot.define do
     body { Faker::Lorem.sentence(word_count: 7) }
     commentable { nil }
     deleted_at { nil }
+  end
+
+  factory(:garden_plant) do
+    user
+    plant
   end
 end

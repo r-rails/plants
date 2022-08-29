@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     get :gardenplant_hovercard
   end
 
+  get "/top_ten_plants", to: "plants#top_ten_plants"
+
   post "add_to_garden", to: "garden_plant#create"
   resources :garden_plant, only: :destroy
 

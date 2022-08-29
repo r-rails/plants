@@ -34,6 +34,13 @@ class PlantsController < ApplicationController
     render partial: "plants/category_hovercard", layout: false
   end
 
+  def top_ten_plants
+    @top_ten_plants = Plant.joins(:users)
+      .group(:id)
+      .order("COUNT(users.id) DESC")
+      .limit(10) || Plant.all.sample(10)
+  end
+
   private
 
   def plant_params
