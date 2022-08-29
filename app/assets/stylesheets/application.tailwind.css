@@ -23,7 +23,7 @@
   }
 
   .text-field {
-    @apply block px-3 pt-2 mb-4 border-gray-300;
+    @apply block px-3 pt-2 mb-4 border-gray-300 rounded;
   }
 
   .without-ring {
