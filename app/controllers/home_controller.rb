@@ -2,6 +2,7 @@
 
 class HomeController < ApplicationController
   def index
+    @most_recent_plants = Plant.order(created_at: :desc).limit(6)
   end
 
   def plants

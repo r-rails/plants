@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   get "/top_ten_plants", to: "plants#top_ten_plants"
+  get "/most_recent_plants", to: "plants#most_recent_plants"
 
   post "add_to_garden", to: "garden_plant#create"
   resources :garden_plant, only: :destroy

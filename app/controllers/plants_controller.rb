@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class PlantsController < ApplicationController
+
   def index
     @q = Plant.ransack(params[:q])
     @plants = @q.result.order(:latin).page(params[:page]).per(12)
@@ -34,6 +35,10 @@ class PlantsController < ApplicationController
     render partial: "plants/category_hovercard", layout: false
   end
 
+  def most_recent_plants 
+    @most_recent_plants = Plant.order(created_at: :desc).limit(6) 
+  end
+
   def top_ten_plants
     @top_ten_plants = Plant.joins(:users)
       .group(:id)
@@ -47,4 +52,5 @@ class PlantsController < ApplicationController
     params.require(:plant).permit(:name, :description, :img, :climate, :ideallight,
       :watering, :category, :latin)
   end
+
 end
