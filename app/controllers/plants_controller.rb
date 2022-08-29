@@ -38,6 +38,11 @@ class PlantsController < ApplicationController
     @most_recent_plants = Plant.order(created_at: :desc).limit(6)
   end
 
+  def plants_category
+    @categories = Plant.pluck(:category).uniq.sort
+    @q = Plant.ransack(params[:q])
+  end
+
   def top_ten_plants
     @top_ten_plants = Plant.joins(:users)
       .group(:id)
