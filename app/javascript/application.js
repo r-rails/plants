@@ -8,11 +8,11 @@ let tabs = document.querySelectorAll(".house-plant-tabs");
 
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
-    tabs.forEach((sibling) => { 
-      sibling.ariaCurrent = ""
-      sibling.classList.remove("bg-blue-700")
+    tabs.forEach((sibling) => {
+      sibling.classList.remove("bg-blue-700");
+      sibling.classList.add("bg-emerald-300");
     });
-    tab.ariaCurrent = "page"
+    tab.classList.remove("bg-emerald-300");
     tab.classList.add("bg-blue-700");
   });
 });
