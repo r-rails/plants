@@ -6,7 +6,7 @@ RSpec.describe "Home Page", type: :system do
   end
   context "when the Top 10 tab is clicked" do
     it "displays the top 10 most added plants in the dB" do
-      top_plant = create(:garden_plant, plant: Plant.first)
+      top_plant = create(:garden_plant, plant: Plant.first).plant
       no_user_plant = create(:plant)
 
       visit root_path
@@ -14,7 +14,7 @@ RSpec.describe "Home Page", type: :system do
 
       click_link "Top 10"
       expect(page).not_to have_text(no_user_plant.latin)
-      expect(page).to have_text(Plant.first.latin)
+      expect(page).to have_text(top_plant.latin)
 
       click_link "Most Recent"
       expect(page).to have_text(no_user_plant.latin)
