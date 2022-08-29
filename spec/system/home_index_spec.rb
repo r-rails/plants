@@ -35,21 +35,21 @@ RSpec.describe "Home Page", type: :system do
 
   context "when category tab is clicked" do
     it "displays the categories of the plants in the dB" do
-      stubbed_plant = create(:plant, category: 'Aaaaaaaaaaaaa')
+      first_category = Plant.pluck(:category).uniq.min
 
       visit root_path
 
       click_link "Top 10"
 
-      expect(page.has_field? "q[category_cont]", type: :hidden, with: stubbed_plant.category).to be false
+      expect(page.has_field?("q[category_cont]", type: :hidden, with: first_category)).to be false
 
       click_link "Most Recent"
 
-      expect(page.has_field? "q[category_cont]", type: :hidden, with: stubbed_plant.category).to be false
+      expect(page.has_field?("q[category_cont]", type: :hidden, with: first_category)).to be false
 
       click_link "Categories"
 
-      expect(page.has_field? "q[category_cont]", type: :hidden, with: stubbed_plant.category).to be true
+      expect(page.has_field?("q[category_cont]", type: :hidden, with: first_category)).to be true
     end
   end
 end
