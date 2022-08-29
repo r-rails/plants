@@ -25,9 +25,31 @@ RSpec.describe "Home Page", type: :system do
     it "displays the most recently created plants in the dB" do
       first_plant = Plant.order(created_at: :desc).first
       last_plant = Plant.order(created_at: :desc).last
-      visit root_path
+
+      visit most_recent_plants_path
+
       expect(page).to have_text(first_plant.latin)
       expect(page).not_to have_text(last_plant.latin)
+    end
+  end
+
+  context "when category tab is clicked" do
+    it "displays the categories of the plants in the dB" do
+      stubbed_plant = create(:plant, category: 'Aaaaaaaaaaaaa')
+
+      visit root_path
+
+      click_link "Top 10"
+
+      expect(page.has_field? "q[category_cont]", type: :hidden, with: stubbed_plant.category).to be false
+
+      click_link "Most Recent"
+
+      expect(page.has_field? "q[category_cont]", type: :hidden, with: stubbed_plant.category).to be false
+
+      click_link "Categories"
+
+      expect(page.has_field? "q[category_cont]", type: :hidden, with: stubbed_plant.category).to be true
     end
   end
 end
