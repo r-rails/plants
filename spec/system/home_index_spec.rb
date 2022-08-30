@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.describe "Home Page", type: :system do
   before do
     15.times { create(:garden_plant) }
