@@ -91,6 +91,10 @@
     transform: rotateY(180deg);
     z-index: 5;
   }
+
+  #swiper{
+    margin-top:2rem;
+  }
 }
 
 @tailwind utilities;

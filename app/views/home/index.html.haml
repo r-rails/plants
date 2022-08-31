@@ -39,23 +39,46 @@
             %path{d: "M18 13c0-3.859-3.141-7-7-7s-7 3.141-7 7 3.141 7 7 7 7-3.141 7-7zM26 26c0 1.094-0.906 2-2 2-0.531 0-1.047-0.219-1.406-0.594l-5.359-5.344c-1.828 1.266-4.016 1.937-6.234 1.937-6.078 0-11-4.922-11-11s4.922-11 11-11 11 4.922 11 11c0 2.219-0.672 4.406-1.937 6.234l5.359 5.359c0.359 0.359 0.578 0.875 0.578 1.406z"}
           = link_to "Search for growers" , people_path , :class => "text-base"
 
-    .flex.items-center.justify-center.w-full.h-min.sm:py-8
-      %button#prev.-ml-10.focus:outline-none.focus:bg-gray-400.focus:ring-2.focus:ring-offset-2.focus:ring-gray-400.cursor-pointer{"aria-label" => "slide backward"}
-        %svg{fill: "none", height: "20", viewbox: "0 0 8 14", width: "12", xmlns: "http://www.w3.org/2000/svg"}
-          %path{d: "M7 1L1 7L7 13", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2"}
-      .w-full.h-min.mx-auto.overflow-x-hidden.overflow-y-hidden
-        #slider.h-80.w-80.flex.lg:gap-8.md:gap-6.gap-14
-          .w-full.p-5.bg-gray-200.flex.flex-col.flex-shrink-0
-            %h3.text-xl.mb-3.lg:text-2xl.font-semibold.leading-5.lg:leading-6 Comment 1
-            %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus suscipit adipisci veniam officia beatae, necessitatibus consectetur officiis tempore! Blanditiis, sed.
-          .w-full.p-5.bg-gray-200.flex.flex-col.flex-shrink-0
-            %h3.text-xl.mb-3.lg:text-2xl.font-semibold.leading-5.lg:leading-6 Comment 2
-            %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus suscipit adipisci veniam officia beatae, necessitatibus consectetur officiis tempore! Blanditiis, sed.
-          .w-full.p-5.bg-gray-200.flex.flex-col.flex-shrink-0
-            %h3.text-xl.mb-3.lg:text-2xl.font-semibold.leading-5.lg:leading-6 Comment 3
-            %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus suscipit adipisci veniam officia beatae, necessitatibus consectetur officiis tempore! Blanditiis, sed.
-      %button#next.-mr-10.focus:outline-none.focus:bg-gray-400.focus:ring-2.focus:ring-offset-2.focus:ring-gray-400{"aria-label" => "slide forward"}
-        %svg{fill: "none", height: "20", viewbox: "0 0 8 14", width: "12", xmlns: "http://www.w3.org/2000/svg"}
-          %path{d: "M1 1L7 7L1 13", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2"}
+    #swiper.swiper.mySwiper
+      .swiper-wrapper
+        .swiper-slide.relative.p-5.bg-gray-200.flex.flex-col.flex-shrink-0
+          %h3.text-xl.mb-3.lg:text-2xl.font-semibold.leading-5.lg:leading-6 Comment 1
+          %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus suscipit adipisci veniam officia beatae, necessitatibus consectetur officiis tempore! Blanditiis, sed.
+        .swiper-slide.relative.p-5.bg-gray-200.flex.flex-col.flex-shrink-0
+          %h3.text-xl.mb-3.lg:text-2xl.font-semibold.leading-5.lg:leading-6 Comment 2
+          %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus suscipit adipisci veniam officia beatae, necessitatibus consectetur officiis tempore! Blanditiis, sed.
+        .swiper-slide.relative.p-5.bg-gray-200.flex.flex-col.flex-shrink-0
+          %h3.text-xl.mb-3.lg:text-2xl.font-semibold.leading-5.lg:leading-6 Comment 3
+          %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus suscipit adipisci veniam officia beatae, necessitatibus consectetur officiis tempore! Blanditiis, sed.
+        .swiper-slide.relative.p-5.bg-gray-200.flex.flex-col.flex-shrink-0
+          %h3.text-xl.mb-3.lg:text-2xl.font-semibold.leading-5.lg:leading-6 Comment 4
+          %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus suscipit adipisci veniam officia beatae, necessitatibus consectetur officiis tempore! Blanditiis, sed.
+        .swiper-slide.relative.p-5.bg-gray-200.flex.flex-col.flex-shrink-0
+          %h3.text-xl.mb-3.lg:text-2xl.font-semibold.leading-5.lg:leading-6 Comment 5
+          %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus suscipit adipisci veniam officia beatae, necessitatibus consectetur officiis tempore! Blanditiis, sed.
+        .swiper-slide.relative.p-5.bg-gray-200.flex.flex-col.flex-shrink-0
+          %h3.text-xl.mb-3.lg:text-2xl.font-semibold.leading-5.lg:leading-6 Comment 6
+          %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus suscipit adipisci veniam officia beatae, necessitatibus consectetur officiis tempore! Blanditiis, sed.
+        .swiper-slide.relative.p-5.bg-gray-200.flex.flex-col.flex-shrink-0
+          %h3.text-xl.mb-3.lg:text-2xl.font-semibold.leading-5.lg:leading-6 Comment 7
+          %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus suscipit adipisci veniam officia beatae, necessitatibus consectetur officiis tempore! Blanditiis, sed.
+
+      .swiper-button-next
+      .swiper-button-prev
+      .swiper-pagination
+
+    -# .swiper.mySwiper.flex.items-center.justify-center.w-full.h-min.sm:py-8
+    -#   %button#prev.-ml-10.focus:outline-none.focus:bg-gray-400.focus:ring-2.focus:ring-offset-2.focus:ring-gray-400.cursor-pointer{"aria-label" => "slide backward"}
+    -#     %svg{fill: "none", height: "20", viewbox: "0 0 8 14", width: "12", xmlns: "http://www.w3.org/2000/svg"}
+    -#       %path{d: "M7 1L1 7L7 13", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2"}
+    -#   .w-full.relative.h-min.mx-auto.overflow-x-hidden.overflow-y-hidden
+    -#     #slider.h-80.w-80.flex.lg:gap-8.md:gap-6.gap-14
+    -#       .w-full.relative.p-5.bg-gray-200.flex.flex-col.flex-shrink-0
+    -#         %h3.text-xl.mb-3.lg:text-2xl.font-semibold.leading-5.lg:leading-6 Comment 1
+    -#         %p Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus suscipit adipisci veniam officia beatae, necessitatibus consectetur officiis tempore! Blanditiis, sed.
+
+    -#   %button#next.-mr-10.focus:outline-none.focus:bg-gray-400.focus:ring-2.focus:ring-offset-2.focus:ring-gray-400{"aria-label" => "slide forward"}
+    -#     %svg{fill: "none", height: "20", viewbox: "0 0 8 14", width: "12", xmlns: "http://www.w3.org/2000/svg"}
+    -#       %path{d: "M1 1L7 7L1 13", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2"}
 
 = render "active_link_change"
