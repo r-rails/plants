@@ -55,13 +55,11 @@ RSpec.describe "Home Page", type: :system do
     it "only displays card for users who have at least one plant in their garden" do
       farmed_users = User.joins(:plants).uniq.pluck(:username)
       unfarmed_user = create(:user).username
-      
+
       visit top_growers_path
 
-      expect( farmed_users.all? { |username| page.html.include?(username) } ).to be true
+      expect(farmed_users.all? { |username| page.html.include?(username) }).to be true
       expect(page).not_to have_content(unfarmed_user)
-   
     end
-    
   end
 end
