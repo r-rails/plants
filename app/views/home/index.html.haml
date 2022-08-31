@@ -32,13 +32,8 @@
         %a.inline-block.p-4.text-black.bg-emerald-300.hover:bg-emerald-400{href: "#"} Popular topics
 
       %li.ml-auto
-        %button.text-black.p-3.flex.items-center.hover:bg-emerald-300
-          %svg.mr-2{fill: "#1a171b", height: "28", version: "1.1", viewbox: "0 0 26 28", width: "28", xmlns: "http://www.w3.org/2000/svg"}
-            %title search1
-            %path{d: "M47.787 5.849a.728.728 0 0 0-.515-1.242h-2.851l3.365-3.363A.728.728 0 1 0 46.757.215L43.394 3.58V.728a.727.727 0 0 0-1.242-.514l-4.277 4.277A23.766 23.766 0 0 0 24 0a24 24 0 1 0 24 24 23.765 23.765 0 0 0-4.493-13.873zm-5.848-3.365v2.852a.729.729 0 0 0 .728.727h2.85L40.183 11.4h-3.577V7.819zM46.545 24a22.648 22.648 0 1 1-9.7-18.479L35.365 7a.728.728 0 0 0-.214.514v4.3l-1.58 1.58a14.222 14.222 0 0 0-8.843-3.666V7.517a.728.728 0 1 0-1.456 0v2.219A14.3 14.3 0 0 0 9.733 23.275H7.515a.727.727 0 1 0 0 1.454h2.218a14.3 14.3 0 0 0 13.539 13.539v2.219a.728.728 0 0 0 1.456 0v-2.219a14.3 14.3 0 0 0 13.538-13.539h2.219a.727.727 0 1 0 0-1.454h-2.219a14.226 14.226 0 0 0-3.666-8.844l1.581-1.58h4.3a.736.736 0 0 0 .519-.213l1.463-1.463A22.292 22.292 0 0 1 46.545 24zm-11.878.726h2.145a12.843 12.843 0 0 1-12.084 12.086v-2.145a.728.728 0 0 0-1.456 0v2.145a12.842 12.842 0 0 1-12.084-12.084h2.145a.727.727 0 1 0 0-1.454h-2.145a12.846 12.846 0 0 1 12.084-12.086v2.146a.728.728 0 0 0 1.456 0v-2.146a12.783 12.783 0 0 1 7.814 3.242l-5.85 5.85a4.644 4.644 0 1 0 1.028 1.029l5.85-5.852a12.784 12.784 0 0 1 3.241 7.816h-2.145a.728.728 0 1 0 0 1.455zm-11.182-.213a.728.728 0 0 0 1.029 0l2.161-2.16A3.118 3.118 0 0 1 27.152 24 3.151 3.151 0 1 1 24 20.849a3.118 3.118 0 0 1 1.646.477l-2.161 2.162a.725.725 0 0 0 0 1.027z"}
-          = link_to "Top growers", top_growers_path, class: "text-base"
+        = link_to "Top growers", top_growers_path, class: "inline-block p-4 text-black bg-emerald-300 hover:bg-emerald-400 text-base"
 
-          -# <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48.001"><path d= fill="#1a171b"/></svg>
 
     .flex.items-center.justify-center.w-full.h-min.sm:py-8
       %button#prev.-ml-10.focus:outline-none.focus:bg-gray-400.focus:ring-2.focus:ring-offset-2.focus:ring-gray-400.cursor-pointer{"aria-label" => "slide backward"}
