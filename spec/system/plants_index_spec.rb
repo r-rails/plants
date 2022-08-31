@@ -22,7 +22,7 @@ RSpec.describe "plants_index_page", type: :system do
   it "clicking on a plant name should take the user to the plant page" do
     visit plants_path
     first_plant = Plant.order(:latin).first
-    
+
     click_link first_plant.name
 
     expect(page).to have_content first_plant.name
