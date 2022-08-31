@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   resources :garden_plant, only: :destroy
 
   get "/people", to: "home#people"
+  get "/top_growers", to: "home#top_growers"
 end
