@@ -12,4 +12,10 @@ class HomeController < ApplicationController
   def people
     @users = User.order(username: :asc).with_attached_avatar
   end
+
+  def top_growers
+    @growers = User.joins(:plants)
+      .group(:id)
+      .order("COUNT(plants.id) DESC")
+  end
 end
