@@ -21,7 +21,7 @@
     .swiper-wrapper
       - plants.each do |plant|
         .swiper-slide.relative.p-5.bg-gray-200.flex.flex-col.flex-shrink-0
-          = link_to plant_img_index(plant), plant, class:"object-cover object-center w-full"
+          = link_to plant_img_index(plant),  plant, data: { turbo_frame: '_top' }, class:"object-cover object-center w-full"
           .flex.h-full.items-end.pb-2.justify-center
             %h3.text-xl.text-center.lg:text-2xl.font-semibold.leading-5.lg:leading-6.text-white
               = link_to plant.latin, plant
