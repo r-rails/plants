@@ -1,6 +1,6 @@
 RSpec.describe "Home Page", type: :system do
   before do
-    15.times { create(:garden_plant) }
+    create_list(:garden_plant, 15)
   end
   context "when the Top 10 tab is clicked" do
     it "displays the top 10 most added plants in the dB" do
@@ -48,6 +48,18 @@ RSpec.describe "Home Page", type: :system do
       click_link "Categories"
 
       expect(page.has_field?("q[category_cont]", type: :hidden, with: first_category)).to be true
+    end
+  end
+
+  context "when Top growers link is clicked" do
+    it "only displays card for users who have at least one plant in their garden" do
+      farmed_users = User.joins(:plants).uniq.pluck(:username)
+      unfarmed_user = create(:user).username
+
+      visit top_growers_path
+
+      expect(farmed_users.all? { |username| page.html.include?(username) }).to be true
+      expect(page).not_to have_content(unfarmed_user)
     end
   end
 end

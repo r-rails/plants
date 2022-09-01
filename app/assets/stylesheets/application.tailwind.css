@@ -35,12 +35,6 @@
     @apply bg-gray-200;
   }
 
-  .category-width {
-    cursor: pointer;
-    width: 250px;
-    height: 320px;
-  }
-
   .current {
     @apply bg-green-700 rounded-full text-white;
   }
@@ -91,6 +85,12 @@
     transform: rotateY(180deg);
     z-index: 5;
   }
+
+  #swiper{
+    margin-top:2rem;
+    height: 300px;
+  }
+
 }
 
 @tailwind utilities;
