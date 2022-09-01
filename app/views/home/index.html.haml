@@ -9,11 +9,11 @@
     %h2.font-semibold.text-2xl.mb-4 Houseplants
     %ul.flex.flex-wrap.items-center.text-sm.font-medium.text-center.text-white.border-b-2.border-emerald-600
       %li.mr-2
-        = link_to 'Most Recent', most_recent_plants_path, class: 'house-plant-tabs inline-block p-4 text-black hover:bg-blue-200 bg-blue-700', data: { turbo_frame: 'house_plant_tabs', 'controller' =>  'tab_click', 'action' => 'click->tab_click#swapclass' }
+        = link_to 'Most Recent', most_recent_plants_path, class: 'house-plant-tabs inline-block p-4 text-black hover:bg-blue-200 bg-blue-700', data: { turbo_frame: 'house_plant_tabs', controller: 'tabclick', action: 'tabclick#swapclass' }
       %li.mr-2
-        = link_to 'Top 10', top_ten_plants_path, class: 'house-plant-tabs inline-block p-4 text-black bg-emerald-300 hover:bg-blue-200', data: { turbo_frame: 'house_plant_tabs' }
+        = link_to 'Top 10', top_ten_plants_path, class: 'house-plant-tabs inline-block p-4 text-black bg-emerald-300 hover:bg-blue-200', data: { turbo_frame: 'house_plant_tabs', controller: 'tabclick', action: 'tabclick#swapclass' }
       %li.mr-2
-        = link_to 'Categories', plants_category_path, class: 'house-plant-tabs inline-block p-4 text-black bg-emerald-300 hover:bg-blue-200', data: { turbo_frame: 'house_plant_tabs' }
+        = link_to 'Categories', plants_category_path, class: 'house-plant-tabs inline-block p-4 text-black bg-emerald-300 hover:bg-blue-200', data: { turbo_frame: 'house_plant_tabs', controller: 'tabclick', action: 'tabclick#swapclass' }
       %li.ml-auto
         = search_form_for @q do |f|
           .block.p-4.pl-10.w-full.text-sm.text-gray-900
@@ -57,5 +57,3 @@
       %button#next.-mr-10.focus:outline-none.focus:bg-gray-400.focus:ring-2.focus:ring-offset-2.focus:ring-gray-400{"aria-label" => "slide forward"}
         %svg{fill: "none", height: "20", viewbox: "0 0 8 14", width: "12", xmlns: "http://www.w3.org/2000/svg"}
           %path{d: "M1 1L7 7L1 13", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2"}
-
--# = render "active_link_change"
