@@ -1,18 +1,13 @@
 = turbo_frame_tag 'house_plant_tabs' do
-  .flex.justify-center.w-full.h-min.sm:pt-8
-    %button#prev.-ml-10.focus:outline-none.focus:bg-gray-400.focus:ring-2.focus:ring-offset-2.focus:ring-gray-400.cursor-pointer{"aria-label" => "slide backward"}
-      %svg{fill: "none", height: "20", viewbox: "0 0 8 14", width: "12", xmlns: "http://www.w3.org/2000/svg"}
-        %path{d: "M7 1L1 7L7 13", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2"}
-    .w-full.h-min.relative.mx-auto.overflow-x-hidden.overflow-y-hidden
-      #slider.h-80.w-80.flex.lg:gap-8.md:gap-6.gap-14.justify-start.transition.ease-out.duration-700
-        - @categories.each do |category|
-          .flex.flex-shrink-0.relative.w-full.sm:w-auto
-            .bg-gradient-to-b.from-blue-200.to-green-200.h-full.overflow-hidden.border
-              .text-center.md:text-xs.text-xs.justify-items-center.md:mt-4.mt-12
-                .flex.h-full.items-end.pb-2.justify-center
-                  = search_form_for @q, data: { turbo_frame: '_top' } do |f|
-                    = f.search_field :category_cont, value: category, type: 'hidden'
-                    = f.submit category, class: 'text-xl text-center lg:text-2xl font-semibold leading-5 lg:leading-6 text-white category-width'
-    %button#next.-mr-10.focus:outline-none.focus:bg-gray-400.focus:ring-2.focus:ring-offset-2.focus:ring-gray-400{"aria-label" => "slide forward"}
-      %svg{fill: "none", height: "20", viewbox: "0 0 8 14", width: "12", xmlns: "http://www.w3.org/2000/svg"}
-        %path{d: "M1 1L7 7L1 13", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2"}
+  #swiper.swiper.mySwiper
+    .swiper-wrapper
+      - @categories.each do |category|
+        .swiper-slide.flex.flex-col.justify-center.items-center.bg-gradient-to-b.from-blue-200.to-green-200.p-5.bg-gray-200
+          = search_form_for @q, data: { turbo_frame: '_top' } do |f|
+            = f.search_field :category_cont, value: category, type: 'hidden'
+            = f.submit category, class: 'p-2 cursor-pointer text-xl text-center align-middle lg:text-2xl font-semibold leading-5 lg:leading-6 text-white'
+
+    .swiper-button-next
+    .swiper-button-prev
+    .swiper-pagination
+

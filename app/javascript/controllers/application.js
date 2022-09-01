@@ -1,4 +1,6 @@
 import { Application } from "@hotwired/stimulus"
+import "controllers"
+import 'swiper/swiper-bundle.min.css'
 
 const application = Application.start()
 
