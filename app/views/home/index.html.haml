@@ -6,8 +6,8 @@
     %p.leading-snug.text-gray-700.text-lg.max-w-3xl.mx-auto.pb-6 Find new house plants, ask the community and get personalized watering reminders.
 
   .lg:col-span-12.mb-5
-    %h2.font-semibold.text-2xl.mb-4 Houseplants
-    %ul.flex.flex-wrap.items-center.text-sm.font-medium.text-center.text-white.border-b-2.border-emerald-600
+    %h2.font-semibold.text-2xl.mb-4 House plants
+    %ul.flex.flex-wrap.items-end.text-sm.font-medium.text-center.text-white.border-b-2.border-emerald-600
       %li.mr-2
         = link_to 'Most Recent', most_recent_plants_path, class: 'house-plant-tabs inline-block p-4 text-black hover:bg-blue-200 bg-blue-700', data: { turbo_frame: 'house_plant_tabs' }
       %li.mr-2
@@ -16,7 +16,7 @@
         = link_to 'Categories', plants_category_path, class: 'house-plant-tabs inline-block p-4 text-black bg-emerald-300 hover:bg-blue-200', data: { turbo_frame: 'house_plant_tabs' }
       %li.ml-auto
         = search_form_for @q do |f|
-          .block.p-4.pl-10.w-full.text-sm.text-gray-900
+          .block.p-3.pr-0.w-full.text-sm.text-gray-900
             = f.search_field :name_or_latin_cont, placeholder: 'Search for a plant', class: "rounded focus:ring-2 focus:outline-none focus:ring-emerald-500"
             = f.button do
               %svg.mr-2{fill: "#047857", height: "22", version: "1.1", viewbox: "0 0 26 28", width: "26", xmlns: "http://www.w3.org/2000/svg"}
@@ -25,7 +25,7 @@
 
   .lg:col-span-12
     %h2.font-semibold.text-2xl.mb-4 Community
-    %ul.flex.flex-wrap.items-center.text-sm.font-medium.text-center.text-white.border-b-2.border-emerald-600
+    %ul.flex.flex-wrap.items-end.text-sm.font-medium.text-center.text-white.border-b-2.border-emerald-600
       %li.mr-2
         %a.inline-block.p-4.bg-emerald-700.active:bg-emerald-700{"aria-current" => "page", href: "#"} All
       %li.mr-2
