@@ -1,16 +1,31 @@
 = turbo_frame_tag 'house_plant_tabs' do
-  .flex.justify-center.w-full.h-min.sm:pt-8
-    %button#prev.-ml-10.focus:outline-none.focus:bg-gray-400.focus:ring-2.focus:ring-offset-2.focus:ring-gray-400.cursor-pointer{"aria-label" => "slide backward"}
-      %svg{fill: "none", height: "20", viewbox: "0 0 8 14", width: "12", xmlns: "http://www.w3.org/2000/svg"}
-        %path{d: "M7 1L1 7L7 13", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2"}
-    .w-full.h-min.relative.mx-auto.overflow-x-hidden.overflow-y-hidden
-      #slider.h-80.w-80.flex.lg:gap-8.md:gap-6.gap-14.justify-start.transition.ease-out.duration-700
-        - plants.each do |plant|
-          .flex.flex-shrink-0.relative.w-full.sm:w-auto
-            = link_to plant_img_index(plant), plant, class:"object-cover object-center w-full"
-            .bg-gray-800.bg-opacity-30.absolute.w-full.h-full.p-6
-              .flex.h-full.items-end.pb-2.justify-center
-                %h3.text-xl.text-center.lg:text-2xl.font-semibold.leading-5.lg:leading-6.text-white= link_to plant.latin, plant, data: { turbo_frame: '_top'}
-    %button#next.-mr-10.focus:outline-none.focus:bg-gray-400.focus:ring-2.focus:ring-offset-2.focus:ring-gray-400{"aria-label" => "slide forward"}
-      %svg{fill: "none", height: "20", viewbox: "0 0 8 14", width: "12", xmlns: "http://www.w3.org/2000/svg"}
-        %path{d: "M1 1L7 7L1 13", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2"}
+  %link{:href => "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css", :rel => "stylesheet"}
+  %script{:src => "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"}
+  :javascript
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      slidesPerGroup: 3,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  #swiper.swiper.mySwiper
+    .swiper-wrapper
+      - plants.each do |plant|
+        .swiper-slide.relative.p-5.bg-gray-200.flex.flex-col.flex-shrink-0
+          = link_to plant_img_index(plant),  plant, data: { turbo_frame: '_top' }, class:"object-cover object-center w-full"
+          .flex.h-full.items-end.pb-2.justify-center
+            %h3.text-xl.text-center.lg:text-2xl.font-semibold.leading-5.lg:leading-6.text-white
+              = link_to plant.latin, plant
+              
+    .swiper-button-next
+    .swiper-button-prev
+    .swiper-pagination
