@@ -10,7 +10,6 @@
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
-    %link{:href => "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css", :rel => "stylesheet"}
 
   %body
     .flex.flex-col.h-screen
@@ -18,7 +17,7 @@
       = render partial: 'shared/header'
       .layout= yield
       .footer= render "shared/footer"
-    %script{:src => "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"}
+      
     :javascript
       var swiper = new Swiper(".mySwiper", {
         slidesPerView: 3,
