@@ -5,10 +5,10 @@ export default class extends Controller {
     var tabs = [...document.querySelectorAll(".house-plant-tabs")];
 
     tabs.forEach((tab) => {
-      tab.classList.remove("bg-blue-700");
-      tab.classList.add("bg-emerald-300");
+      tab.classList.remove("bg-emerald-400");
+      tab.classList.add("bg-emerald-200");
     });
-    event.target.classList.remove("bg-emerald-300");
-    event.target.classList.add("bg-blue-700");
+    event.target.classList.remove("bg-emerald-200");
+    event.target.classList.add("bg-emerald-400");
   }
 }
