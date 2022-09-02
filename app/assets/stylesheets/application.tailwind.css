@@ -86,6 +86,13 @@
     z-index: 5;
   }
 
+  .tab {
+    @apply inline-block p-4 rounded-t
+  }
+  .tab:hover {
+    hover:underline
+  }
+
   #swiper{
     margin-top:2rem;
     height: 300px;
