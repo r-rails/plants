@@ -9,11 +9,11 @@
     %h2.font-semibold.text-2xl.mb-4 House plants
     %ul.flex.flex-wrap.items-end.text-sm.font-medium.text-center.text-white.border-b-2.border-emerald-600
       %li.mr-2
-        = link_to 'Most Recent', most_recent_plants_path, class: 'house-plant-tabs inline-block p-4 text-black hover:bg-blue-200 bg-blue-700', data: { turbo_frame: 'house_plant_tabs', controller: 'tabclick', action: 'tabclick#swapclass' }
+        = link_to 'Most Recent', most_recent_plants_path, class: 'house-plant-tabs inline-block p-4 text-black hover:underline bg-emerald-400', data: { turbo_frame: 'house_plant_tabs', controller: 'tabclick', action: 'tabclick#swapclass' }
       %li.mr-2
-        = link_to 'Top 10', top_ten_plants_path, class: 'house-plant-tabs inline-block p-4 text-black bg-emerald-300 hover:bg-blue-200', data: { turbo_frame: 'house_plant_tabs', controller: 'tabclick', action: 'tabclick#swapclass' }
+        = link_to 'Top 10', top_ten_plants_path, class: 'house-plant-tabs inline-block p-4 text-black bg-emerald-200 hover:underline', data: { turbo_frame: 'house_plant_tabs', controller: 'tabclick', action: 'tabclick#swapclass' }
       %li.mr-2
-        = link_to 'Categories', plants_category_path, class: 'house-plant-tabs inline-block p-4 text-black bg-emerald-300 hover:bg-blue-200', data: { turbo_frame: 'house_plant_tabs', controller: 'tabclick', action: 'tabclick#swapclass' }
+        = link_to 'Categories', plants_category_path, class: 'house-plant-tabs inline-block p-4 text-black bg-emerald-200 hover:underline', data: { turbo_frame: 'house_plant_tabs', controller: 'tabclick', action: 'tabclick#swapclass' }
       %li.ml-auto
         = search_form_for @q do |f|
           .block.p-3.pr-0.w-full.text-sm.text-gray-900
