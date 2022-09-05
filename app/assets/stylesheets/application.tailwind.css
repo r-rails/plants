@@ -2,7 +2,12 @@
 @tailwind components;
 @import "actiontext.css";
 
+
 @layer components {
+  .menu{
+    @apply w-9/12 mx-auto;
+   }
+
   .layout {
     @apply w-9/12 mx-auto py-4 md:py-6 mb-4 md:mb-20;
   }
@@ -97,7 +102,7 @@
     margin-top:2rem;
     height: 300px;
   }
-
+ 
 }
 
 @tailwind utilities;
