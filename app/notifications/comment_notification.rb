@@ -13,13 +13,13 @@ class CommentNotification < Noticed::Base
 
   # Add required params
   #
-  # param :post
+  param :comment
 
   # Define helper methods to make rendering easier.
   #
-  # def message
-  #   t(".message")
-  # end
+  def comment
+    params[:comment].body
+  end
   #
   # def url
   #   post_path(params[:post])
