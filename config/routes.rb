@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'notifications/index'
   mount Motor::Admin => "/motor_admin"
   root "home#index"
   devise_for :users
@@ -22,4 +23,6 @@ Rails.application.routes.draw do
 
   get "/people", to: "home#people"
   get "/top_growers", to: "home#top_growers"
+
+  resources :notifications, only: [:index]
 end

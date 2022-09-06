@@ -20,8 +20,8 @@ class CommentNotification < Noticed::Base
   def comment
     params[:comment].body
   end
-  #
-  # def url
-  #   post_path(params[:post])
-  # end
+  
+  def url
+    plant_comment_path(params[:plant][:comment])
+  end
 end
