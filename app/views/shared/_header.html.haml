@@ -14,7 +14,10 @@
 
         .flex.items-center.gap-2
           - if user_signed_in?
-            = link_to "#{tag.span=pluralize(current_user.notifications.not_deleted.unread.count, 'Notification')}" , notifications_path, class: 'btn-primary'
+            = link_to notifications_path do
+              %button.btn-primary
+                %span.mr-2= @unread_count == 1 ? "Notification" : "Notifications"
+                %span.inline-flex.items-center.justify-center.px-2.py-1.text-xs.font-bold.leading-none.text-red-100.bg-red-600.rounded-full= @unread_count >= 6 ? "6+" : @unread_count
             .btn-primary= link_to current_user.email, profile_path(current_user)
             = link_to "Settings", edit_user_registration_path(current_user), class: 'btn-primary'
             .btn-primary= button_to "Exit", destroy_user_session_path, :method => 'delete'
