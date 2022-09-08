@@ -4,8 +4,7 @@
 .flex.justify-between
   - if user_signed_in?
     %div
-      Signed in as #{current_user.email}. #{link_to "All notifications", notifications_path, class: "text-blue-500"}
-    = turbo_frame_tag "notifications", src: notifications_path
+      Signed in as #{current_user.email}.
   - else
     = link_to "Sign in", new_user_session_path, class: "text-blue-500"
 

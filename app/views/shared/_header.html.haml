@@ -13,6 +13,7 @@
     
     .flex.items-center.gap-2
       - if user_signed_in?
+        = link_to "#{tag.span=pluralize(current_user.notifications.not_deleted.unread.count, 'Notification')}" , notifications_path, class: 'btn-primary'
         .btn-primary= link_to "Profile", profile_path(current_user)
         = link_to "Settings", edit_user_registration_path(current_user), class: 'btn-primary'
         .btn-primary= button_to "Exit", destroy_user_session_path, :method => 'delete'

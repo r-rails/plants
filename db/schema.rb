@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_04_135646) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_08_110827) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -230,6 +230,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_04_135646) do
     t.datetime "read_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
     t.index ["read_at"], name: "index_notifications_on_read_at"
     t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
   end
@@ -246,6 +247,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_04_135646) do
     t.string "latin"
     t.string "slug"
     t.index ["slug"], name: "index_plants_on_slug", unique: true
+  end
+
+  create_table "seed_migration_data_migrations", id: :serial, force: :cascade do |t|
+    t.string "version"
+    t.integer "runtime"
+    t.datetime "migrated_on", precision: nil
   end
 
   create_table "users", force: :cascade do |t|
