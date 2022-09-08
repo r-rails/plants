@@ -1,6 +1,13 @@
 .font-serif.text-2xl.font-extrabold.tracking-tight.text-gray-900 
   = "Welcome to #{@user.username}'s garden!"
 
+.flex.justify-between
+  - if user_signed_in?
+    %div
+      Signed in as #{current_user.email}.
+  - else
+    = link_to "Sign in", new_user_session_path, class: "text-blue-500"
+
 .flex.p-2.mt-4.justify-center
   = paginate @user_plants
 .bg-white

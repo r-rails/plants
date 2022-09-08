@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :garden_plants
   has_many :plants, through: :garden_plants, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :notifications, as: :recipient, dependent: :destroy
   validates :email, presence: true, format: URI::MailTo::EMAIL_REGEXP
   validates :username, presence: true, uniqueness: true
 
