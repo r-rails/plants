@@ -1,6 +1,6 @@
 %li
   %p.text-gray-700
-    = link_to simple_format(notification.to_notification.comment.body), notification.to_notification.url
+    = link_to simple_format(notification.to_notification.comment.body), notification.to_notification.url, target: "_blank"
   .flex.justify-between.mt-1.text-gray-500.text-sm.space-x-4
     %p
       Received on #{notification.created_at.to_date}

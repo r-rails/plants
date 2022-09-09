@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def reset_notification_count
-    @unread_count ||= current_user.notifications.not_deleted.unread.count
+    @unread_count ||= current_user.notifications.unread.count
   end
 
   def after_sign_in_path_for(resource)
