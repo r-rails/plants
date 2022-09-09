@@ -12,6 +12,8 @@ Rails.application.configure do
 
   config.active_storage.variant_processor = :mini_magick
 
+  config.assets.compile = false
+
   # Turn false under Spring and add config.action_view.cache_template_loading = true.
   config.cache_classes = true
 

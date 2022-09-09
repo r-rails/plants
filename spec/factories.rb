@@ -27,8 +27,11 @@ FactoryBot.define do
 
   factory(:comment) do
     body { Faker::Lorem.sentence(word_count: 7) }
-    commentable { nil }
+    association :commentable, factory: :plant
+    commentable_type { "Plant" }
+    commentable_id { commentable.id }
     deleted_at { nil }
+    user
   end
 
   factory(:garden_plant) do

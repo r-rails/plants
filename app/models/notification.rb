@@ -2,8 +2,6 @@ class Notification < ApplicationRecord
   include Noticed::Model
   belongs_to :recipient, polymorphic: true
 
-  scope :is_deleted, -> { where.not(deleted_at: nil) }
-
   default_scope { where(deleted_at: nil) }
 
   after_create_commit :update_counter, :broadcast_to_recipient
