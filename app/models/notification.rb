@@ -40,6 +40,4 @@ class Notification < ApplicationRecord
       html: (recipient.notifications.unread.count == 1 ? "Notification" : "Notifications")
     )
   end
-
-  
 end

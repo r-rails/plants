@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get "/top_growers", to: "home#top_growers"
 
   resources :notifications, only: [:index]
-  delete 'delete_notification', to: 'notifications#destroy'
+  delete "delete_notification", to: "notifications#destroy"
   get "set_to_read", to: "notifications#set_to_read"
   get "set_to_unread", to: "notifications#set_to_unread"
 end
