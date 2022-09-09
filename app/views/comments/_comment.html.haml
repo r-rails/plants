@@ -13,8 +13,6 @@
           .font-semibold.text-slate-700
             = comment.user.username # make this link to redirect at user's profile page
         .flex.items-center.gap-2
-          .rounded.border.bg-neutral-100.px-3.py-1.text-xs
-            = link_to 'show', plant_comment_path(@plant, comment), data: {'turbo_frame': '_top'}
           - if current_user && current_user == comment.user
             .rounded.border.bg-neutral-100.px-3.py-1.text-xs
               = link_to 'edit', [:edit, @commentable, comment]

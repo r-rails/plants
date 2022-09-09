@@ -1,6 +1,6 @@
 class NotificationsController < ApplicationController
   def index
-    @notifications = Notification.where(recipient: current_user)
+    @notifications = Notification.where(recipient: current_user).order(read_at: :desc)
   end
 
   def set_to_read
@@ -15,21 +15,10 @@ class NotificationsController < ApplicationController
     redirect_back_or_to current_user
   end
 
-  def set_to_deleted
+  def destroy
     @notification = Notification.find_by_id(params[:id])
-    @notification.deleted_at = Time.now
+    @notification.destroy
 
-    if @notification.save
-      redirect_back_or_to current_user
-    end
-  end
-
-  def undelete_notification
-    @notification = Notification.find_by_id(params[:id])
-    @notification.deleted_at = nil if @notification.deleted_at > 15.seconds.ago
-
-    if @notification.save
-      redirect_back_or_to current_user
-    end
+    redirect_back_or_to current_user
   end
 end

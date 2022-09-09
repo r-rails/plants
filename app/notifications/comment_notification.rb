@@ -18,10 +18,10 @@ class CommentNotification < Noticed::Base
   # Define helper methods to make rendering easier.
   #
   def comment
-    params[:comment].body
+    params[:comment]
   end
 
   def url
-    plant_comment_path(params[:plant][:comment])
+    plant_path(Plant.find(params[:comment].commentable_id))
   end
 end
