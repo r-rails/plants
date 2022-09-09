@@ -7,7 +7,7 @@
     %p
       - if notification.read?
         = link_to 'Mark as unread', set_to_unread_path(id: notification.id), class: 'btn-primary bg-blue-500 hover:bg-blue-700 text-white'
-        = button_to "Delete", notifications_path(id: notification.id), :method => 'delete', class: "inline bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
+        = button_to "Delete", delete_notification_path(id: notification.id), :method => 'delete', class: "inline bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
       - elsif notification.unread?
         = link_to 'Mark as read', set_to_read_path(id: notification.id), class: 'bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-green-700 hover:border-green-500 rounded'
         = button_to "Delete", delete_notification_path(id: notification.id), :method => 'delete', class: "inline bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
