@@ -7,7 +7,7 @@ class Notification < ApplicationRecord
   default_scope { where(deleted_at: nil) }
 
   after_create_commit :update_counter, :broadcast_to_recipient
-  after_update_commit :update_pluralization, :update_on_delete
+  after_destroy_commit :update_on_delete
 
   private
 
@@ -38,15 +38,6 @@ class Notification < ApplicationRecord
       :counter,
       target: "counter",
       html: (recipient.notifications.unread.count >= 9 ? "9+" : recipient.notifications.unread.count).to_s
-    )
-  end
-
-  def update_pluralization
-    broadcast_update_to(
-      recipient,
-      :notification_pluralization,
-      target: "notification_pluralization",
-      html: (recipient.notifications.unread.count == 1 ? "Notification" : "Notifications")
     )
   end
 end
