@@ -8,6 +8,8 @@ class Notification < ApplicationRecord
 
   after_create_commit :broadcast_to_recipient
 
+  private
+
   def broadcast_to_recipient
     broadcast_append_later_to(
       recipient,

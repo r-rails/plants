@@ -6,10 +6,10 @@
       Received on #{notification.created_at.to_date}
     %p
       - if notification.read?
-        = link_to 'Mark as unread', set_to_unread_path(id: notification.id), class: 'btn-primary bg-blue-500 hover:bg-blue-700 text-white'
+        = link_to 'Mark as unread', set_to_unread_path(id: notification.id), class: 'btn-primary bg-blue-500 hover:bg-blue-700 text-white', data: { controller: "notificationcount", action: "notificationcount#increasebyone"}
       - elsif notification.unread?
-        = link_to 'Mark as read', set_to_read_path(id: notification.id), class: 'bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-green-700 hover:border-green-500 rounded'
+        = link_to 'Mark as read', set_to_read_path(id: notification.id), class: 'bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-green-700 hover:border-green-500 rounded', data: { controller: "notificationcount", action: "notificationcount#decreasebyone"}
       - if notification.deleted_at && notification.deleted_at > 15.seconds.ago
-        = link_to 'Undo delete', undelete_notification_path(id: notification.id), class: 'bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-green-700 hover:border-green-500 rounded'
+        = link_to 'Undo delete', undelete_notification_path(id: notification.id), class: 'bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-green-700 hover:border-green-500 rounded', data: { controller: "notificationcount", action: "notificationcount#increasebyone"}
       - elsif !notification.deleted_at
-        = link_to 'Delete', set_to_deleted_path(id: notification.id), class: 'bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded'
+        = link_to 'Delete', set_to_deleted_path(id: notification.id), class: 'bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded', data: { controller: "notificationcount", action: "notificationcount#decreasebyone"}
