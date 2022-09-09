@@ -15,13 +15,11 @@ class NotificationsController < ApplicationController
     redirect_back_or_to current_user
   end
 
-  def set_to_deleted
+  def destroy
     @notification = Notification.find_by_id(params[:id])
     @notification.mark_as_read!
-    @notification.deleted_at = Time.now
-
-    if @notification.save
-      redirect_back_or_to current_user
-    end
+    @notification.destroy
+    
+    redirect_back_or_to current_user
   end
 end

@@ -1,15 +1,14 @@
 %li
   %p.text-gray-700
     = link_to simple_format(notification.to_notification.comment.body), notification.to_notification.url, target: "_blank"
-  .flex.justify-between.mt-1.text-gray-500.text-sm.space-x-4
+  .flex.justify-between.mt-1.items-center.gap-2.text-gray-500.text-sm.space-x-4
     %p
       Received on #{notification.created_at.to_date}
     %p
       - if notification.read?
         = link_to 'Mark as unread', set_to_unread_path(id: notification.id), class: 'btn-primary bg-blue-500 hover:bg-blue-700 text-white'
+        = button_to "Delete", notifications_path(id: notification.id), :method => 'delete', class: "inline bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
       - elsif notification.unread?
         = link_to 'Mark as read', set_to_read_path(id: notification.id), class: 'bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-green-700 hover:border-green-500 rounded'
-      - if notification.deleted_at && notification.deleted_at > 15.seconds.ago
-        = link_to 'Undo delete', undelete_notification_path(id: notification.id), class: 'bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 border-green-700 hover:border-green-500 rounded'
-      - elsif !notification.deleted_at
-        = link_to 'Delete', set_to_deleted_path(id: notification.id), class: 'bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded'
+        = button_to "Delete", delete_notification_path(id: notification.id), :method => 'delete', class: "inline bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
+      
