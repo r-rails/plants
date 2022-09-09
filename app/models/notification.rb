@@ -8,6 +8,7 @@ class Notification < ApplicationRecord
 
   after_create_commit :update_counter, :broadcast_to_recipient
   after_update_commit :update_counter, :update_pluralization
+  after_destroy_commit :update_counter, :update_pluralization
 
   private
 

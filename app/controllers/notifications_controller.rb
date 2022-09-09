@@ -17,7 +17,6 @@ class NotificationsController < ApplicationController
 
   def destroy
     @notification = Notification.find_by_id(params[:id])
-    @notification.mark_as_read!
     @notification.destroy
 
     redirect_back_or_to current_user
