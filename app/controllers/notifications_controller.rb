@@ -1,6 +1,6 @@
 class NotificationsController < ApplicationController
   def index
-    @notifications = Notification.where(recipient: current_user)
+    @notifications = Notification.where(recipient: current_user).order(read_at: :desc)
   end
 
   def set_to_read

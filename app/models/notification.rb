@@ -8,6 +8,7 @@ class Notification < ApplicationRecord
 
   after_create_commit :update_counter, :broadcast_to_recipient
   after_destroy_commit :update_on_delete
+  after_update_commit :update_on_change
 
   private
 
@@ -33,6 +34,15 @@ class Notification < ApplicationRecord
   end
 
   def update_on_delete
+    broadcast_update_to(
+      recipient,
+      :counter,
+      target: "counter",
+      html: (recipient.notifications.unread.count >= 9 ? "9+" : recipient.notifications.unread.count).to_s
+    )
+  end
+
+  def update_on_change
     broadcast_update_to(
       recipient,
       :counter,
