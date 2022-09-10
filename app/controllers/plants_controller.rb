@@ -12,10 +12,11 @@ class PlantsController < ApplicationController
     @commentable = @plant
     @comment = Comment.new
     @comments = @plant.comments
+    comment_ids = @comments.ids
 
-    # Marking user notifications for this plant as read!
-    @plant.comments.flat_map { |comment| comment.notifications_as_comment }
-      .filter { |notification| notification.recipient == current_user }
+    # Marking user comment notifications for this plant as read!
+    Notification.unread.where(recipient_id: current_user.id)
+      .filter { |notification| comment_ids.include?(notification.comment_id) }
       .map(&:mark_as_read!)
   end
 

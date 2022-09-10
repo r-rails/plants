@@ -4,9 +4,15 @@ class Notification < ApplicationRecord
 
   default_scope { where(deleted_at: nil) }
 
+  scope :unread, -> { where(read_at: nil) }
+
   after_create_commit :update_counter, :broadcast_to_recipient
   after_destroy_commit :update_on_delete
   after_update_commit :update_on_change
+
+  def comment_id
+    self[:params][:comment].id
+  end
 
   private
 
