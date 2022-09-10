@@ -18,7 +18,6 @@ class PlantsController < ApplicationController
     Notification.unread.where(recipient_id: current_user.id)
       .filter { |notification| comment_ids.include?(notification.comment_id) }
       .map(&:mark_as_read!)
-
   end
 
   def new
