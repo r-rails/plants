@@ -20,7 +20,7 @@
                 %svg.h-7.w-7{:fill => "none", :stroke => "currentColor", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24"}
                   %path{:d => "M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"}
                 %span.absolute.inset-0.object-right-top.-mr-6
-                  #counter.inline-flex.justify-center.border.items-center.border-red-700.rounded-full.text-xs.font-semibold.bg-red-500.text-white.w-5.h-5{"data-turbo-permanent" => ""}
+                  #counter.inline-flex.justify-center.items-center.text-sm.font-bold.text-green-700.w-5.h-5{"data-turbo-permanent" => ""}
                     = current_user.notifications.unread.count >= 9 ? "9+" : current_user.notifications.unread.count
 
             .btn-primary= link_to current_user.email, profile_path(current_user)
