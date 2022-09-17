@@ -8,7 +8,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable,
-    :confirmable
+    :confirmable, :omniauthable, omniauth_providers: [:google_oauth2]
 
   has_one_attached :avatar, dependent: :destroy
   has_many :garden_plants
@@ -20,6 +20,19 @@ class User < ApplicationRecord
 
   extend FriendlyId
   friendly_id :downcase_username, use: :slugged
+
+  def self.from_omniauth(access_token)
+    data = access_token.info
+    user = User.where(email: data['email']).first
+
+    unless user
+        user = User.create(
+           email: data['email'],
+           password: Devise.friendly_token[0,20]
+        )
+    end
+    user
+  end 
 
   private
 
