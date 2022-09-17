@@ -26,6 +26,6 @@ class Comment < ApplicationRecord
   private
 
   def delete_notifications
-    self.notifications_as_comment.map(&:destroy)
+    notifications_as_comment.map(&:destroy)
   end
 end
