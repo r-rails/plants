@@ -36,3 +36,5 @@
 /config/credentials/production.key
 
 /.env
+
+node_modules

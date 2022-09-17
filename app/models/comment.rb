@@ -10,6 +10,7 @@ class Comment < ApplicationRecord
   validates :body, presence: true
 
   after_create_commit :notify_user
+  before_destroy :delete_notifications
 
   def find_top_parent
     return commentable unless commentable.is_a?(comment)
@@ -20,5 +21,11 @@ class Comment < ApplicationRecord
   def notify_user
     notify_group = User.joins(:garden_plants).where(garden_plants: {plant_id: commentable_id}).all.excluding(user)
     CommentNotification.with(comment: self).deliver_later(notify_group)
+  end
+
+  private
+
+  def delete_notifications
+    self.notifications_as_comment.map(&:destroy)
   end
 end
