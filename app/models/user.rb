@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  include ActionText::Attachable
   before_save :downcase_username
   before_create :set_avatar
 

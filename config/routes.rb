@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root "home#index"
   devise_for :users
 
+  resources :mentions, only: [:index]
+
   resources :profile, only: [:show], param: :slug
 
   resources :plants do

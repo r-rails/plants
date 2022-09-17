@@ -2,11 +2,10 @@
 @tailwind components;
 @import "actiontext.css";
 
-
 @layer components {
-  .menu{
+  .menu {
     @apply w-9/12 mx-auto;
-   }
+  }
 
   .layout {
     @apply w-9/12 mx-auto py-4 md:py-6 mb-4 md:mb-20;
@@ -92,17 +91,28 @@
   }
 
   .tab {
-    @apply inline-block p-4 rounded-t
+    @apply inline-block p-4 rounded-t;
   }
   .tab:hover {
-    hover:underline
+    hover: underline;
   }
 
-  #swiper{
-    margin-top:2rem;
+  .mention {
+    @apply text-blue-500 hover:underline italic;
+  }
+
+  .tribute-container {
+    background-color: #dcfce7;
+
+    li {
+      @apply hover:bg-white;
+    }
+  }
+
+  #swiper {
+    margin-top: 2rem;
     height: 300px;
   }
- 
 }
 
 @tailwind utilities;
