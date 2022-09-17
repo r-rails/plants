@@ -1,6 +1,6 @@
 %li
   %p.text-gray-700.mt-2
-    = link_to simple_format(notification.to_notification.comment.body), notification.to_notification.url, target: "_blank"
+    = link_to simple_format(notification.to_notification.comment.body), notification.to_notification.url, data: {turbo_frame: '_top'}
   .flex.items-center.gap-2.text-gray-500.text-sm
     %p.px-2
       Received on #{notification.created_at.to_date}
