@@ -98,7 +98,7 @@
   }
 
   .mention {
-    @apply text-blue-500 hover:underline italic;
+    @apply italic font-semibold;
   }
 
   .tribute-container {
