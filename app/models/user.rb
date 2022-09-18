@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :notifications, as: :recipient, dependent: :destroy
   validates :email, presence: true, format: URI::MailTo::EMAIL_REGEXP
-  # validates :username, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true
 
   extend FriendlyId
   friendly_id :username, use: :slugged
@@ -24,6 +24,7 @@ class User < ApplicationRecord
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
+      user.username = user.email.split('@').first
       user.password = Devise.friendly_token[0, 20]
     end
   end
