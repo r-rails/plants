@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   get "notifications/index"
   mount Motor::Admin => "/motor_admin"
   root "home#index"
-  devise_for :users
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+    }
 
   resources :profile, only: [:show], param: :slug
 

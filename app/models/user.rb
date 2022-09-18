@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  before_save :downcase_username
+  # before_save :downcase_username
   before_create :set_avatar
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable,
-    :confirmable
+    :omniauthable, omniauth_providers: [:google_oauth2]
 
   has_one_attached :avatar, dependent: :destroy
   has_many :garden_plants
@@ -19,13 +19,17 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   extend FriendlyId
-  friendly_id :downcase_username, use: :slugged
+  friendly_id :username, use: :slugged
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.username = user.email.split('@').first
+      user.password = Devise.friendly_token[0, 20]
+    end
+  end
 
   private
-
-  def downcase_username
-    self.username = username.downcase
-  end
 
   def set_avatar
     icon = Icodi.new.render

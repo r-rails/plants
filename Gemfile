@@ -94,5 +94,6 @@ gem "kaminari" # pagination
 gem "ransack", "~> 3.2" # search
 gem "motor-admin" # admin dashboard
 gem "rack-attack" # protect app from bad clients.
-
 gem "noticed", "~> 1.5"
+gem "omniauth-rails_csrf_protection"
+gem "omniauth-google-oauth2"
