@@ -1,8 +1,14 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  # before_save :downcase_username
   before_create :set_avatar
+
+  before_update do |record|
+    if record.changed.include?('slug')
+      errors.add(:immutable_field_error, 'You are not allowed to change this attribute' )
+      raise ActiveRecord::RecordInvalid.new(record)
+    end
+  end
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -16,10 +22,13 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :notifications, as: :recipient, dependent: :destroy
   validates :email, presence: true, format: URI::MailTo::EMAIL_REGEXP
-  validates :username, presence: true, uniqueness: true
+  validates :username, presence: true
 
   extend FriendlyId
-  friendly_id :username, use: :slugged
+  friendly_id :slugged_usernames, use: :slugged
+
+
+  private
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -29,10 +38,12 @@ class User < ApplicationRecord
     end
   end
 
-  private
-
   def set_avatar
     icon = Icodi.new.render
     avatar.attach(io: StringIO.new(icon), filename: "#{username}.svg", content_type: "image/svg+xml")
+  end
+
+  def slugged_usernames
+    [:username, %i[username created_at]]
   end
 end
