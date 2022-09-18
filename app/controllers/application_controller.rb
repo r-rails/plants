@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception, prepend: true
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :persist_last_visited_path
+  # before_action :persist_last_visited_path
 
   protected
 
@@ -12,16 +12,16 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
 
-  def persist_last_visited_path
-    session[:last_visited_path] = request.path unless Rails.configuration.ignored_paths.include?(request.path) || request.path == "/users/confirmation"
-  end
+  # def persist_last_visited_path
+  #   session[:last_visited_path] = request.path unless Rails.configuration.ignored_paths.include?(request.path) || request.path == "/users/confirmation"
+  # end
 
-  def after_sign_in_path_for(resource)
-    stored_location_for(resource) ||
-      if resource.is_a?(User) && Rails.configuration.ignored_paths.exclude?(request.path)
-        super
-      else
-        session[:last_visited_path].present? ? session[:last_visited_path] : root_path
-      end
-  end
+  # def after_sign_in_path_for(resource)
+  #   stored_location_for(resource) ||
+  #     if resource.is_a?(User) && Rails.configuration.ignored_paths.exclude?(request.path)
+  #       super
+  #     else
+  #       session[:last_visited_path].present? ? session[:last_visited_path] : root_path
+  #     end
+  # end
 end
