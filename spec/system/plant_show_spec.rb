@@ -45,7 +45,7 @@ RSpec.describe "plants/:id (Plant Show Page)", type: :system do
       click_button "Post comment"
 
       delete destroy_user_session_path
-      click_button "Exit" # the flash messageis intercepting click action.
+      # click_button "Exit" # the flash messageis intercepting click action.
 
       @another_user = FactoryBot.create(:user, email: "qwerty@asdf.info", username: "donald-trump")
       # @another_user.confirm
