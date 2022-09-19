@@ -5,10 +5,10 @@ RSpec.describe Notification, type: :model do
       let!(:users) { create_list(:user, 6) }
       let!(:garden_plants) { users.each { |user| create(:garden_plant, plant_id: plant.id, user: user) } }
       it "created notifications for all plant users except the comment user" do
-        create(:comment, commentable_id: plant.id, user_id: users.first.id)
+        comment = create(:comment, commentable_id: plant.id, user_id: users.first.id)
 
         expect(Notification.count).to eq(5)
-        expect(Notification.ids).not_to include(users.first.id)
+        expect(comment.notifications_as_comment.map(&:recipient_id)).not_to include(users.first.id)
       end
     end
   end
