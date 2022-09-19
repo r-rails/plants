@@ -4,8 +4,8 @@ class User < ApplicationRecord
   before_create :set_avatar
 
   before_update do |record|
-    if record.changed.include?('slug')
-      errors.add(:immutable_field_error, 'You are not allowed to change this attribute' )
+    if record.changed.include?("slug")
+      errors.add(:immutable_field_error, "You are not allowed to change this attribute")
       raise ActiveRecord::RecordInvalid.new(record)
     end
   end
@@ -27,13 +27,12 @@ class User < ApplicationRecord
   extend FriendlyId
   friendly_id :slugged_usernames, use: :slugged
 
-
   private
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
-      user.username = user.email.split('@').first
+      user.username = user.email.split("@").first
       user.password = Devise.friendly_token[0, 20]
     end
   end
