@@ -1,4 +1,5 @@
-name: Build
+name: rspec
+
 on:
   push:
     branches: [ main ]
@@ -6,9 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
   rspec:
+    runs-on: ubuntu-latest
     steps:
       - name: Test
         run: bundle exec rspec -f j -o tmp/rspec_results.json -f p
