@@ -14,7 +14,7 @@ RSpec.describe Comment, type: :model do
     end
 
     context "when commentable_id(plant_id) is not present" do
-      let!(:comment) { build(:comment, commentable_id: '') }
+      let!(:comment) { build(:comment, commentable_id: "") }
 
       it "does not create a new comment" do
         expect(comment.valid?).to be false
