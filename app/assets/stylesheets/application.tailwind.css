@@ -46,7 +46,7 @@
 
   /* flash notice */
   .notice {
-    @apply border border-solid p-5 rounded items-center absolute top-0 h-16 w-fit top-2.5 right-2.5;
+    @apply border border-solid p-5 rounded items-center absolute h-16 w-fit top-2.5 right-2.5;
   }
 
   .footer {

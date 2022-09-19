@@ -5,31 +5,30 @@ RSpec.describe "Notifications", type: :system do
 
       before :each do
         @current_user = FactoryBot.create(:user, email: "qwerty@asdf.info", username: "donald-trump")
-        @current_user.confirm
+        # @current_user.confirm
         login_as @current_user, scope: :user
         visit plant_path(test_plant)
         click_on "add"
         visit plant_path(test_plant)
-        click_button "Exit" # Logs out to allow another user make comment
+        delete destroy_user_session_path
 
         @another_user = FactoryBot.create :user
-        @another_user.confirm
+        # @another_user.confirm
         login_as @another_user, scope: :user
         visit plant_path(test_plant)
         page.execute_script("document.getElementById('comment_body_trix_input_comment').value = '<div>Microphone Check</div>'")
         click_button "Post comment"
-        click_button "Exit" # Logs out so the first user can check notifications
+        delete destroy_user_session_path
         login_as @current_user, scope: :user
         visit plants_path
       end
 
       it "expects there be a notification count of 1 on the header" do
-        expect(page).to have_css("span#counter", text: "1")
+        expect(page).to have_css("div#counter", text: "1")
       end
 
       context "When the notified user clicks on the notification button" do
         before :each do
-          login_as @current_user, scope: :user
           click_link(href: "/notifications")
         end
 
@@ -38,18 +37,24 @@ RSpec.describe "Notifications", type: :system do
         end
       end
 
-      context "When on the notifications page, the user clicks on the either of the two buttons for a notification" do
+      context "When on the notifications page" do
         before :each do
-          login_as @current_user, scope: :user
           click_link(href: "/notifications")
         end
 
-        it "marks the notification as unread when unread is clicked and reduces the notification count" do
+        it "marks the notification as read when `Mark as read` is clicked and reduces the notification count and vice versa" do
           click_on "Mark as read"
 
           expect(page).to have_content("Mark as unread")
-          expect(page).to have_css("span#counter", text: "0")
+          expect(page).to have_css("div#counter", text: "0")
           expect(Notification.where(read_at: nil).count).to eq(0)
+          expect(Notification.count).to eq(1)
+
+          click_on "Mark as unread"
+
+          expect(page).to have_content("Mark as read")
+          expect(page).to have_css("div#counter", text: "1")
+          expect(Notification.where(read_at: nil).count).to eq(1)
           expect(Notification.count).to eq(1)
         end
 
@@ -58,7 +63,7 @@ RSpec.describe "Notifications", type: :system do
 
           click_on "Delete"
 
-          expect(page).to have_css("span#counter", text: "0")
+          expect(page).to have_css("div#counter", text: "0")
           expect(Notification.where(read_at: nil).count).to eq(0)
           expect(Notification.count).to eq(0)
         end

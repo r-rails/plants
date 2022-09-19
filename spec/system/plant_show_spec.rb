@@ -22,7 +22,7 @@ RSpec.describe "plants/:id (Plant Show Page)", type: :system do
 
     before :each do
       @user = FactoryBot.create :user
-      @user.confirm
+      # @user.confirm
       login_as @user, scope: :user
       visit plant_path(test_plant)
     end
@@ -47,7 +47,7 @@ RSpec.describe "plants/:id (Plant Show Page)", type: :system do
       click_button "Exit" # The logout helper seem to fail, so this is a compromise.
 
       @another_user = FactoryBot.create(:user, email: "qwerty@asdf.info", username: "donald-trump")
-      @another_user.confirm
+      # @another_user.confirm
       login_as @another_user, scope: :user
 
       visit plant_path(test_plant)
