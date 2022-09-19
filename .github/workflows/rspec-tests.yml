@@ -1,6 +1,10 @@
 name: rspec-tests
 
-on: [push, pull_request]
+on: 
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
@@ -31,6 +35,11 @@ jobs:
           PGHOST: localhost
           PGUSER: postgres
         run: bin/rails db:create db:schema:load
+
+      - name: Precompile assets
+        env:
+          RAILS_ENV: test
+        run: bundle exec rake assets:precompile
 
       - name: Build and test with rspec
         env:
