@@ -105,6 +105,10 @@ GEM
     digest (3.1.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.11.0)
     et-orbi (1.2.7)
       tzinfo
@@ -202,7 +206,7 @@ GEM
     mini_magick (4.11.0)
     mini_mime (1.1.2)
     minitest (5.16.3)
-    motor-admin (0.3.12)
+    motor-admin (0.3.13)
       ar_lazy_preload (~> 1.0)
       audited (~> 5.0)
       cancancan (~> 3.0)
@@ -380,9 +384,9 @@ GEM
     stimulus-rails (1.1.0)
       railties (>= 6.0.0)
     strscan (3.0.4)
-    tailwindcss-rails (2.0.13-x86_64-darwin)
+    tailwindcss-rails (2.0.14-x86_64-darwin)
       railties (>= 6.0.0)
-    tailwindcss-rails (2.0.13-x86_64-linux)
+    tailwindcss-rails (2.0.14-x86_64-linux)
       railties (>= 6.0.0)
     temple (0.8.2)
     thor (1.2.1)
@@ -428,6 +432,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  dotenv-rails
   factory_bot_rails
   faker
   friendly_id (~> 5.4.0)
