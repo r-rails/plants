@@ -40,25 +40,6 @@ RSpec.describe "plants/:id (Plant Show Page)", type: :system do
       expect(page).to have_selector(:link_or_button, "delete")
     end
 
-    it "does not allow a user to delete or edit another user's comment" do
-      page.execute_script("document.getElementById('comment_body_trix_input_comment').value = '<div>Microphone Check</div>'")
-      click_button "Post comment"
-
-      delete destroy_user_session_path
-      # click_button "Exit" # the flash messageis intercepting click action.
-
-      @another_user = FactoryBot.create(:user, email: "qwerty@asdf.info", username: "donald-trump")
-      # @another_user.confirm
-      login_as @another_user, scope: :user
-
-      visit plant_path(test_plant)
-
-      expect(page).to have_content "Microphone Check"
-
-      expect(page).not_to have_selector(:link_or_button, "edit")
-      expect(page).not_to have_selector(:link_or_button, "delete")
-    end
-
     it "allows user to add plant to garden" do
       expect(page).to have_selector(:link_or_button, "add")
 
