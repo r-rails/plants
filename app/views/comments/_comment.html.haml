@@ -11,7 +11,7 @@
             - else
               .h-10.w-10.rounded-full{:class => "bg-[url('https://i.pravatar.cc/32')]"}
           .font-semibold.text-slate-700
-            = comment.user.username # make this link to redirect at user's profile page
+            = link_to comment.user.username, profile_path(comment.user), data: { turbo_frame: '_top'}
         .flex.items-center.gap-2
           - if current_user && current_user == comment.user
             .rounded.border.bg-neutral-100.px-3.py-1.text-xs
