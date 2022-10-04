@@ -28,7 +28,7 @@ module PlantsHelper
   def ppl_have
     render_haml <<-HAML
       .text-2xl.py-1.font-semibold.rounded.bg-green-200
-        %span= @plant.users.count
+        %span= @plant.users_count
     HAML
   end
 end

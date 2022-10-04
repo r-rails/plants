@@ -13,6 +13,6 @@
       .col-span-2.row-span-3.border-b
         .p-2.italic about
       .flex.flex-col.justify-center.text-center.border-r
-        = pluralize(user.garden_plants.count, "plant")
+        = pluralize(user.plants_count, "plant")
       .flex.flex-col.justify-center.text-center
-        = "#{ user.comments.count} comments"
+        = "#{ user.comments_count} comments"

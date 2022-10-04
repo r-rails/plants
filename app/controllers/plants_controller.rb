@@ -2,7 +2,7 @@
 
 class PlantsController < ApplicationController
   def index
-    @q = Plant.ransack(params[:q])
+    @q = Plant.with_attached_img.ransack(params[:q])
     @plants = @q.result.order(:latin).page(params[:page]).per(12)
   end
 
@@ -43,7 +43,7 @@ class PlantsController < ApplicationController
   end
 
   def most_recent_plants
-    @most_recent_plants = Plant.order(created_at: :desc).limit(6)
+    @most_recent_plants = Plant.with_attached_img.order(created_at: :desc).limit(6)
   end
 
   def plants_category
@@ -52,9 +52,7 @@ class PlantsController < ApplicationController
   end
 
   def top_ten_plants
-    @top_ten_plants = Plant.joins(:users)
-      .group(:id)
-      .order("COUNT(users.id) DESC")
+    @top_ten_plants = Plant.with_attached_img.order(users_count: :desc)
       .limit(10) || Plant.all.sample(10)
   end
 

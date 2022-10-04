@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   }
 
   resources :profile, only: [:show], param: :slug
+  get "update_status", to: "profile#update_status"
 
   resources :plants do
     resources :comments, module: :plants

@@ -4,7 +4,7 @@
 class Comment < ApplicationRecord
   has_noticed_notifications
 
-  belongs_to :user
+  belongs_to :user, counter_cache: true
   belongs_to :commentable, polymorphic: true, inverse_of: :comments
 
   validates :body, presence: true

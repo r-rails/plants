@@ -24,6 +24,8 @@ class User < ApplicationRecord
   validates :email, presence: true, format: URI::MailTo::EMAIL_REGEXP
   validates :username, presence: true
 
+  enum :status, {regular: 0, admin: 1}
+
   extend FriendlyId
   friendly_id :slugged_usernames, use: :slugged
 
