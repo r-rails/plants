@@ -52,9 +52,7 @@ class PlantsController < ApplicationController
   end
 
   def top_ten_plants
-    @top_ten_plants = Plant.joins(:users)
-      .group(:id)
-      .order("COUNT(users.id) DESC")
+    @top_ten_plants = Plant.with_attached_img.order(users_count: :desc)
       .limit(10) || Plant.all.sample(10)
   end
 
