@@ -14,6 +14,6 @@ class HomeController < ApplicationController
   end
 
   def top_growers
-    @growers = User.with_attached_avatar.order(plants_count: :desc).limit(10)
+    @growers = User.with_attached_avatar.where("plants_count > ?", 0).order(plants_count: :desc)
   end
 end
