@@ -2,7 +2,7 @@
 
 class PlantsController < ApplicationController
   def index
-    @q = Plant.ransack(params[:q])
+    @q = Plant.with_attached_img.ransack(params[:q])
     @plants = @q.result.order(:latin).page(params[:page]).per(12)
   end
 
