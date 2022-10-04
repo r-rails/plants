@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   }
 
   resources :profile, only: [:show], param: :slug
+  get 'update_status', to: 'profile#update_status'
 
   resources :plants do
     resources :comments, module: :plants
@@ -33,3 +34,4 @@ Rails.application.routes.draw do
   get "set_to_read", to: "notifications#set_to_read"
   get "set_to_unread", to: "notifications#set_to_unread"
 end
+

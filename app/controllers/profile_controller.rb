@@ -9,4 +9,10 @@ class ProfileController < ApplicationController
     flash[:error] = "User not found"
     redirect_to root_path
   end
+
+  def update_status
+    @user = User.friendly.find_by_slug(params[:slug])
+    @user.admin? ? @user.regular! : @user.admin!
+    redirect_to profile_path(@user)
+  end
 end
