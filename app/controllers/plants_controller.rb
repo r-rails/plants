@@ -43,7 +43,7 @@ class PlantsController < ApplicationController
   end
 
   def most_recent_plants
-    @most_recent_plants = Plant.order(created_at: :desc).limit(6)
+    @most_recent_plants = Plant.with_attached_img.order(created_at: :desc).limit(6)
   end
 
   def plants_category
