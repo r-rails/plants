@@ -22,19 +22,19 @@ class PlantsController < ApplicationController
     end
   end
 
-  def new
-    @plant = Plant.new
-  end
+  # As of this version, a user is not allowed to create a plant object from the frontend.
+  
+  # def new; end
 
-  def create
-    @plant = Plant.new(plant_params)
+  # def create
+  #   @plant = Plant.new(plant_params)
 
-    if @plant.save
-      redirect_to @plant
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
+  #   if @plant.save
+  #     redirect_to @plant
+  #   else
+  #     render :new, status: :unprocessable_entity
+  #   end
+  # end
 
   def category_hovercard
     @category = Plant.friendly.find(params[:plant_id])&.category
@@ -58,8 +58,8 @@ class PlantsController < ApplicationController
 
   private
 
-  def plant_params
-    params.require(:plant).permit(:name, :description, :img, :climate, :ideallight,
-      :watering, :category, :latin)
-  end
+  # def plant_params
+  #   params.require(:plant).permit(:name, :description, :img, :climate, :ideallight,
+  #     :watering, :category, :latin)
+  # end
 end

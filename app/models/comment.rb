@@ -11,12 +11,6 @@ class Comment < ApplicationRecord
 
   after_create_commit :notify_user
 
-  def find_top_parent
-    return commentable unless commentable.is_a?(comment)
-
-    commentable.find_top_parent
-  end
-
   def notify_user
     notify_group = User.joins(:garden_plants).where(garden_plants: {plant_id: commentable_id}).all.excluding(user)
     CommentNotification.with(comment: self).deliver_later(notify_group)
