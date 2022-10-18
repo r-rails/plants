@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get "/plants_category", to: "plants#plants_category"
 
   post "add_to_garden", to: "garden_plant#create"
-  resources :garden_plant, only: :destroy
+  delete "garden_plant", to: "garden_plant#destroy"
 
   get "/people", to: "home#people"
   get "/top_growers", to: "home#top_growers"

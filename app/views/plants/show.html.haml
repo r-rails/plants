@@ -1,46 +1,44 @@
 -# plant card
+- present @plant do |plant_presenter|
+  .grid.gap-4.lg:grid-cols-2
+    -# plant part of a grid
+    .grid.grid-cols-2.grid-rows-3.gap-2
+      .row-span-3.border
+        = plant_presenter.plant_img
+      .row-span-3.border.flex.flex-col.justify-evenly.bg-gradient-to-b.from-blue-200.to-green-200.rounded
+        .text-center.text-sm
+          %div Watering
+          .font-serif.text-xl.mx-3.mt-2= @plant.watering
+        .text-center.text-sm
+          .p2 Ideal Lighting
+          .font-serif.text-xl.mt-2= @plant.ideallight
+        .text-center.text-sm
+          %div Climate
+          .font-serif.text-xl.mt-2= @plant.climate
 
-.grid.gap-4.lg:grid-cols-2
-  -# plant part of a grid
-  .grid.grid-cols-2.grid-rows-3.gap-2
-    .row-span-3.border
-      = plant_img(@plant)
-    .row-span-3.border.flex.flex-col.justify-evenly.bg-gradient-to-b.from-blue-200.to-green-200.rounded
-      .text-center.text-sm
-        %div Watering
-        .font-serif.text-xl.mx-3.mt-2= @plant.watering
-      .text-center.text-sm
-        .p2 Ideal Lighting
-        .font-serif.text-xl.mt-2= @plant.ideallight
-      .text-center.text-sm
-        %div Climate
-        .font-serif.text-xl.mt-2= @plant.climate
+      .grid.grid-rows-3.text-xl
+        .border.text-center.p-2
+          = @plant.latin
+        .border.text-center.p-2
+          = @plant.name
+        .border.text-center.p-2.relative{ "data-controller" => "hovercard",
+          "data-hovercard-url-value" => plant_category_hovercard_path(@plant),
+          "data-action" => "mouseenter->hovercard#show mouseleave->hovercard#hide"}
+          = search_form_for @q do |f|
+            = f.search_field :category_cont, value: @plant.category, type: 'hidden'
+            = f.submit @plant.category, class: 'cursor-pointer text-blue-400 hover:underline'
+      .grid.grid-cols-2.gap-2
+        .flex.flex-col.justify-center.text-center.border
+          = plant_presenter.add_plant_to_garden(current_user)
+        .border.flex.flex-col.justify-evenly.text-center
+          .text-2xl.py-1.font-semibold.rounded.bg-green-200
+            %span= @plant.users_count
+          people have this plant
 
-    .grid.grid-rows-3.text-xl
-      .border.text-center.p-2
-        = @plant.latin
-      .border.text-center.p-2
-        = @plant.name
-      .border.text-center.p-2.relative{ "data-controller" => "hovercard",
-        "data-hovercard-url-value" => plant_category_hovercard_path(@plant),
-        "data-action" => "mouseenter->hovercard#show mouseleave->hovercard#hide"}
-        = search_form_for @q do |f|
-          = f.search_field :category_cont, value: @plant.category, type: 'hidden'
-          = f.submit @plant.category, class: 'cursor-pointer text-blue-400 hover:underline'
-    .grid.grid-cols-2.gap-2
-      .flex.flex-col.justify-center.text-center.border
-        = render 'add_plant'
-      .border.flex.flex-col.justify-evenly.text-center
-        = "#{ ppl_have } people have this plant"
-
-  -# discussion board part of a grid
-  .grid.grid-rows-3.gap-2
-    .row-span-2.max-h-96.overflow-auto
-      .font-serif.text-xl.mb-2.rounded.px-2 Share your thoughts here:
-      - if @plant.comments.blank?
-        .flex.justify-center.mt-6
-          .text-2xl.font-serif Be first to comment on this plant!
-      - else
-        = render @comments
-    .max-h-40.mt-6
-      = render template: "comments/new"
+    -# discussion board part of a grid
+    .grid.grid-rows-3.gap-2
+      .row-span-2.max-h-96.overflow-auto
+        .font-serif.text-xl.mb-2.rounded.px-2 Share your thoughts here:
+        = plant_presenter.show_plant_comments
+      .max-h-40.mt-6
+        = render template: "comments/new"
