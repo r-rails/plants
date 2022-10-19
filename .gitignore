@@ -36,3 +36,4 @@
 /config/credentials/production.key
 
 /.env
+coverage
