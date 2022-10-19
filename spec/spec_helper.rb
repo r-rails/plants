@@ -28,6 +28,8 @@ SimpleCov.start "rails" do
   add_filter "application_mailer.rb"
 end
 RSpec.configure do |config|
+
+  # config.include ActionView::TestCase::Behavior, { file_path: %r{spec/presenters} }
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

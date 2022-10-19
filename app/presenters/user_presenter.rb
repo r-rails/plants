@@ -9,7 +9,7 @@ class UserPresenter < BasePresenter
 
   def user_profile_greeting(visitor)
     if visitor
-      tag.div("Signed in as #{visitor.email}.")
+      tag.div("Signed in as #{visitor.email}")
     else
       _h_.link_to("Sign in", new_user_session_path, class: "text-blue-500")
     end
@@ -25,7 +25,7 @@ class UserPresenter < BasePresenter
     end
   end
 
-  def link_to_user_page(html_options)
+  def link_to_user_page(html_options = {})
     _h_.link_to(user.username, profile_path(user), data: html_options[:data], class: html_options[:class])
   end
 end
