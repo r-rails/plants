@@ -23,7 +23,7 @@ class PlantsController < ApplicationController
   end
 
   # As of this version, a user is not allowed to create a plant object from the frontend.
-  
+
   # def new; end
 
   # def create

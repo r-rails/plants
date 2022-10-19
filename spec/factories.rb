@@ -13,7 +13,7 @@ FactoryBot.define do
     password { "password" }
     password_confirmation { "password" }
     username { Faker::Name.name }
-    status { "regular"}
+    status { "regular" }
   end
 
   factory(:plant) do

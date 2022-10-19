@@ -16,11 +16,10 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.build(comment_params)
     if @comment.save
       flash[:notice] = "Comment created"
-      redirect_to @commentable
     else
       flash[:error] = "Comment needs to have actual content"
-      redirect_to @commentable
     end
+    redirect_to @commentable
   end
 
   def edit
