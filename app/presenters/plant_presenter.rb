@@ -19,11 +19,7 @@ class PlantPresenter < BasePresenter
   def plant_img
     return _h_.image_tag "favicon.png" unless plant.img.present?
 
-    _h_.image_tag plant.img.variant(
-      resize_to_fill: [400, 400],
-      convert: "webp",
-      saver: {quality: 100}
-    )
+    _h_.image_tag plant.img
   end
 
   def link_to_plant_page(html_options = {})

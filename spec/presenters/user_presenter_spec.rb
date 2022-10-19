@@ -4,18 +4,19 @@ describe UserPresenter do
   let!(:user1) { create(:user, status: 'admin') }
   let!(:user2) { create(:user, status: 'admin') }
   let!(:user3) { create(:user) }
-  let!(:shared_presenter) { UserPresenter.new(user1, view) }
+  let!(:subject) { UserPresenter }
+  let!(:shared_presenter) { subject.new(user1, view) }
 
   context "#update_user_admin_status" do
     it "it creates a link to make user an admin when regular" do
-      presenter = UserPresenter.new(user3, view)
+      presenter = subject.new(user3, view)
       link = presenter.update_user_admin_status(user1)
       expect(link).to include("/update_status?slug=#{user3.slug}")
       expect(link).to include("Make admin")
     end
 
     it "it creates a link to make user a regular when admin" do
-      presenter = UserPresenter.new(user2, view)
+      presenter = subject.new(user2, view)
       link = presenter.update_user_admin_status(user1)
 
       expect(link).to include("/update_status?slug=#{user2.slug}")
@@ -41,6 +42,7 @@ describe UserPresenter do
       image_link_string = shared_presenter.user_avatar_display
       expect(image_link_string).to include("img src=")
       expect(image_link_string).to include("rails/active_storage/blobs/redirect")
+      expect(image_link_string).to include("#{user1.slug}.svg")
     end
   end
 
