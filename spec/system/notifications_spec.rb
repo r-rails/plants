@@ -42,6 +42,12 @@ RSpec.describe "Notifications", type: :system do
           click_link(href: "/notifications")
         end
 
+        it "marks notification for a plant as read when the plant page is visited" do
+          visit plant_path(test_plant)
+          expect(Notification.where(read_at: nil).count).to eq(0)
+          expect(Notification.count).to eq(1)
+        end
+
         it "marks the notification as read when `Mark as read` is clicked and reduces the notification count and vice versa" do
           click_on "Mark as read"
 
@@ -58,7 +64,7 @@ RSpec.describe "Notifications", type: :system do
           expect(Notification.count).to eq(1)
         end
 
-        it "detroys the notification when Delete button is clicked and reduces the notification count" do
+        it "destroys the notification when Delete button is clicked and reduces the notification count" do
           expect(page).to have_content("Delete")
 
           click_on "Delete"

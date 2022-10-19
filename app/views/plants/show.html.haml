@@ -26,7 +26,7 @@
         "data-action" => "mouseenter->hovercard#show mouseleave->hovercard#hide"}
         = search_form_for @q do |f|
           = f.search_field :category_cont, value: @plant.category, type: 'hidden'
-          = f.submit @plant.category, class: 'cursor-pointer text-blue-400 hover:underline'
+          = f.submit @plant.category, class: 'cursor-pointer plant-category text-blue-400 hover:underline'
     .grid.grid-cols-2.gap-2
       .flex.flex-col.justify-center.text-center.border
         = render 'add_plant'

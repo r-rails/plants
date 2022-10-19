@@ -20,5 +20,13 @@ RSpec.describe User, type: :model do
         expect(User.count).to eq(0)
       end
     end
+
+    context "when a user has been successfully created" do
+      let(:user) { create(:user) }
+      it "does not allow the slug to be updated" do
+        user.slug = "changed-slug"
+        expect(user.save).to be false
+      end
+    end
   end
 end
