@@ -42,7 +42,7 @@ RSpec.describe "plants/:id (Plant Show Page)", type: :system do
       expect(test_plant.users).to include(@user).once
 
       expect(page).to have_selector(:link_or_button, "remove")
-      
+
       click_on "remove"
 
       expect(test_plant.users).not_to include(@user).once

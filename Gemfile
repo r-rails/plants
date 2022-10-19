@@ -62,7 +62,7 @@ group :development, :test do
   gem "rspec-rails", "~> 5.1", ">= 5.1.2"
   gem "standard", "1.14.0"
   gem "dotenv-rails"
-  gem 'simplecov'
+  gem "simplecov"
 end
 
 group :development do

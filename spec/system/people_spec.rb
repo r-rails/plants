@@ -6,5 +6,4 @@ RSpec.describe "People page", type: :system do
       expect(people.all? { |user| page.html.include?(user.username) }).to be true
     end
   end
-  
 end

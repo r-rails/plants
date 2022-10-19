@@ -3,7 +3,7 @@ RSpec.describe "Profile", type: :system do
     context "when the user exists" do
       let!(:user) { create(:user) }
       let!(:plant) { create(:plant) }
-      let!(:garden_plant) { create( :garden_plant, user: , plant: ) }
+      let!(:garden_plant) { create(:garden_plant, user:, plant:) }
       it "displays the user profile page along with plants in the user's garden" do
         visit profile_path(user)
 
@@ -15,7 +15,7 @@ RSpec.describe "Profile", type: :system do
     context "when the user does not exists" do
       it "alerts that the user is not in the database" do
         visit profile_path(slug: "unavailable")
-        expect(page).to have_content("User not found") 
+        expect(page).to have_content("User not found")
       end
     end
 
@@ -37,7 +37,7 @@ RSpec.describe "Profile", type: :system do
             expect(User.admin.count).to eq 3
           end
         end
-        
+
         context "if the other user is an admin" do
           it "shows a button that to make the user status to be regular" do
             visit profile_path(another_admin_user)
