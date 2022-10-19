@@ -1,39 +1,36 @@
-.flex.flex-wrap.justify-between
-  .font-serif.text-2xl.font-extrabold.tracking-tight.text-gray-900 
-    = "Welcome to #{@user.username}'s garden!"
-  %div
-    - if current_user&.admin? && current_user != @user
-      = link_to @user.admin? ? "Remove admin status" : "Make admin", update_status_path(slug: @user), class: 'btn-primary'
-
-.flex.justify-between
-  - if user_signed_in?
+- present @user do |user_presenter|
+  .flex.flex-wrap.justify-between
+    .font-serif.text-2xl.font-extrabold.tracking-tight.text-gray-900 
+      = "Welcome to #{@user.username}'s garden!"
     %div
-      Signed in as #{current_user.email}.
-  - else
-    = link_to "Sign in", new_user_session_path, class: "text-blue-500"
+      = user_presenter.update_user_admin_status(current_user)
 
-.flex.p-2.mt-4.justify-center
-  = paginate @user_plants
-.bg-white
-  .grid.grid-cols-1.gap-y-10.sm:grid-cols-2.md:grid-cols-4.lg:grid-cols-5.gap-x-6.mt-10
-    - @user_plants.each do |plant|
-      .grid.rounded-lg.shadow-lg.overflow-hidden 
-        .flip
-          .flip-content.self-center
-            .card-front.items-center.justify-center.w-full.h-full
-            = plant_img(plant)
-            .card-back.bg-gradient-to-b.from-blue-200.to-green-200.h-full.overflow-hidden.border
-              .text-center.md:text-xs.text-xs.justify-items-center.md:mt-4.mt-12
-                %div Watering
-                .font-serif.font-semibold.sm:text-lg.md:text-sm.text-lg.mx-4= plant.watering
-              .text-center.md:text-xs.text-xs.mt-3.mb-24
-                .p2 Ideal Lighting
-                .font-serif.font-semibold.sm:text-lg.md:text-sm.text-lg.mx-4= plant.ideallight
-            
-        .items-center.mx-3
-        .text-center.font-serif.mt-3.text-base.cursor-pointer.font-semibold.text-green-900.hover:underline
-          = link_to plant.name, plant_path(plant)
-        .text-center.mt-2.mb-3
-          = plant.latin
+  .flex.justify-between
+    = user_presenter.user_profile_greeting(current_user)
 
-.flex.p-2.justify-center= paginate @user_plants
+  .flex.p-2.mt-4.justify-center
+    = paginate @user_plants
+  .bg-white
+    .grid.grid-cols-1.gap-y-10.sm:grid-cols-2.md:grid-cols-4.lg:grid-cols-5.gap-x-6.mt-10
+      - @user_plants.each do |plant|
+        - present plant do |plant_presenter|
+          .grid.rounded-lg.shadow-lg.overflow-hidden 
+            .flip
+              .flip-content.self-center
+                .card-front.items-center.justify-center.w-full.h-full
+                = plant_presenter.plant_img
+                .card-back.bg-gradient-to-b.from-blue-200.to-green-200.h-full.overflow-hidden.border
+                  .text-center.md:text-xs.text-xs.justify-items-center.md:mt-4.mt-12
+                    %div Watering
+                    .font-serif.font-semibold.sm:text-lg.md:text-sm.text-lg.mx-4= plant.watering
+                  .text-center.md:text-xs.text-xs.mt-3.mb-24
+                    .p2 Ideal Lighting
+                    .font-serif.font-semibold.sm:text-lg.md:text-sm.text-lg.mx-4= plant.ideallight
+
+            .items-center.mx-3
+            .text-center.font-serif.mt-3.text-base.cursor-pointer.font-semibold.text-green-900.hover:underline
+              = plant_presenter.link_to_plant_page
+            .text-center.mt-2.mb-3
+              = plant.latin
+
+  .flex.p-2.justify-center= paginate @user_plants

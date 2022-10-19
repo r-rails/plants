@@ -1,25 +1,20 @@
 -# single comment
-
-= turbo_frame_tag dom_id(comment) do
-  .flex.items-center.justify-center.pb-1
-    .rounded.border.p-2.shadow.w-full
-      .flex.w-full.items-center.justify-between.border-b.pb-2
-        .flex.items-center.gap-2
-          .h-10.w-10
-            - if comment.user.avatar.attached?
-              = image_tag comment.user.avatar
-            - else
-              .h-10.w-10.rounded-full{:class => "bg-[url('https://i.pravatar.cc/32')]"}
-          .font-semibold.text-slate-700
-            = link_to comment.user.username, profile_path(comment.user), data: { turbo_frame: '_top'}
-        .flex.items-center.gap-2
-          - if current_user && current_user == comment.user
-            .rounded.border.bg-neutral-100.px-3.py-1.text-xs
-              = link_to 'edit', [:edit, @commentable, comment]
-            .rounded.border.bg-neutral-100.px-3.py-1.text-xs
-              = link_to 'delete', [@commentable, comment], data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }
-          .text-xs.text-neutral-500
-            = comment.created_at.strftime("%B %d, %Y")
-      .mt-2.mb-2
-        .text-sm
-          = simple_format comment.body
+- present comment do |comment_presenter|
+  - present comment.user do |user_presenter|
+    = turbo_frame_tag dom_id(comment) do
+      .flex.items-center.justify-center.pb-1
+        .rounded.border.p-2.shadow.w-full
+          .flex.w-full.items-center.justify-between.border-b.pb-2
+            .flex.items-center.gap-2
+              .h-10.w-10
+                = user_presenter.user_avatar_display
+              .font-semibold.text-slate-700
+                = user_presenter.link_to_user_page({data: {turbo_frame: "_top"}, class: ""}) # make this link to redirect at user's profile page
+            .flex.items-center.gap-2
+              = comment_presenter.edit_action(current_user, comment.user)
+              = comment_presenter.delete_action(current_user, comment.user)
+              .text-xs.text-neutral-500
+                = comment.created_at.strftime("%B %d, %Y")
+          .mt-2.mb-2
+            .text-sm
+              = simple_format comment.body

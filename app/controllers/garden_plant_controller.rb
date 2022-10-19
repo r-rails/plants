@@ -2,14 +2,20 @@
 
 class GardenPlantController < ApplicationController
   def create
-    current_user.garden_plants.create(plant_id: params[:plant_id])
-    flash[:notice] = "Plant added to garden successfully"
+    if current_user.garden_plants.create(plant_id: params[:plant_id])
+      flash[:notice] = "Plant added to garden successfully"
+    else
+      flash[:error] = "Plant not added to garden, you can only add a plant once"
+    end
     redirect_to plant_path(params[:plant_id])
   end
 
   def destroy
-    GardenPlant.find_by(plant_id: params[:plant_id], user_id: current_user.id).destroy
-    flash[:notice] = "Plant removed from garden"
+    if current_user.garden_plants.find_by(plant_id: params[:plant_id])&.destroy
+      flash[:success] = "Plant removed from garden"
+    else
+      flash[:error] = "Unable to remove plant from garden"
+    end
     redirect_to plant_path(params[:plant_id])
   end
 end
