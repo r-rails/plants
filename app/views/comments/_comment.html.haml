@@ -9,7 +9,7 @@
               .h-10.w-10
                 = user_presenter.user_avatar_display
               .font-semibold.text-slate-700
-                = user_presenter.link_to_user_page({data: {turbo_frame: "_top"}, class: ""}) # make this link to redirect at user's profile page
+                = user_presenter.link_to_user_page({data: {turbo_frame: "_top"}, class: ""}) 
             .flex.items-center.gap-2
               = comment_presenter.edit_action(current_user, comment.user)
               = comment_presenter.delete_action(current_user, comment.user)

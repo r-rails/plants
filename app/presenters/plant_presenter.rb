@@ -19,11 +19,7 @@ class PlantPresenter < BasePresenter
   def plant_img
     return _h_.image_tag "favicon.png" unless plant.img.present?
 
-    _h_.image_tag plant.img.variant(
-      resize_to_fill: [400, 400],
-      convert: "webp",
-      saver: {quality: 100}
-    )
+    _h_.image_tag plant.img
   end
 
   def link_to_plant_page(html_options = {})
@@ -32,14 +28,13 @@ class PlantPresenter < BasePresenter
 
   def show_plant_comments
     if plant.comments.blank?
-      _h_.render_haml <<-HAML
-      .flex.justify-center.mt-6
-        .text-2xl.font-serif Be first to comment on this plant!
-      HAML
+      _h_.content_tag :div, class: "flex justify-center mt-6" do
+        _h_.content_tag :div, class: "text-2xl font-serif" do
+          "Be first to comment on this plant!"
+        end
+      end
     else
-      _h_.render_haml <<-HAML
-        = render @comments
-      HAML
+      yield
     end
   end
 end

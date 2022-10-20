@@ -63,6 +63,7 @@ group :development, :test do
   gem "standard", "1.14.0"
   gem "dotenv-rails"
   gem "simplecov"
+  gem "spring-commands-rspec"
 end
 
 group :development do

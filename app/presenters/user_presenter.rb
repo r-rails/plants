@@ -9,23 +9,19 @@ class UserPresenter < BasePresenter
 
   def user_profile_greeting(visitor)
     if visitor
-      tag.div("Signed in as #{visitor.email}.")
+      tag.div("Signed in as #{visitor.email}")
     else
       _h_.link_to("Sign in", new_user_session_path, class: "text-blue-500")
     end
   end
 
   def user_avatar_display
-    if user.avatar.attached?
-      _h_.image_tag(user.avatar, size: "100")
-    else
-      _h_.render_haml <<-HAML
-      .h-10.w-10.rounded-full{:class => "bg-[url('https://i.pravatar.cc/32')]"}
-      HAML
-    end
+    user.set_avatar unless user.avatar.attached?
+
+    _h_.image_tag(user.avatar, size: "100")
   end
 
-  def link_to_user_page(html_options)
+  def link_to_user_page(html_options = {})
     _h_.link_to(user.username, profile_path(user), data: html_options[:data], class: html_options[:class])
   end
 end
