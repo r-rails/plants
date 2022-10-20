@@ -6,7 +6,7 @@ describe PlantPresenter do
   let!(:subject) { PlantPresenter }
   let!(:shared_presenter) { subject.new(plant, view) }
 
-  xcontext "#add_plant_to_garden" do
+  context "#add_plant_to_garden" do
     it "returns a button to for a user to add a plant to garden if plant not present else remove the plant" do
       wrapper = shared_presenter.add_plant_to_garden(user)
       expect(wrapper).to include("value=\"add")
@@ -21,7 +21,7 @@ describe PlantPresenter do
     end
   end
 
-  xcontext "#plant_img" do
+  context "#plant_img" do
     it "returns an image tag with a default image for a plant" do
       wrapper = shared_presenter.plant_img
       expect(wrapper).to include("/rails/active_storage/blobs/redirect/")
@@ -29,7 +29,7 @@ describe PlantPresenter do
     end
   end
 
-  xcontext "#link_to_plant_page" do
+  context "#link_to_plant_page" do
     it "returns a link to the plant page" do
       wrapper = shared_presenter.link_to_plant_page
       expect(wrapper).to include("/plants/#{plant.slug}")
@@ -38,8 +38,14 @@ describe PlantPresenter do
 
   context "#show_plant_comments" do
     it "shows a template message when plant has no comment" do
-      wrapper = shared_presenter.show_plant_comments
+      wrapper = shared_presenter.show_plant_comments { plant.comments }
       expect(wrapper).to include("Be first to comment on this plant!") 
+    end
+
+    it "shows a list of plant comments when plant has comment" do
+      comment = create(:comment, commentable: plant, user:)
+      wrapper = shared_presenter.show_plant_comments { plant.comments }
+      expect(wrapper).to include(comment) 
     end
   end
 end

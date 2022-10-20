@@ -1,8 +1,8 @@
 describe UserPresenter do
   include ActionView::TestCase::Behavior
 
-  let!(:user1) { create(:user, status: 'admin') }
-  let!(:user2) { create(:user, status: 'admin') }
+  let!(:user1) { create(:user, status: "admin") }
+  let!(:user2) { create(:user, status: "admin") }
   let!(:user3) { create(:user) }
   let!(:subject) { UserPresenter }
   let!(:shared_presenter) { subject.new(user1, view) }

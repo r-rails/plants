@@ -39,6 +39,6 @@
     .grid.grid-rows-3.gap-2
       .row-span-2.max-h-96.overflow-auto
         .font-serif.text-xl.mb-2.rounded.px-2 Share your thoughts here:
-        = plant_presenter.show_plant_comments
+        = plant_presenter.show_plant_comments { render @comments }
       .max-h-40.mt-6
         = render template: "comments/new"

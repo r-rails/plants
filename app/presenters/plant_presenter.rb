@@ -28,14 +28,13 @@ class PlantPresenter < BasePresenter
 
   def show_plant_comments
     if plant.comments.blank?
-      _h_.render_haml <<-HAML
-      .flex.justify-center.mt-6
-        .text-2xl.font-serif Be first to comment on this plant!
-      HAML
+      _h_.content_tag :div, class: "flex justify-center mt-6" do
+        _h_.content_tag :div, class: "text-2xl font-serif" do
+          "Be first to comment on this plant!"
+        end
+      end
     else
-      _h_.render_haml <<-HAML
-        = render @comments
-      HAML
+      yield
     end
   end
 end
