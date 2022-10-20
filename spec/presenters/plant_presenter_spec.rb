@@ -1,6 +1,6 @@
 describe PlantPresenter do
   include ActionView::TestCase::Behavior
-  
+
   let!(:plant) { create(:plant) }
   let!(:user) { create(:user) }
   let!(:subject) { PlantPresenter }
@@ -39,13 +39,13 @@ describe PlantPresenter do
   context "#show_plant_comments" do
     it "shows a template message when plant has no comment" do
       wrapper = shared_presenter.show_plant_comments { plant.comments }
-      expect(wrapper).to include("Be first to comment on this plant!") 
+      expect(wrapper).to include("Be first to comment on this plant!")
     end
 
     it "shows a list of plant comments when plant has comment" do
       comment = create(:comment, commentable: plant, user:)
       wrapper = shared_presenter.show_plant_comments { plant.comments }
-      expect(wrapper).to include(comment) 
+      expect(wrapper).to include(comment)
     end
   end
 end

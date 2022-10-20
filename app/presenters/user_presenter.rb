@@ -17,7 +17,7 @@ class UserPresenter < BasePresenter
 
   def user_avatar_display
     user.set_avatar unless user.avatar.attached?
-    
+
     _h_.image_tag(user.avatar, size: "100")
   end
 
