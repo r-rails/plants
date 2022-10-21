@@ -135,9 +135,6 @@ GEM
       raabro (~> 1.4)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    haml (5.2.2)
-      temple (>= 0.8.0)
-      tilt
     hamlit (3.0.1)
       temple (>= 0.8.2)
       thor
@@ -446,7 +443,6 @@ DEPENDENCIES
   factory_bot_rails
   faker
   friendly_id (~> 5.4.0)
-  haml (~> 5.2)
   hamlit-rails (~> 0.2.3)
   icodi
   image_processing (~> 1.2)

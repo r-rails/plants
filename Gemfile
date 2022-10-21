@@ -90,7 +90,6 @@ end
 
 gem "devise"
 gem "friendly_id", "~> 5.4.0"
-gem "haml", "~> 5.2"
 gem "hamlit-rails", "~> 0.2.3"
 gem "icodi" # random svg
 gem "kaminari" # pagination
